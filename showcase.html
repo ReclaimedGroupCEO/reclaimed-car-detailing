@@ -476,267 +476,478 @@ function toggleTheme() {
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.outputEncoding = THREE.sRGBEncoding;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.1;
+  renderer.toneMappingExposure = 1.25;
 
   const W = canvas.clientWidth, H = canvas.clientHeight;
   renderer.setSize(W, H);
 
   const scene = new THREE.Scene();
 
-  const camera = new THREE.PerspectiveCamera(38, W / H, 0.1, 200);
-  camera.position.set(5, 2.2, 5.5);
-  camera.lookAt(0, 0.5, 0);
+  const camera = new THREE.PerspectiveCamera(36, W / H, 0.1, 200);
+  camera.position.set(5.5, 1.9, 6.2);
+  camera.lookAt(0, 0.65, 0);
 
-  /* LIGHTS */
-  scene.add(new THREE.AmbientLight(0xffffff, 0.35));
+  /* ── LIGHTS ── */
+  scene.add(new THREE.AmbientLight(0xffffff, 0.50));
 
-  const sunLight = new THREE.DirectionalLight(0xffffff, 1.4);
-  sunLight.position.set(6, 10, 4);
+  const sunLight = new THREE.DirectionalLight(0xfff5e8, 1.8);
+  sunLight.position.set(8, 14, 5);
   sunLight.castShadow = true;
   sunLight.shadow.mapSize.set(2048, 2048);
-  sunLight.shadow.camera.near = 1;
-  sunLight.shadow.camera.far = 30;
-  sunLight.shadow.camera.left = -8;
-  sunLight.shadow.camera.right = 8;
-  sunLight.shadow.camera.top = 8;
-  sunLight.shadow.camera.bottom = -8;
+  sunLight.shadow.camera.near = 0.5;
+  sunLight.shadow.camera.far = 40;
+  sunLight.shadow.camera.left = -10;
+  sunLight.shadow.camera.right = 10;
+  sunLight.shadow.camera.top = 10;
+  sunLight.shadow.camera.bottom = -10;
   scene.add(sunLight);
 
-  const purpleFill = new THREE.DirectionalLight(0x9b5ce4, 0.8);
-  purpleFill.position.set(-6, 4, -4);
+  const purpleFill = new THREE.DirectionalLight(0x9b5ce4, 1.0);
+  purpleFill.position.set(-8, 5, -5);
   scene.add(purpleFill);
 
-  const goldRim = new THREE.PointLight(0xd4aa4a, 2.5, 15);
-  goldRim.position.set(0, 3, -5);
+  const goldRim = new THREE.PointLight(0xd4aa4a, 3.5, 20);
+  goldRim.position.set(0, 5, -8);
   scene.add(goldRim);
 
-  const underGlow = new THREE.PointLight(0x7b35c4, 1.8, 6);
-  underGlow.position.set(0, -0.2, 0);
+  const underGlow = new THREE.PointLight(0x7b35c4, 2.2, 8);
+  underGlow.position.set(0, 0.05, 0);
   scene.add(underGlow);
 
-  /* GROUND */
-  const groundGeo = new THREE.PlaneGeometry(40, 40);
-  const groundMat = new THREE.MeshStandardMaterial({ color: 0x0d0818, roughness: 0.8, metalness: 0.2 });
-  const ground = new THREE.Mesh(groundGeo, groundMat);
+  const frontFill = new THREE.DirectionalLight(0xffffff, 0.6);
+  frontFill.position.set(10, 4, 4);
+  scene.add(frontFill);
+
+  /* ── GROUND ── */
+  const groundMat = new THREE.MeshStandardMaterial({ color: 0x080510, roughness: 0.85, metalness: 0.18 });
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(50, 50), groundMat);
   ground.rotation.x = -Math.PI / 2;
   ground.receiveShadow = true;
   scene.add(ground);
 
-  /* Ground grid lines */
-  const gridHelper = new THREE.GridHelper(30, 30, 0x7b35c4, 0x220d3d);
-  gridHelper.position.y = 0.001;
-  gridHelper.material.opacity = 0.4;
-  gridHelper.material.transparent = true;
-  scene.add(gridHelper);
+  const grid = new THREE.GridHelper(40, 40, 0x7b35c4, 0x1a0830);
+  grid.position.y = 0.001;
+  grid.material.opacity = 0.38;
+  grid.material.transparent = true;
+  scene.add(grid);
 
-  /* Ground glow circle */
-  const glowGeo = new THREE.PlaneGeometry(5, 10);
-  const glowMat = new THREE.MeshBasicMaterial({ color: 0x7b35c4, transparent: true, opacity: 0.12 });
-  const glowPlane = new THREE.Mesh(glowGeo, glowMat);
+  const glowPlane = new THREE.Mesh(
+    new THREE.PlaneGeometry(6, 13),
+    new THREE.MeshBasicMaterial({ color: 0x7b35c4, transparent: true, opacity: 0.10, depthWrite: false })
+  );
   glowPlane.rotation.x = -Math.PI / 2;
-  glowPlane.position.y = 0.005;
+  glowPlane.position.y = 0.003;
   scene.add(glowPlane);
 
-  /* ── MATERIALS ── */
-  const bodyPurpleMat = new THREE.MeshStandardMaterial({ color: 0x7b35c4, roughness: 0.12, metalness: 0.88 });
-  const goldAccentMat  = new THREE.MeshStandardMaterial({ color: 0xb8922a, roughness: 0.18, metalness: 0.92 });
-  const blackMat       = new THREE.MeshStandardMaterial({ color: 0x0d0d0d, roughness: 0.85, metalness: 0.15 });
-  const glassMat       = new THREE.MeshStandardMaterial({ color: 0x6699cc, roughness: 0.0, metalness: 0.1, transparent: true, opacity: 0.38 });
-  const headlightMat   = new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0xffffff, emissiveIntensity: 1.2, roughness: 0.2 });
-  const tailMat        = new THREE.MeshStandardMaterial({ color: 0xff1a1a, emissive: 0xff0000, emissiveIntensity: 1.0, roughness: 0.2 });
-  const chromeMat      = new THREE.MeshStandardMaterial({ color: 0xd8d8e0, roughness: 0.05, metalness: 0.98 });
-  const rubberMat      = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.95, metalness: 0.0 });
+  /* ── SHARED MATERIALS ── */
+  const paintMat  = new THREE.MeshStandardMaterial({ color: 0x7b35c4, roughness: 0.09, metalness: 0.92 });
+  const goldMat   = new THREE.MeshStandardMaterial({ color: 0xb8922a, roughness: 0.14, metalness: 0.92 });
+  const blackMat  = new THREE.MeshStandardMaterial({ color: 0x060606, roughness: 0.90, metalness: 0.08 });
+  const glassMat  = new THREE.MeshStandardMaterial({ color: 0x6688bb, roughness: 0.0,  metalness: 0.06, transparent: true, opacity: 0.28, side: THREE.DoubleSide });
+  const chromeMat = new THREE.MeshStandardMaterial({ color: 0xf2f2f8, roughness: 0.03, metalness: 0.99 });
+  const rubberMat = new THREE.MeshStandardMaterial({ color: 0x0d0d0d, roughness: 0.96, metalness: 0.00 });
+  const headMat   = new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0xffffff, emissiveIntensity: 2.2, roughness: 0.05 });
+  const drlMat    = new THREE.MeshStandardMaterial({ color: 0xeef4ff, emissive: 0xeef4ff, emissiveIntensity: 1.8, roughness: 0.08 });
+  const tailLitMat= new THREE.MeshStandardMaterial({ color: 0xff2525, emissive: 0xff1010, emissiveIntensity: 2.0, roughness: 0.08 });
+  const rotorMat  = new THREE.MeshStandardMaterial({ color: 0x8a8a99, roughness: 0.20, metalness: 0.92 });
+  const intakeMat = new THREE.MeshStandardMaterial({ color: 0x050505, roughness: 0.98, metalness: 0.02 });
 
-  const bodyMeshes = []; // for dirty/clean animation
+  const bodyMeshes = [];
 
-  /* Car group — all car parts parented here */
+  /* Car group */
   const carGroup = new THREE.Group();
-  carGroup.position.y = 0.38; // lift off ground so wheels sit at y=0
   scene.add(carGroup);
 
-  function box(w, h, d, mat, x, y, z, rx=0, ry=0, rz=0) {
-    const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
-    m.position.set(x, y, z);
-    m.rotation.set(rx, ry, rz);
-    m.castShadow = true;
-    m.receiveShadow = true;
-    carGroup.add(m);
-    return m;
+  /* ════════════════════════════════════════════════════════════
+     MAIN BODY — ExtrudeGeometry from Lamborghini Huracán-style
+     side profile. Profile in XY plane, extruded along Z (width).
+     Front = +X, up = +Y, width = Z direction.
+     Ground = Y=0, wheel center = Y=0.38, car bottom = Y=0.11
+     ════════════════════════════════════════════════════════════ */
+
+  const sideProfile = new THREE.Shape();
+  // Lamborghini-style profile (front at right, rear at left)
+  sideProfile.moveTo( 2.18, 0.24);
+  sideProfile.bezierCurveTo( 2.22, 0.20,  2.16, 0.12,  2.00, 0.11);
+  sideProfile.lineTo( 1.52, 0.11);
+  // front wheel arch step-down in profile
+  sideProfile.bezierCurveTo( 1.42, 0.11,  1.34, 0.10,  1.30, 0.10);
+  sideProfile.bezierCurveTo( 1.26, 0.10,  1.18, 0.11,  1.08, 0.11);
+  sideProfile.lineTo(-1.08, 0.11);
+  // rear wheel arch step-down
+  sideProfile.bezierCurveTo(-1.18, 0.11, -1.26, 0.10, -1.30, 0.10);
+  sideProfile.bezierCurveTo(-1.34, 0.10, -1.42, 0.11, -1.52, 0.11);
+  sideProfile.lineTo(-1.88, 0.11);
+  sideProfile.bezierCurveTo(-2.06, 0.13, -2.20, 0.24, -2.24, 0.40);
+  sideProfile.lineTo(-2.24, 0.64);
+  sideProfile.bezierCurveTo(-2.22, 0.72, -2.14, 0.78, -2.02, 0.80);
+  sideProfile.lineTo(-1.72, 0.82);
+  sideProfile.lineTo(-1.16, 0.86);
+  sideProfile.bezierCurveTo(-0.82, 0.88, -0.60, 0.94, -0.42, 1.02);
+  sideProfile.bezierCurveTo(-0.22, 1.11,  0.06, 1.19,  0.42, 1.19);
+  sideProfile.bezierCurveTo( 0.74, 1.19,  0.98, 1.10,  1.18, 0.98);
+  sideProfile.bezierCurveTo( 1.38, 0.82,  1.50, 0.70,  1.56, 0.62);
+  sideProfile.bezierCurveTo( 1.74, 0.48,  1.96, 0.35,  2.10, 0.30);
+  sideProfile.bezierCurveTo( 2.18, 0.27,  2.22, 0.26,  2.18, 0.24);
+
+  /* Wheel arch holes punched through the side profile */
+  const frontArchHole = new THREE.Path();
+  frontArchHole.absarc(1.30, 0.38, 0.45, 0, Math.PI * 2, true);
+  sideProfile.holes.push(frontArchHole);
+
+  const rearArchHole = new THREE.Path();
+  rearArchHole.absarc(-1.30, 0.38, 0.45, 0, Math.PI * 2, true);
+  sideProfile.holes.push(rearArchHole);
+
+  const BODY_WIDTH = 1.78;
+  const extrudeOpts = {
+    depth: BODY_WIDTH,
+    bevelEnabled: true,
+    bevelThickness: 0.055,
+    bevelSize: 0.055,
+    bevelSegments: 4,
+    steps: 1,
+  };
+
+  const bodyGeo = new THREE.ExtrudeGeometry(sideProfile, extrudeOpts);
+  bodyGeo.translate(0, 0, -(BODY_WIDTH / 2));
+
+  const bodyMesh = new THREE.Mesh(bodyGeo, paintMat.clone());
+  bodyMesh.castShadow = true;
+  bodyMesh.receiveShadow = true;
+  carGroup.add(bodyMesh);
+  bodyMeshes.push(bodyMesh);
+
+  /* ── WHEEL ARCH LINER (inner black ring visible inside arch) ── */
+  const archLinerMat = new THREE.MeshStandardMaterial({ color: 0x0a0a0a, roughness: 0.9, metalness: 0.1 });
+  for (const [ax, az] of [[1.30, 0], [-1.30, 0]]) {
+    for (const side of [-1, 1]) {
+      const liner = new THREE.Mesh(
+        new THREE.TorusGeometry(0.45, 0.03, 8, 48, Math.PI),
+        archLinerMat
+      );
+      liner.position.set(ax, 0.38, side * (BODY_WIDTH / 2));
+      liner.rotation.x = Math.PI / 2;
+      liner.rotation.z = Math.PI;
+      carGroup.add(liner);
+    }
   }
 
-  function cyl(rt, rb, h, seg, mat, x, y, z, rx=0, ry=0, rz=0) {
-    const m = new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, seg), mat);
-    m.position.set(x, y, z);
-    m.rotation.set(rx, ry, rz);
-    m.castShadow = true;
-    carGroup.add(m);
-    return m;
+  /* ── FRONT SPLITTER & LOWER CHIN ── */
+  const splitter = new THREE.Mesh(
+    new THREE.BoxGeometry(0.55, 0.04, 1.44),
+    blackMat
+  );
+  splitter.position.set(2.08, 0.11, 0);
+  splitter.castShadow = true;
+  carGroup.add(splitter);
+
+  // Front vent strips
+  for (let i = 0; i < 3; i++) {
+    const strip = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.02, 1.28), blackMat);
+    strip.position.set(2.16, 0.12 + i * 0.034, 0);
+    carGroup.add(strip);
   }
 
-  /* ── LAMBORGHINI BODY ── */
-  // Floor pan
-  box(4.5, 0.06, 2.0, blackMat, 0, -0.25, 0);
+  /* ── REAR DIFFUSER ── */
+  const diffuser = new THREE.Mesh(
+    new THREE.BoxGeometry(0.40, 0.06, 1.68),
+    intakeMat
+  );
+  diffuser.position.set(-2.16, 0.15, 0);
+  diffuser.rotation.x = 0.18;
+  diffuser.castShadow = true;
+  carGroup.add(diffuser);
 
-  // Main lower body — wide, flat, dominant
-  const mainBody = box(4.0, 0.36, 1.95, bodyPurpleMat, 0, -0.04, 0);
-  bodyMeshes.push(mainBody);
+  for (let i = -3; i <= 3; i++) {
+    const fin = new THREE.Mesh(new THREE.BoxGeometry(0.36, 0.08, 0.016), blackMat);
+    fin.position.set(-2.16, 0.14, i * 0.23);
+    carGroup.add(fin);
+  }
 
-  // Front hood — wedge shape
-  const hood = box(1.6, 0.14, 1.82, bodyPurpleMat, 1.3, 0.1, 0, 0.08, 0, 0);
-  bodyMeshes.push(hood);
+  /* ── SIDE SKIRTS ── */
+  for (const sz of [0.93, -0.93]) {
+    const skirt = new THREE.Mesh(new THREE.BoxGeometry(3.45, 0.07, 0.09), intakeMat);
+    skirt.position.set(-0.08, 0.15, sz);
+    skirt.castShadow = true;
+    carGroup.add(skirt);
+  }
 
-  // Rear engine deck
-  const rearDeck = box(1.1, 0.18, 1.82, bodyPurpleMat, -1.4, 0.1, 0, -0.05, 0, 0);
-  bodyMeshes.push(rearDeck);
+  /* ── GOLD BODY CREASE LINE ── */
+  const crease = new THREE.Mesh(new THREE.BoxGeometry(1.95, 0.016, BODY_WIDTH + 0.01), goldMat);
+  crease.position.set(-0.05, 0.50, 0);
+  carGroup.add(crease);
 
-  // Central upper body / door area
-  const upperBody = box(2.0, 0.48, 1.78, bodyPurpleMat, -0.1, 0.2, 0);
-  bodyMeshes.push(upperBody);
+  /* ── SIDE AIR INTAKES (behind doors) ── */
+  for (const sz of [0.90, -0.90]) {
+    const intakeBox = new THREE.Mesh(new THREE.BoxGeometry(0.68, 0.18, 0.06), intakeMat);
+    intakeBox.position.set(-0.55, 0.40, sz);
+    intakeBox.castShadow = true;
+    carGroup.add(intakeBox);
 
-  // Cabin / greenhouse
-  const cabin = box(1.55, 0.38, 1.55, bodyPurpleMat, -0.1, 0.62, 0);
-  bodyMeshes.push(cabin);
+    // Intake grille bars
+    for (let g = 0; g < 3; g++) {
+      const bar = new THREE.Mesh(new THREE.BoxGeometry(0.62, 0.016, 0.065), blackMat);
+      bar.position.set(-0.55, 0.32 + g * 0.055, sz);
+      carGroup.add(bar);
+    }
+  }
 
-  // Roof
-  const roof = box(1.1, 0.1, 1.4, bodyPurpleMat, -0.2, 0.82, 0);
-  bodyMeshes.push(roof);
+  /* ── REAR WING ── */
+  // Pillars
+  for (const sz of [-0.55, 0.55]) {
+    const pillar = new THREE.Mesh(new THREE.BoxGeometry(0.045, 0.30, 0.045), paintMat.clone());
+    pillar.position.set(-1.74, 0.78, sz);
+    pillar.castShadow = true;
+    carGroup.add(pillar);
+    bodyMeshes.push(pillar);
+  }
+  // Wing blade (with slight angle of attack)
+  const wingBlade = new THREE.Mesh(new THREE.BoxGeometry(0.50, 0.055, 1.35), paintMat.clone());
+  wingBlade.position.set(-1.74, 0.96, 0);
+  wingBlade.rotation.x = -0.10;
+  wingBlade.castShadow = true;
+  carGroup.add(wingBlade);
+  bodyMeshes.push(wingBlade);
+  // End plates
+  for (const sz of [-0.68, 0.68]) {
+    const ep = new THREE.Mesh(new THREE.BoxGeometry(0.52, 0.13, 0.04), paintMat.clone());
+    ep.position.set(-1.74, 0.96, sz);
+    ep.castShadow = true;
+    carGroup.add(ep);
+    bodyMeshes.push(ep);
+  }
 
-  // Front bumper / nose
-  const frontNose = box(0.22, 0.28, 1.88, bodyPurpleMat, 2.1, -0.06, 0);
-  bodyMeshes.push(frontNose);
+  /* ── ROOF SCOOP (engine intake) ── */
+  const scoop = new THREE.Mesh(new THREE.BoxGeometry(0.70, 0.06, 0.38), paintMat.clone());
+  scoop.position.set(-1.10, 0.90, 0);
+  scoop.castShadow = true;
+  carGroup.add(scoop);
+  bodyMeshes.push(scoop);
+  const scoopOpening = new THREE.Mesh(new THREE.BoxGeometry(0.60, 0.05, 0.28), intakeMat);
+  scoopOpening.position.set(-1.10, 0.92, 0);
+  carGroup.add(scoopOpening);
 
-  // Front chin splitter
-  box(0.55, 0.05, 1.65, blackMat, 2.05, -0.27, 0);
+  /* ── WINDOWS ── */
+  // Windshield (sloped plane: bottom ~(1.56,0.62), top ~(1.00,1.08), width=1.48)
+  {
+    const wsGeo = new THREE.PlaneGeometry(0.62, 1.50);
+    const ws = new THREE.Mesh(wsGeo, glassMat.clone());
+    ws.position.set(1.24, 0.86, 0);
+    ws.rotation.z = -0.68;
+    ws.rotation.y = Math.PI / 2;
+    carGroup.add(ws);
+  }
+  // Rear window (sloped toward rear)
+  {
+    const rwGeo = new THREE.PlaneGeometry(0.52, 1.46);
+    const rw = new THREE.Mesh(rwGeo, glassMat.clone());
+    rw.position.set(-0.88, 0.97, 0);
+    rw.rotation.z = 0.52;
+    rw.rotation.y = Math.PI / 2;
+    carGroup.add(rw);
+  }
+  // Side windows
+  for (const sz of [0.82, -0.82]) {
+    const swGeo = new THREE.PlaneGeometry(1.08, 0.30);
+    const sw = new THREE.Mesh(swGeo, glassMat.clone());
+    sw.position.set(-0.14, 0.88, sz);
+    carGroup.add(sw);
+  }
 
-  // Rear bumper
-  const rearBumper = box(0.28, 0.32, 1.88, bodyPurpleMat, -2.1, -0.04, 0);
-  bodyMeshes.push(rearBumper);
+  /* ── HEADLIGHTS ── */
+  // Outer housing blocks
+  for (const sz of [0.58, -0.58]) {
+    const hlHouse = new THREE.Mesh(new THREE.BoxGeometry(0.10, 0.16, 0.70), paintMat.clone());
+    hlHouse.position.set(2.17, 0.30, sz);
+    hlHouse.castShadow = true;
+    carGroup.add(hlHouse);
+    bodyMeshes.push(hlHouse);
+  }
+  // LED DRL strips (horizontal across front)
+  const drlBar = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.022, 1.64), drlMat);
+  drlBar.position.set(2.18, 0.40, 0);
+  carGroup.add(drlBar);
+  // Inner headlight cluster strips (L/R)
+  for (const sz of [0.54, -0.54]) {
+    const drlSide = new THREE.Mesh(new THREE.BoxGeometry(0.055, 0.018, 0.82), drlMat);
+    drlSide.position.set(2.18, 0.30, sz);
+    carGroup.add(drlSide);
+  }
+  // Main beam lens (half-sphere)
+  for (const sz of [0.56, -0.56]) {
+    const lens = new THREE.Mesh(
+      new THREE.SphereGeometry(0.075, 12, 8, 0, Math.PI * 2, 0, Math.PI * 0.55),
+      headMat
+    );
+    lens.position.set(2.21, 0.30, sz);
+    lens.rotation.y = Math.PI / 2;
+    carGroup.add(lens);
+  }
 
-  // Rear diffuser
-  box(0.45, 0.07, 1.55, blackMat, -2.15, -0.23, 0);
+  /* ── TAILLIGHTS ── */
+  // Full-width LED strip (Lamborghini signature)
+  const tlStrip = new THREE.Mesh(new THREE.BoxGeometry(0.052, 0.020, BODY_WIDTH - 0.10), tailLitMat);
+  tlStrip.position.set(-2.20, 0.55, 0);
+  carGroup.add(tlStrip);
+  // Main taillight blocks
+  for (const sz of [0.60, -0.60]) {
+    const tlBlock = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.18, 0.72), tailLitMat);
+    tlBlock.position.set(-2.21, 0.44, sz);
+    carGroup.add(tlBlock);
+  }
 
-  // Side skirts
-  box(3.5, 0.1, 0.12, blackMat, 0, -0.18, 1.02);
-  box(3.5, 0.1, 0.12, blackMat, 0, -0.18, -1.02);
+  /* ── EXHAUST TIPS ── */
+  for (const sz of [0.48, -0.48]) {
+    const exh = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.048, 0.10, 14), chromeMat);
+    exh.position.set(-2.23, 0.24, sz);
+    exh.rotation.z = Math.PI / 2;
+    carGroup.add(exh);
+  }
 
-  // Wide fender flares (over wheels)
-  const ff1 = box(0.55, 0.14, 0.22, bodyPurpleMat,  1.3, 0.0,  1.06); bodyMeshes.push(ff1);
-  const ff2 = box(0.55, 0.14, 0.22, bodyPurpleMat,  1.3, 0.0, -1.06); bodyMeshes.push(ff2);
-  const ff3 = box(0.55, 0.14, 0.22, bodyPurpleMat, -1.3, 0.0,  1.06); bodyMeshes.push(ff3);
-  const ff4 = box(0.55, 0.14, 0.22, bodyPurpleMat, -1.3, 0.0, -1.06); bodyMeshes.push(ff4);
-
-  // Side air intakes
-  box(0.7, 0.2, 0.1, blackMat, -0.5, 0.12, 1.0);
-  box(0.7, 0.2, 0.1, blackMat, -0.5, 0.12, -1.0);
-
-  // Rear wing pillars
-  box(0.07, 0.28, 0.07, bodyPurpleMat, -1.65, 0.62, 0.5);
-  box(0.07, 0.28, 0.07, bodyPurpleMat, -1.65, 0.62, -0.5);
-
-  // Rear wing
-  const wing = box(0.55, 0.07, 1.4, bodyPurpleMat, -1.65, 0.78, 0);
-  bodyMeshes.push(wing);
-
-  // Gold body line / accent strip
-  box(3.8, 0.022, 1.97, goldAccentMat, 0, 0.09, 0);
-
-  // Gold front accent
-  box(0.1, 0.22, 1.78, goldAccentMat, 1.98, 0.0, 0);
-
-  // Gold rear accent
-  box(0.08, 0.18, 1.78, goldAccentMat, -2.02, 0.0, 0);
-
-  /* WINDOWS */
-  box(0.85, 0.52, 1.48, glassMat,  0.65, 0.56, 0);  // windshield
-  box(0.5,  0.32, 1.45, glassMat, -0.9,  0.56, 0);  // rear window
-  box(1.2,  0.28, 0.05, glassMat, -0.1,  0.62, 0.79); // driver window
-  box(1.2,  0.28, 0.05, glassMat, -0.1,  0.62, -0.79); // pass window
-
-  /* HEADLIGHTS */
-  box(0.1, 0.1, 0.55, headlightMat, 2.14, 0.1, 0.6);
-  box(0.1, 0.1, 0.55, headlightMat, 2.14, 0.1, -0.6);
-  box(0.06, 0.04, 0.95, headlightMat, 2.12, 0.16, 0); // DRL
-  // headlight housing
-  box(0.12, 0.18, 0.7, bodyPurpleMat, 2.1, 0.08, 0.65);
-  box(0.12, 0.18, 0.7, bodyPurpleMat, 2.1, 0.08, -0.65);
-
-  /* TAILLIGHTS */
-  box(0.08, 0.12, 0.72, tailMat, -2.13, 0.06, 0.62);
-  box(0.08, 0.12, 0.72, tailMat, -2.13, 0.06, -0.62);
-  box(0.06, 0.04, 1.85, tailMat, -2.12, 0.12, 0); // full-width strip
-
-  /* ── WHEELS ── */
-  const wPos = [
-    [ 1.3, -0.38,  0.97],
-    [ 1.3, -0.38, -0.97],
-    [-1.3, -0.38,  0.97],
-    [-1.3, -0.38, -0.97],
+  /* ═══════════════════════════════════════
+     WHEELS — TorusGeometry tires + 5-spoke rims
+     Wheel axle = Z axis. Tire ring in XY plane.
+     ═══════════════════════════════════════ */
+  const WHEEL_POSITIONS = [
+    [ 1.30, 0.38,  0.93],
+    [ 1.30, 0.38, -0.93],
+    [-1.30, 0.38,  0.93],
+    [-1.30, 0.38, -0.93],
   ];
 
-  const RX = Math.PI / 2;
+  WHEEL_POSITIONS.forEach(([wx, wy, wz]) => {
+    const wg = new THREE.Group();
+    wg.position.set(wx, wy, wz);
+    carGroup.add(wg);
 
-  wPos.forEach(([x, y, z]) => {
-    // Tire
-    cyl(0.38, 0.38, 0.28, 28, rubberMat, x, y, z, RX, 0, 0);
-    // Tire sidewall detail
-    cyl(0.36, 0.36, 0.29, 28, new THREE.MeshStandardMaterial({color:0x1a1a1a,roughness:0.9,metalness:0}), x, y, z, RX, 0, 0);
-    // Rim outer
-    cyl(0.28, 0.28, 0.24, 16, goldAccentMat, x, y, z, RX, 0, 0);
-    // Rim center
-    cyl(0.1, 0.1, 0.25, 8, chromeMat, x, y, z, RX, 0, 0);
-    // Brake rotor (visible through rim)
-    cyl(0.2, 0.2, 0.22, 16, new THREE.MeshStandardMaterial({color:0x888899,roughness:0.25,metalness:0.95}), x, y, z, RX, 0, 0);
-    // Caliper
-    const caliper = new THREE.Mesh(
-      new THREE.BoxGeometry(0.12, 0.08, 0.22),
-      new THREE.MeshStandardMaterial({color:0xd4aa4a, roughness:0.3, metalness:0.8})
+    // Tire: TorusGeometry gives proper rounded tire profile
+    // Ring radius 0.295 + tube 0.085 = outer 0.38 (touches ground at Y=0)
+    const tire = new THREE.Mesh(
+      new THREE.TorusGeometry(0.295, 0.085, 22, 56),
+      rubberMat.clone()
     );
-    caliper.position.set(x, y + 0.18, z > 0 ? z - 0.01 : z + 0.01);
-    carGroup.add(caliper);
+    tire.castShadow = true;
+    wg.add(tire);
+
+    // Tire white lettering band (subtle)
+    const letterBand = new THREE.Mesh(
+      new THREE.TorusGeometry(0.295, 0.010, 8, 56),
+      new THREE.MeshStandardMaterial({ color: 0x888880, roughness: 0.9, metalness: 0 })
+    );
+    letterBand.position.z = Math.sign(wz) * 0.065;
+    wg.add(letterBand);
+
+    // Rim face (disc behind spokes)
+    const rimDisc = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.272, 0.272, 0.016, 36),
+      goldMat.clone()
+    );
+    rimDisc.rotation.x = Math.PI / 2;
+    rimDisc.position.z = Math.sign(wz) * 0.038;
+    rimDisc.castShadow = true;
+    wg.add(rimDisc);
+
+    // 5 spokes radiating in XY plane
+    const SPOKES = 5;
+    const spokeL = 0.220;
+    for (let i = 0; i < SPOKES; i++) {
+      const angle = (i / SPOKES) * Math.PI * 2;
+      const spoke = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.014, 0.032, spokeL, 6),
+        goldMat.clone()
+      );
+      // Default cylinder along Y. Rotate around Z so it points at angle in XY plane.
+      spoke.rotation.z = angle;
+      // Position center of spoke along its direction
+      spoke.position.set(
+        Math.sin(angle) * (spokeL / 2),
+        Math.cos(angle) * (spokeL / 2),
+        0
+      );
+      spoke.castShadow = true;
+      wg.add(spoke);
+    }
+
+    // Rim edge ring
+    const rimRing = new THREE.Mesh(
+      new THREE.TorusGeometry(0.268, 0.022, 8, 36),
+      chromeMat.clone()
+    );
+    rimRing.castShadow = true;
+    wg.add(rimRing);
+
+    // Hub center
+    const hub = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.055, 0.055, 0.055, 18),
+      chromeMat.clone()
+    );
+    hub.rotation.x = Math.PI / 2;
+    hub.castShadow = true;
+    wg.add(hub);
+
+    // Brake disc (slot-drilled pattern)
+    const disc = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.215, 0.215, 0.018, 36),
+      rotorMat.clone()
+    );
+    disc.rotation.x = Math.PI / 2;
+    disc.position.z = -Math.sign(wz) * 0.035;
+    disc.castShadow = true;
+    wg.add(disc);
+
+    // Caliper (gold, at bottom of wheel)
+    const caliper = new THREE.Mesh(
+      new THREE.BoxGeometry(0.035, 0.10, 0.10),
+      new THREE.MeshStandardMaterial({ color: 0xd4aa4a, roughness: 0.22, metalness: 0.82 })
+    );
+    caliper.position.set(0, -0.22, 0);
+    caliper.castShadow = true;
+    wg.add(caliper);
   });
 
-  /* ── GRIME OVERLAY ── */
+  /* ── GRIME OVERLAY (slightly enlarged copy for dirty effect) ── */
   const grimeMat = new THREE.MeshStandardMaterial({
-    color: 0x4a2e10, roughness: 0.98, metalness: 0, transparent: true, opacity: 0, depthWrite: false
+    color: 0x4a2c0e, roughness: 0.98, metalness: 0, transparent: true, opacity: 0,
+    depthWrite: false, side: THREE.FrontSide
   });
 
-  const grimeLayer = box(4.15, 0.42, 2.05, grimeMat.clone(), 0, -0.02, 0);
-  const grimeCabin = box(1.62, 0.4, 1.62, grimeMat.clone(), -0.1, 0.63, 0);
-  const grimeHood  = box(1.68, 0.18, 1.88, grimeMat.clone(), 1.3, 0.12, 0);
-  const grimeRear  = box(1.18, 0.22, 1.88, grimeMat.clone(), -1.4, 0.12, 0);
-  const grimeWing  = box(0.58, 0.1, 1.44, grimeMat.clone(), -1.65, 0.79, 0);
-  const grimeMeshes = [grimeLayer, grimeCabin, grimeHood, grimeRear, grimeWing];
-  grimeMeshes.forEach(m => { m.material = m.material.clone(); });
+  // Create grime using same ExtrudeGeometry but slightly larger scale
+  const grimeBodyGeo = new THREE.ExtrudeGeometry(sideProfile, extrudeOpts);
+  grimeBodyGeo.translate(0, 0, -(BODY_WIDTH / 2));
+  const grimeMesh = new THREE.Mesh(grimeBodyGeo, grimeMat.clone());
+  grimeMesh.scale.set(1.004, 1.004, 1.006);
+  grimeMesh.renderOrder = 1;
+  carGroup.add(grimeMesh);
+  const grimeMeshes = [grimeMesh];
 
-  /* ── DIRT PARTICLES (static dirt specks) ── */
+  /* ── DIRT PARTICLES ── */
   const dirtParticles = (() => {
     const geo = new THREE.BufferGeometry();
-    const count = 300;
+    const count = 380;
     const pos = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
-      pos[i*3]   = (Math.random() - 0.5) * 4.0;
-      pos[i*3+1] = (Math.random() - 0.5) * 0.8 + 0.2;
-      pos[i*3+2] = (Math.random() - 0.5) * 1.9;
+      pos[i*3]   = (Math.random() - 0.5) * 4.4;
+      pos[i*3+1] = Math.random() * 1.1 + 0.05;
+      pos[i*3+2] = (Math.random() - 0.5) * 1.8;
     }
     geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-    const mat = new THREE.PointsMaterial({ color: 0x5c3d18, size: 0.03, transparent: true, opacity: 0 });
+    const mat = new THREE.PointsMaterial({ color: 0x6b4515, size: 0.035, transparent: true, opacity: 0 });
     const pts = new THREE.Points(geo, mat);
     carGroup.add(pts);
     return pts;
   })();
 
   /* ── CONDITION UPDATE ── */
-  const DIRTY_COLOR = new THREE.Color(0x3d2208);
+  const DIRTY_COLOR = new THREE.Color(0x3a1f06);
   const CLEAN_COLOR = new THREE.Color(0x7b35c4);
-  const MUD_COLOR   = new THREE.Color(0x6b4520);
 
-  function updateCondition(v) { // 0=dirty, 100=ceramic
+  function updateCondition(v) {
     const t = v / 100;
 
-    // Interpolate body material properties
     const col = DIRTY_COLOR.clone().lerp(CLEAN_COLOR, t);
-    const roughness  = 0.97 - 0.85 * t;
-    const metalness  = 0.0  + 0.92 * t;
+    const roughness = 0.97 - 0.87 * t;
+    const metalness = 0.0  + 0.92 * t;
     const emissiveI  = t > 0.85 ? (t - 0.85) / 0.15 * 0.18 : 0;
 
     bodyMeshes.forEach(m => {
