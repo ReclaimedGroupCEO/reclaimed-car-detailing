@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Reclaimed Detailers — Faith-Driven Premium Detailing</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0a0a0a;
+    --dark: #111111;
+    --dark-2: #1a1a1a;
+    --dark-3: #222222;
+    --gold: #c9a84c;
+    --gold-light: #e2c97e;
+    --gold-pale: #f0e2b8;
+    --purple-deep: #1a0d2e;
+    --purple-mid: #2d1a4a;
+    --purple-accent: #6b3fa0;
+    --purple-light: #9b6fd4;
+    --white: #f8f5f0;
+    --white-2: #ede9e2;
+    --gray: #888880;
+    --gray-light: #bbb9b2;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    transition: padding 0.3s;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .nav-logo-mark {
+    width: 40px;
+    height: 40px;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .nav-logo-mark span {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: var(--black);
+    letter-spacing: -0.02em;
+  }
+
+  .nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
+
+  .nav-logo-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: var(--white);
+    letter-spacing: 0.04em;
+  }
+
+  .nav-logo-name em { color: var(--gold); font-style: normal; }
+
+  .nav-logo-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-top: 2px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--gold); }
+
+  .nav-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--black) !important;
+    background: var(--gold);
+    padding: 0.55rem 1.4rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--gold-light) !important; }
+
+  /* PAGE HERO */
+  .page-hero {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: 8rem 4rem 5rem;
+    overflow: hidden;
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 60% 50%, rgba(107,63,160,0.4) 0%, transparent 65%),
+      radial-gradient(ellipse at 10% 80%, rgba(201,168,76,0.06) 0%, transparent 50%),
+      linear-gradient(160deg, #0a0a0a 0%, #0d0a14 60%, #111111 100%);
+  }
+
+  .page-hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* REPLACE: add a background photo behind this hero if desired */
+  .page-hero-image {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .page-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+    display: block;
+  }
+
+  .page-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .breadcrumb a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumb a:hover { color: var(--gold); }
+
+  .breadcrumb span {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .breadcrumb .sep {
+    color: var(--gray);
+    font-size: 0.65rem;
+  }
+
+  .page-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .page-eyebrow::before {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .page-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 1.25rem;
+  }
+
+  .page-hero h1 em { font-style: italic; color: var(--gold); }
+
+  .page-hero-sub {
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: var(--gray-light);
+    max-width: 560px;
+  }
+
+  /* SHARED */
+  .gold-divider {
+    width: 48px;
+    height: 2px;
+    background: var(--gold);
+    margin: 1.5rem 0;
+  }
+
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-outline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--white-2);
+    background: transparent;
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    border: 1px solid rgba(248,245,240,0.25);
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* MISSION SECTION */
+  #mission {
+    background: var(--dark);
+    padding: 6rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .mission-visual {
+    position: relative;
+  }
+
+  /* REPLACE: add your owner/team photo here */
+  .mission-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--purple-deep);
+    overflow: hidden;
+    border: 1px solid rgba(201,168,76,0.15);
+    position: relative;
+  }
+
+  .mission-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .mission-photo .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    background: linear-gradient(135deg, #0a0514 0%, var(--purple-mid) 100%);
+  }
+
+  .mission-photo .photo-placeholder .rd-mark {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 6rem;
+    color: rgba(201,168,76,0.18);
+    line-height: 1;
+  }
+
+  .mission-photo .photo-placeholder span {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.3);
+  }
+
+  .mission-photo-caption {
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    right: -1px;
+    background: rgba(10,5,20,0.9);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .caption-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--gold);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    color: var(--black);
+    font-weight: 700;
+  }
+
+  .caption-text strong {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .caption-text span {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--gray);
+  }
+
+  .mission-accent-box {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    width: 80px;
+    height: 80px;
+    border: 2px solid rgba(201,168,76,0.25);
+    z-index: -1;
+  }
+
+  .mission-content p {
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--gray-light);
+    margin-bottom: 1.25rem;
+  }
+
+  .scripture-block {
+    background: rgba(107,63,160,0.12);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 2px 2px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .scripture-block p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: rgba(201,168,76,0.85);
+    line-height: 1.65;
+    margin: 0 0 0.4rem;
+  }
+
+  .scripture-block cite {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  /* VALUES */
+  #values {
+    background: var(--black);
+    padding: 6rem 4rem;
+  }
+
+  .values-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+  }
+
+  .values-header .section-label { justify-content: center; }
+  .values-header .section-title { text-align: center; }
+  .values-header p {
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--gray-light);
+    margin-top: 0.75rem;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .value-card {
+    background: var(--dark-2);
+    padding: 2.5rem;
+    transition: background 0.2s;
+    position: relative;
+  }
+
+  .value-card:hover { background: var(--dark-3); }
+
+  .value-card.featured {
+    background: var(--purple-deep);
+  }
+
+  .value-card.featured:hover { background: var(--purple-mid); }
+
+  .value-number {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 4rem;
+    color: rgba(201,168,76,0.1);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .value-icon-wrap {
+    width: 48px;
+    height: 48px;
+    background: rgba(107,63,160,0.2);
+    border: 1px solid rgba(201,168,76,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    font-size: 1.3rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .value-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .value-desc {
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--gray-light);
+  }
+
+  /* COMMUNITY */
+  #community {
+    background: var(--dark);
+    padding: 6rem 4rem;
+  }
+
+  .community-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .community-content p {
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--gray-light);
+    margin-bottom: 1.25rem;
+  }
+
+  .commitment-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0 2.5rem;
+  }
+
+  .commitment-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .commitment-list .cl-icon {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    background: var(--gold);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: var(--black);
+    font-weight: 700;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+
+  .commitment-list .cl-text strong {
+    display: block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--white);
+    margin-bottom: 0.15rem;
+  }
+
+  .commitment-list .cl-text p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--gray);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* REPLACE: community section image */
+  .community-visual {
+    position: relative;
+  }
+
+  .community-photo {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: var(--dark-3);
+    overflow: hidden;
+    border: 1px solid rgba(201,168,76,0.12);
+  }
+
+  .community-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .community-photo .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, var(--dark-3) 0%, var(--dark-2) 100%);
+  }
+
+  .community-photo .photo-placeholder .ph-icon { font-size: 3rem; opacity: 0.2; }
+
+  .community-photo .photo-placeholder span {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.25);
+  }
+
+  .giving-badge {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    width: 110px;
+    height: 110px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem;
+  }
+
+  .giving-badge .pct {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: var(--black);
+    line-height: 1;
+  }
+
+  .giving-badge .lbl {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(10,10,10,0.7);
+    line-height: 1.3;
+    margin-top: 0.2rem;
+  }
+
+  /* EVENTS */
+  #events {
+    background: var(--purple-deep);
+    padding: 6rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #events::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .events-inner { position: relative; z-index: 1; }
+
+  .events-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .event-card {
+    background: rgba(10,5,20,0.6);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 2px;
+    padding: 2rem;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .event-card:hover {
+    border-color: rgba(201,168,76,0.5);
+    background: rgba(201,168,76,0.04);
+  }
+
+  .event-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    padding: 0.2rem 0.6rem;
+    border-radius: 1px;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .event-tag.upcoming {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.4);
+  }
+
+  .event-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .event-desc {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--gray-light);
+    line-height: 1.65;
+  }
+
+  .event-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  /* CONTACT CTA */
+  #cta {
+    background: var(--black);
+    padding: 6rem 4rem;
+    text-align: center;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  #cta .section-label { justify-content: center; }
+  #cta .section-title { text-align: center; margin-bottom: 1rem; }
+  #cta p {
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--gray-light);
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    border-top: 1px solid rgba(201,168,76,0.12);
+    padding: 3.5rem 4rem 2rem;
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+    margin-bottom: 2rem;
+  }
+
+  .footer-brand .footer-logo-mark {
+    width: 44px;
+    height: 44px;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-brand .footer-logo-mark span {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--black);
+  }
+
+  .footer-brand .footer-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.3rem;
+    color: var(--white);
+  }
+
+  .footer-brand .footer-name em { color: var(--gold); font-style: normal; }
+
+  .footer-brand .footer-motto {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-top: 0.25rem;
+  }
+
+  .footer-col-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .footer-links a {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--gray-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-social { display: flex; gap: 0.6rem; }
+
+  .footer-social-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+    text-decoration: none;
+  }
+
+  .footer-social-btn:hover { background: var(--gold); border-color: var(--gold); }
+  .footer-social-btn svg { width: 16px; height: 16px; }
+  .footer-social-btn svg path,
+  .footer-social-btn svg rect { fill: var(--gold); transition: fill 0.2s; }
+  .footer-social-btn:hover svg path,
+  .footer-social-btn:hover svg rect { fill: var(--black); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: rgba(136,136,128,0.5);
+  }
+
+  .footer-faith {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.35);
+  }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .page-hero { padding: 7rem 1.5rem 4rem; }
+    #mission { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
+    #values { padding: 4rem 1.5rem; }
+    .values-grid { grid-template-columns: 1fr; }
+    #community { padding: 4rem 1.5rem; }
+    .community-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .giving-badge { right: 0.5rem; bottom: -1rem; width: 90px; height: 90px; }
+    .giving-badge .pct { font-size: 1.5rem; }
+    #events { padding: 4rem 1.5rem; }
+    .events-grid { grid-template-columns: 1fr; }
+    .events-header { flex-direction: column; align-items: flex-start; }
+    #cta { padding: 4rem 1.5rem; }
+    footer { padding: 3rem 1.5rem 2rem; }
+    .footer-top { gap: 2rem; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark"><span>RD</span></div>
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">Reclaimed<em>.</em></span>
+      <span class="nav-logo-tagline">Premium Detailing · Montgomery, AL</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#gallery">Gallery</a></li>
+    <li><a href="about.html" class="active">About Us</a></li>
+    <li><a href="index.html#membership">Memberships</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<header class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-image">
+    <!-- REPLACE: <img src="images/about-hero.jpg" alt="Reclaimed Detailers at work"> -->
+  </div>
+
+  <div class="page-hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep">›</span>
+      <span>About Us</span>
+    </div>
+    <div class="page-eyebrow">Our Story</div>
+    <h1>Faith First.<br><em>Community Always.</em></h1>
+    <p class="page-hero-sub">Reclaimed Detailers is more than a detailing business — it's a calling. We exist to serve our customers with excellence, lift our community with generosity, and honor God in everything we do.</p>
+  </div>
+</header>
+
+<!-- MISSION -->
+<section id="mission">
+  <div class="mission-visual">
+    <div class="mission-accent-box"></div>
+    <div class="mission-photo">
+      <!-- REPLACE: <img src="images/owner-photo.jpg" alt="Owner of Reclaimed Detailers"> -->
+      <div class="photo-placeholder">
+        <div class="rd-mark">RD</div>
+        <span>Add Owner / Team Photo</span>
+      </div>
+    </div>
+    <div class="mission-photo-caption">
+      <div class="caption-icon">✝</div>
+      <div class="caption-text">
+        <strong>Reclaimed Detailers LLC</strong>
+        <span>Christian-Owned · Montgomery, Alabama</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mission-content">
+    <div class="section-label">Who We Are</div>
+    <h2 class="section-title">Built on Integrity.<br>Driven by Craft.</h2>
+    <div class="gold-divider"></div>
+
+    <p>Reclaimed Detailers was founded with a single conviction: that excellent work, done with honesty and humility, is an act of worship. We are a Christian-owned mobile detailing company based in Montgomery, Alabama, and we put God first in every decision we make — from the products we use to the way we treat every customer who trusts us with their vehicle.</p>
+
+    <p>We didn't start this business to be the biggest. We started it to be the most trustworthy. We believe that when you book with us, you're not just getting a clean car — you're entering into a relationship built on the same values we hold in our daily lives: integrity, craftsmanship, and genuine care for people.</p>
+
+    <div class="scripture-block">
+      <p>"Whatever you do, work heartily, as for the Lord and not for men."</p>
+      <cite>— Colossians 3:23</cite>
+    </div>
+
+    <p>Whether we're doing a routine maintenance wash or a full restoration on a neglected vehicle, we approach every job the same way — with the standard of excellence that reflects who we work for. That's not a marketing line. That's the foundation of everything we do.</p>
+
+    <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem;">
+      <a href="index.html#contact" class="btn-primary">Book a Detail</a>
+      <a href="index.html#services" class="btn-outline">View Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section id="values">
+  <div class="values-header">
+    <div class="section-label">What We Stand For</div>
+    <h2 class="section-title">Our Core Values</h2>
+    <p>These aren't just words on a page — they're the principles we return to every single day, with every single vehicle we touch.</p>
+  </div>
+
+  <div class="values-grid">
+    <div class="value-card featured">
+      <div class="value-icon-wrap">✝</div>
+      <div class="value-title">Faith Before Everything</div>
+      <p class="value-desc">We are a Christian-owned business and we make no apology for it. Our faith shapes how we treat customers, employees, and our community. We pray over our work, lead with integrity, and aim to reflect something greater than ourselves in every detail we deliver.</p>
+    </div>
+
+    <div class="value-card">
+      <div class="value-icon-wrap">◈</div>
+      <div class="value-title">Excellence, Not Excuses</div>
+      <p class="value-desc">We don't compete on price — we compete on quality and trust. Premium products, thorough technique, and a standard of work that we're willing to stand behind publicly. If it's not right, we make it right. No shortcuts. No compromises.</p>
+    </div>
+
+    <div class="value-card">
+      <div class="value-icon-wrap">♡</div>
+      <div class="value-title">Servant's Heart</div>
+      <p class="value-desc">We genuinely love what we do and who we do it for. We show up on time, communicate clearly, document our work, and follow up after every appointment. Treating customers the way we'd want to be treated isn't a policy — it's a personal commitment.</p>
+    </div>
+
+    <div class="value-card">
+      <div class="value-icon-wrap">⟳</div>
+      <div class="value-title">Restoration Focused</div>
+      <p class="value-desc">Our name says it all. We are in the business of reclaiming things — vehicles, pride of ownership, and peace of mind. There's something deeply satisfying about taking something worn down and bringing it back to life. That's what drives us every day.</p>
+    </div>
+
+    <div class="value-card">
+      <div class="value-icon-wrap">⬡</div>
+      <div class="value-title">Community Rooted</div>
+      <p class="value-desc">Montgomery is home. We're not a franchise or a faceless operation — we're neighbors. We invest in local events, support families in our community, and give 20% of every transaction to charitable causes because we believe a thriving business should build a thriving community.</p>
+    </div>
+
+    <div class="value-card">
+      <div class="value-icon-wrap">◎</div>
+      <div class="value-title">Transparency Always</div>
+      <p class="value-desc">No hidden fees, no inflated quotes, no vague promises. We tell you exactly what we're doing, why we're doing it, and what results to expect. Honesty isn't a competitive advantage to us — it's just the right way to do business.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community">
+  <div class="community-grid">
+    <div class="community-content">
+      <div class="section-label">Giving Back</div>
+      <h2 class="section-title">Business With a Purpose</h2>
+      <div class="gold-divider"></div>
+
+      <p>We believe that every dollar earned is an opportunity to do good. That's why we've built generosity into the foundation of Reclaimed Detailers — not as an afterthought, but as a core part of how we operate.</p>
+
+      <p>20% of every transaction goes directly to charitable causes. That means when you book a detail with us, you're not just investing in your vehicle — you're investing in families, organizations, and communities that need it most. We take that responsibility seriously, and we're grateful to our customers for making it possible.</p>
+
+      <ul class="commitment-list">
+        <li>
+          <div class="cl-icon">20%</div>
+          <div class="cl-text">
+            <strong>Charitable Giving on Every Transaction</strong>
+            <p>A portion of every booking goes to vetted charitable causes in and around our community.</p>
+          </div>
+        </li>
+        <li>
+          <div class="cl-icon">🚗</div>
+          <div class="cl-text">
+            <strong>Funding Local Car Events</strong>
+            <p>We are committed to sponsoring and participating in local car shows and automotive community events in the Montgomery area.</p>
+          </div>
+        </li>
+        <li>
+          <div class="cl-icon">🎃</div>
+          <div class="cl-text">
+            <strong>Holiday Trunk-or-Treats</strong>
+            <p>Around the holidays, we fund and participate in local trunk-or-treat events — giving families a safe, fun celebration in our community.</p>
+          </div>
+        </li>
+        <li>
+          <div class="cl-icon">✝</div>
+          <div class="cl-text">
+            <strong>Faith-Motivated Generosity</strong>
+            <p>Our giving isn't about publicity — it's about purpose. We give because we believe it's the right thing to do, full stop.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="community-visual">
+      <div class="community-photo">
+        <!-- REPLACE: <img src="images/community.jpg" alt="Reclaimed Detailers community involvement"> -->
+        <div class="photo-placeholder">
+          <span class="ph-icon">🤝</span>
+          <span>Community / Event Photo</span>
+        </div>
+      </div>
+      <div class="giving-badge">
+        <span class="pct">20%</span>
+        <span class="lbl">Given to<br>Charity</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="events-inner">
+    <div class="events-header">
+      <div>
+        <div class="section-label">Get Involved</div>
+        <h2 class="section-title">Upcoming &amp; Ongoing</h2>
+      </div>
+      <a href="index.html#contact" class="btn-outline">Stay in the Loop</a>
+    </div>
+
+    <div class="events-grid">
+      <div class="event-card">
+        <span class="event-icon">🚗</span>
+        <div class="event-tag upcoming">Coming Soon</div>
+        <div class="event-title">Local Car Show Sponsorship</div>
+        <p class="event-desc">We're actively working to sponsor and participate in local car events throughout the Montgomery area. If you're organizing an event or know of one, reach out — we'd love to be involved. Our goal is to connect with the automotive community and give back at the same time.</p>
+      </div>
+
+      <div class="event-card">
+        <span class="event-icon">🎃</span>
+        <div class="event-tag upcoming">Holiday Events</div>
+        <div class="event-title">Trunk-or-Treat Events</div>
+        <p class="event-desc">Every holiday season, we fund and participate in trunk-or-treat events in our community. We believe in creating safe, joyful celebrations for local families — and our fleet of detailed vehicles makes for quite the backdrop. Follow us on social media for dates and locations.</p>
+      </div>
+
+      <div class="event-card">
+        <span class="event-icon">❤️</span>
+        <div class="event-tag">Ongoing</div>
+        <div class="event-title">Charitable Giving Program</div>
+        <p class="event-desc">Our 20% giving commitment is not a one-time campaign — it's a permanent part of how we do business. Every service you book with us contributes to this fund. We partner with local organizations that align with our values and make a real difference in people's lives right here in Montgomery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="section-label">Ready to Book?</div>
+  <h2 class="section-title">Let's Work Together</h2>
+  <p>Experience the difference a faith-driven, community-focused detailing company can make. We'd be honored to work with you.</p>
+  <div class="cta-actions">
+    <a href="index.html#contact" class="btn-primary">Book a Detail</a>
+    <a href="index.html#services" class="btn-outline">View Our Services</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-mark"><span>RD</span></div>
+      <div class="footer-name">Reclaimed<em>.</em></div>
+      <div class="footer-motto">Restored · Refined · Reclaimed</div>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#gallery">Gallery</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="index.html#membership">Memberships</a></li>
+        <li><a href="index.html#addons">Add-Ons</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="tel:3346401831">(334) 640-1831</a></li>
+        <li><a href="mailto:reclaimeddetailers@outlook.com">reclaimeddetailers@outlook.com</a></li>
+        <li style="color:var(--gray); font-size:0.88rem; font-weight:300;">Montgomery, Alabama</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Follow Us</div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/reclaimeddetailers" target="_blank" rel="noopener" class="footer-social-btn" title="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/reclaimeddetailers" target="_blank" rel="noopener" class="footer-social-btn" title="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@reclaimeddetailers" target="_blank" rel="noopener" class="footer-social-btn" title="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Reclaimed Detailers LLC · Montgomery, AL</p>
+    <span class="footer-faith">✝ Faith-Driven · Community-Focused · Excellence in Every Detail</span>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('main-nav');
+    nav.style.padding = window.scrollY > 60 ? '0.75rem 4rem' : '1.25rem 4rem';
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.value-card, .event-card, .commitment-list li').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>

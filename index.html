@@ -44,25 +44,70 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.25rem 4rem;
-    background: rgba(10,10,10,0.92);
-    backdrop-filter: blur(12px);
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(201,168,76,0.15);
     transition: padding 0.3s;
   }
 
   .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
-    font-size: 1.4rem;
-    color: var(--white);
-    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     text-decoration: none;
   }
 
-  .nav-logo span { color: var(--gold); }
+  .nav-logo-mark {
+    width: 40px;
+    height: 40px;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .nav-logo-mark span {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: var(--black);
+    letter-spacing: -0.02em;
+  }
+
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .nav-logo-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: var(--white);
+    letter-spacing: 0.04em;
+  }
+
+  .nav-logo-name em {
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  .nav-logo-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-top: 2px;
+  }
 
   .nav-links {
     display: flex;
+    align-items: center;
     gap: 2.5rem;
     list-style: none;
   }
@@ -91,7 +136,7 @@
     padding: 0.55rem 1.4rem;
     border-radius: 2px;
     text-decoration: none;
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.2s;
   }
 
   .nav-cta:hover { background: var(--gold-light) !important; }
@@ -107,13 +152,48 @@
     overflow: hidden;
   }
 
-  .hero-bg {
+  .hero-bg-image {
+    position: absolute;
+    inset: 0;
+    background-color: var(--black);
+    overflow: hidden;
+  }
+
+  /* REPLACE: swap <img> below with your actual hero photo */
+  .hero-bg-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.25;
+    display: block;
+  }
+
+  .hero-bg-image .img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0d0a14 0%, #1a0d2e 50%, #111111 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .hero-bg-image .img-placeholder span {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.25);
+  }
+
+  .hero-overlay {
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse at 70% 40%, rgba(107,63,160,0.28) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 40%, rgba(107,63,160,0.35) 0%, transparent 60%),
       radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 50%),
-      linear-gradient(160deg, #0a0a0a 0%, #111111 50%, #0d0a14 100%);
+      linear-gradient(to right, rgba(10,10,10,0.92) 40%, rgba(10,10,10,0.4) 100%);
   }
 
   .hero-grid-overlay {
@@ -229,11 +309,7 @@
     padding-top: 2rem;
   }
 
-  .hero-stat {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
+  .hero-stat { display: flex; flex-direction: column; gap: 0.25rem; }
 
   .hero-stat-num {
     font-family: 'Playfair Display', serif;
@@ -307,18 +383,67 @@
 
   .service-card {
     background: var(--dark-2);
-    padding: 2.5rem;
+    padding: 0;
     position: relative;
     transition: background 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* REPLACE: Each .service-photo img src with your actual detail photos */
+  .service-photo {
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: var(--dark-3);
+    position: relative;
+  }
+
+  .service-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    display: block;
+  }
+
+  .service-card:hover .service-photo img { transform: scale(1.04); }
+
+  .service-photo .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.4rem;
+    background: linear-gradient(135deg, var(--dark-3) 0%, var(--dark-2) 100%);
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .service-photo .photo-placeholder .ph-icon {
+    font-size: 2rem;
+    opacity: 0.3;
+  }
+
+  .service-photo .photo-placeholder span {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.3);
+  }
+
+  .service-body {
+    padding: 2.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   .service-card:hover { background: var(--dark-3); }
 
-  .service-card.featured {
-    background: var(--purple-deep);
-    border: 1px solid rgba(201,168,76,0.3);
-  }
-
+  .service-card.featured { background: var(--purple-deep); }
   .service-card.featured:hover { background: var(--purple-mid); }
 
   .service-badge {
@@ -333,6 +458,7 @@
     border-radius: 1px;
     display: inline-block;
     margin-bottom: 1.25rem;
+    width: fit-content;
   }
 
   .service-tier {
@@ -375,6 +501,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    margin-top: auto;
   }
 
   .service-includes li {
@@ -392,120 +519,260 @@
     font-size: 0.75rem;
   }
 
-  /* ABOUT */
-  #about {
-    background: var(--black);
+  /* GALLERY */
+  #gallery { background: var(--black); }
+
+  .gallery-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 4px;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    background: var(--dark-3);
+    cursor: pointer;
+  }
+
+  .gallery-item.tall { grid-row: span 2; }
+
+  /* REPLACE: Each .gallery-item img src with your before/after photos */
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease, filter 0.3s;
+    min-height: 220px;
+  }
+
+  .gallery-item:hover img { transform: scale(1.05); filter: brightness(1.1); }
+
+  .gallery-item .photo-placeholder {
+    width: 100%;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: var(--dark-2);
+    border: 1px solid rgba(201,168,76,0.08);
+  }
+
+  .gallery-item.tall .photo-placeholder { min-height: 448px; }
+
+  .gallery-item .photo-placeholder .ph-icon { font-size: 2.5rem; opacity: 0.2; }
+
+  .gallery-item .photo-placeholder span {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.25);
+  }
+
+  .gallery-item .gallery-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 0.6rem 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .gallery-item:hover .gallery-label { opacity: 1; }
+
+  .gallery-note {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: var(--gray);
+    text-align: center;
+  }
+
+  /* ABOUT PREVIEW */
+  #about-preview {
+    background: var(--purple-deep);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
+    gap: 0;
+    align-items: stretch;
+    padding: 0;
   }
 
-  .about-visual {
+  .about-preview-image {
     position: relative;
-    aspect-ratio: 4/5;
-    background: var(--purple-deep);
+    min-height: 500px;
     overflow: hidden;
+    background: var(--dark);
   }
 
-  .about-visual::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 30% 70%, rgba(201,168,76,0.1) 0%, transparent 60%),
-      linear-gradient(135deg, var(--purple-deep) 0%, #0a0514 100%);
+  /* REPLACE: .about-preview-image img src with your team or shop photo */
+  .about-preview-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.6;
   }
 
-  .about-visual-inner {
-    position: absolute;
-    inset: 0;
+  .about-preview-image .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 1rem;
+    background: linear-gradient(135deg, #0a0514 0%, var(--purple-mid) 100%);
   }
 
-  .about-logo-large {
+  .about-preview-image .photo-placeholder .rd-mark {
     font-family: 'Playfair Display', serif;
     font-weight: 900;
-    font-size: 3.5rem;
-    color: rgba(201,168,76,0.6);
-    text-align: center;
+    font-size: 5rem;
+    color: rgba(201,168,76,0.2);
     line-height: 1;
   }
 
-  .about-motto {
+  .about-preview-image .photo-placeholder span {
     font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 500;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: rgba(201,168,76,0.5);
-    text-align: center;
+    color: rgba(201,168,76,0.3);
   }
 
-  .about-corner-label {
-    position: absolute;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(201,168,76,0.4);
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-  }
-
-  .about-content .section-desc { margin-bottom: 2rem; }
-
-  .values-list {
+  .about-preview-content {
+    padding: 5rem 4rem;
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .value-item {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-
-  .value-icon {
-    width: 36px;
-    height: 36px;
-    flex-shrink: 0;
-    background: rgba(107,63,160,0.15);
-    border: 1px solid rgba(201,168,76,0.25);
-    display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
+  }
+
+  .faith-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
     color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 0.3rem 0.9rem;
     border-radius: 2px;
+    margin-bottom: 1.5rem;
+    width: fit-content;
   }
 
-  .value-text strong {
-    display: block;
-    font-weight: 600;
-    font-size: 0.9rem;
+  .about-preview-content .section-title { margin-bottom: 1.25rem; }
+
+  .gold-divider {
+    width: 48px;
+    height: 2px;
+    background: var(--gold);
+    margin: 1.5rem 0;
+  }
+
+  .about-preview-content p {
+    font-weight: 300;
+    font-size: 0.98rem;
+    line-height: 1.8;
+    color: var(--gray-light);
+    margin-bottom: 1.25rem;
+  }
+
+  .about-preview-content .scripture {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(201,168,76,0.7);
+    border-left: 2px solid var(--gold);
+    padding-left: 1rem;
+    margin: 1.5rem 0 2rem;
+    line-height: 1.6;
+  }
+
+  /* PROCESS */
+  #process {
+    background: var(--dark);
+    padding: 5rem 4rem;
+  }
+
+  .process-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .process-header .section-label { justify-content: center; }
+  .process-header .section-title { text-align: center; }
+
+  .process-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .process-step {
+    padding: 2.5rem 2rem;
+    border-right: 1px solid rgba(201,168,76,0.15);
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .process-step:hover { background: rgba(201,168,76,0.03); }
+  .process-step:last-child { border-right: none; }
+
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    color: rgba(201,168,76,0.15);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: var(--white);
-    margin-bottom: 0.15rem;
+    margin-bottom: 0.5rem;
   }
 
-  .value-text p {
+  .step-desc {
     font-size: 0.85rem;
     font-weight: 300;
-    color: var(--gray);
-    line-height: 1.5;
+    color: rgba(248,245,240,0.55);
+    line-height: 1.6;
   }
 
   /* MEMBERSHIP */
   #membership {
-    background: var(--dark);
+    background: var(--black);
     text-align: center;
   }
 
@@ -615,7 +882,7 @@
   .featured-plan .plan-cta:hover { background: var(--gold-light); border-color: var(--gold-light); }
 
   /* ADD-ONS */
-  #addons { background: var(--black); }
+  #addons { background: var(--dark); }
 
   .addons-grid {
     display: grid;
@@ -654,6 +921,65 @@
     font-weight: 300;
     color: var(--gray);
     line-height: 1.55;
+  }
+
+  /* COMMUNITY BANNER */
+  #community {
+    background: linear-gradient(135deg, var(--purple-deep) 0%, #0d0a18 100%);
+    padding: 5rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #community::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .community-inner { position: relative; z-index: 1; }
+
+  .community-inner .section-label { justify-content: center; }
+
+  .community-stat-row {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+  }
+
+  .community-stat .num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+  }
+
+  .community-stat .lbl {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gray-light);
+    display: block;
+    margin-top: 0.4rem;
+  }
+
+  .community-inner p {
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--gray-light);
   }
 
   /* CONTACT */
@@ -716,7 +1042,6 @@
   .form-group textarea:focus { border-color: var(--gold); }
 
   .form-group select option { background: var(--dark-3); }
-
   .form-group textarea { resize: vertical; min-height: 100px; }
 
   .form-submit {
@@ -739,7 +1064,6 @@
   .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
 
   .contact-info { padding-top: 0.5rem; }
-
   .contact-info .section-desc { margin-bottom: 2.5rem; }
 
   .contact-details {
@@ -783,6 +1107,7 @@
     color: var(--gray);
   }
 
+  /* SOCIAL LINKS WITH ICONS */
   .social-links {
     display: flex;
     gap: 0.75rem;
@@ -790,6 +1115,9 @@
   }
 
   .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 600;
     font-size: 0.72rem;
@@ -801,59 +1129,138 @@
     padding: 0.45rem 1rem;
     border-radius: 2px;
     text-decoration: none;
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
   }
 
   .social-link:hover { background: var(--gold); color: var(--black); }
+  .social-link:hover svg path,
+  .social-link:hover svg rect,
+  .social-link:hover svg circle { fill: var(--black); }
+
+  .social-link svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .social-link svg path,
+  .social-link svg rect,
+  .social-link svg circle { fill: var(--gold); transition: fill 0.2s; }
 
   /* FOOTER */
   footer {
     background: var(--black);
     border-top: 1px solid rgba(201,168,76,0.12);
-    padding: 3rem 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+    padding: 3.5rem 4rem 2rem;
   }
 
-  .footer-logo {
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+    margin-bottom: 2rem;
+  }
+
+  .footer-brand .footer-logo-mark {
+    width: 44px;
+    height: 44px;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-brand .footer-logo-mark span {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--black);
+  }
+
+  .footer-brand .footer-name {
     font-family: 'Playfair Display', serif;
     font-weight: 900;
     font-size: 1.3rem;
     color: var(--white);
   }
 
-  .footer-logo span { color: var(--gold); }
+  .footer-brand .footer-name em { color: var(--gold); font-style: normal; }
 
-  .footer-motto {
+  .footer-brand .footer-motto {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--gray);
-    margin-top: 0.2rem;
+    margin-top: 0.25rem;
+  }
+
+  .footer-col-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
   }
 
   .footer-links {
-    display: flex;
-    gap: 2rem;
     list-style: none;
-    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
   }
 
   .footer-links a {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gray);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--gray-light);
     text-decoration: none;
     transition: color 0.2s;
   }
 
   .footer-links a:hover { color: var(--gold); }
+
+  .footer-social {
+    display: flex;
+    gap: 0.6rem;
+  }
+
+  .footer-social-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+    text-decoration: none;
+  }
+
+  .footer-social-btn:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .footer-social-btn svg { width: 16px; height: 16px; }
+  .footer-social-btn svg path,
+  .footer-social-btn svg rect,
+  .footer-social-btn svg circle { fill: var(--gold); transition: fill 0.2s; }
+  .footer-social-btn:hover svg path,
+  .footer-social-btn:hover svg rect,
+  .footer-social-btn:hover svg circle { fill: var(--black); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
 
   .footer-copy {
     font-size: 0.78rem;
@@ -861,59 +1268,12 @@
     color: rgba(136,136,128,0.5);
   }
 
-  /* DIVIDER */
-  .gold-divider {
-    width: 48px;
-    height: 2px;
-    background: var(--gold);
-    margin: 1.5rem 0;
-  }
-
-  /* PROCESS STRIP */
-  #process {
-    background: var(--purple-deep);
-    padding: 4rem;
-  }
-
-  .process-strip {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    position: relative;
-  }
-
-  .process-step {
-    padding: 2rem 1.5rem;
-    border-right: 1px solid rgba(201,168,76,0.15);
-    position: relative;
-  }
-
-  .process-step:last-child { border-right: none; }
-
-  .step-num {
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
-    font-size: 3.5rem;
-    color: rgba(201,168,76,0.15);
-    line-height: 1;
-    margin-bottom: 0.75rem;
-  }
-
-  .step-title {
+  .footer-faith {
     font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: 0.1em;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--white);
-    margin-bottom: 0.5rem;
-  }
-
-  .step-desc {
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: rgba(248,245,240,0.55);
-    line-height: 1.6;
+    color: rgba(201,168,76,0.35);
   }
 
   /* MOBILE */
@@ -923,42 +1283,63 @@
     section { padding: 4rem 1.5rem; }
     .hero { padding: 0 1.5rem; }
     .hero h1 { font-size: 2.8rem; }
-    .hero-stat-row { left: 1.5rem; right: 1.5rem; gap: 1.5rem; }
+    .hero-stat-row { left: 1.5rem; right: 1.5rem; gap: 1.5rem; bottom: 1.5rem; }
     .services-grid { grid-template-columns: 1fr; }
-    #about { grid-template-columns: 1fr; gap: 3rem; }
-    .about-visual { aspect-ratio: 16/9; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-item.tall { grid-row: span 1; }
+    #about-preview { grid-template-columns: 1fr; }
+    .about-preview-image { min-height: 280px; }
+    .about-preview-content { padding: 3rem 1.5rem; }
     .plans-grid { grid-template-columns: 1fr; }
     #contact { grid-template-columns: 1fr; gap: 3rem; }
-    footer { flex-direction: column; align-items: flex-start; padding: 2.5rem 1.5rem; }
+    footer { padding: 3rem 1.5rem 2rem; }
+    .footer-top { gap: 2rem; }
     .process-strip { grid-template-columns: 1fr 1fr; }
     #process { padding: 3rem 1.5rem; }
     .form-row { grid-template-columns: 1fr; }
+    .community-stat-row { gap: 2.5rem; }
+    #community { padding: 4rem 1.5rem; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
   }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">Reclaimed<span>.</span></a>
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark"><span>RD</span></div>
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">Reclaimed<em>.</em></span>
+      <span class="nav-logo-tagline">Premium Detailing · Montgomery, AL</span>
+    </div>
+  </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
-    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="about.html">About Us</a></li>
     <li><a href="#membership">Memberships</a></li>
-    <li><a href="#contact">Book Now</a></li>
-    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+    <li><a href="#contact" class="nav-cta">Book Now</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-bg"></div>
+  <div class="hero-bg-image">
+    <!-- REPLACE: add your hero background photo -->
+    <!-- <img src="images/hero-bg.jpg" alt="Reclaimed Detailers at work"> -->
+    <div class="img-placeholder">
+      <span>Hero Background Photo</span>
+      <span style="font-size:0.6rem; color:rgba(201,168,76,0.15);">Replace with your best detail shot</span>
+    </div>
+  </div>
+  <div class="hero-overlay"></div>
   <div class="hero-grid-overlay"></div>
 
   <div class="hero-content">
-    <div class="hero-eyebrow">Premium Automotive Detailing — Montgomery, AL</div>
+    <div class="hero-eyebrow">Premium Mobile Detailing — Montgomery, AL</div>
     <h1>Restored.<br><em>Refined.</em><br>Reclaimed.</h1>
-    <p class="hero-sub">We bring vehicles back to life with precision craftsmanship, premium products, and a commitment to results that speak for themselves.</p>
+    <p class="hero-sub">We bring vehicles back to life with precision craftsmanship, premium products, and a commitment to results that speak for themselves. Faith-driven. Community-focused. Excellence guaranteed.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Book a Detail</a>
       <a href="#services" class="btn-outline">View Packages</a>
@@ -975,8 +1356,8 @@
       <span class="hero-stat-label">Premium Products</span>
     </div>
     <div class="hero-stat">
-      <span class="hero-stat-num">Faith</span>
-      <span class="hero-stat-label">Driven Service</span>
+      <span class="hero-stat-num">20%</span>
+      <span class="hero-stat-label">Given to Charity</span>
     </div>
     <div class="hero-stat">
       <span class="hero-stat-num">Mobile</span>
@@ -993,55 +1374,163 @@
 
   <div class="services-grid">
     <div class="service-card">
-      <div class="service-tier">Tier 01</div>
-      <div class="service-name">Renewal</div>
-      <div class="service-price">Starting at $80</div>
-      <p class="service-desc">The perfect maintenance detail for customers who want their vehicle consistently clean and protected. Built for regular visits.</p>
-      <ul class="service-includes">
-        <li>Exterior hand wash</li>
-        <li>Wheel cleaning & tire shine</li>
-        <li>Full vacuum</li>
-        <li>Interior wipe-down</li>
-        <li>Window cleaning</li>
-        <li>Light touch-up detailing</li>
-      </ul>
+      <div class="service-photo">
+        <!-- REPLACE: <img src="images/renewal-detail.jpg" alt="Renewal maintenance detail"> -->
+        <div class="photo-placeholder">
+          <span class="ph-icon">🚗</span>
+          <span>Add Renewal Photo</span>
+        </div>
+      </div>
+      <div class="service-body">
+        <div class="service-tier">Tier 01</div>
+        <div class="service-name">Renewal</div>
+        <div class="service-price">Starting at $80</div>
+        <p class="service-desc">The perfect maintenance detail for customers who want their vehicle consistently clean and protected. Built for regular visits.</p>
+        <ul class="service-includes">
+          <li>Exterior hand wash</li>
+          <li>Wheel cleaning &amp; tire shine</li>
+          <li>Full vacuum</li>
+          <li>Interior wipe-down</li>
+          <li>Window cleaning</li>
+          <li>Light touch-up detailing</li>
+        </ul>
+      </div>
     </div>
 
     <div class="service-card featured">
-      <div class="service-badge">Most Popular</div>
-      <div class="service-tier">Tier 02</div>
-      <div class="service-name">Restored</div>
-      <div class="service-price">Starting at $150</div>
-      <p class="service-desc">A comprehensive deep-clean combining full exterior treatment with thorough interior work. Ideal for seasonal refreshes and mid-tier customers.</p>
-      <ul class="service-includes">
-        <li>Deep exterior wash + clay treatment</li>
-        <li>Decontamination & spray protection</li>
-        <li>Door jambs & exterior glass</li>
-        <li>Deep vacuum & interior wipe-down</li>
-        <li>Stain treatment & carpet care</li>
-        <li>Plastic protection & window clean</li>
-      </ul>
+      <div class="service-photo">
+        <!-- REPLACE: <img src="images/restored-detail.jpg" alt="Restored deep clean detail"> -->
+        <div class="photo-placeholder">
+          <span class="ph-icon">✨</span>
+          <span>Add Restored Photo</span>
+        </div>
+      </div>
+      <div class="service-body">
+        <div class="service-badge">Most Popular</div>
+        <div class="service-tier">Tier 02</div>
+        <div class="service-name">Restored</div>
+        <div class="service-price">Starting at $150</div>
+        <p class="service-desc">A comprehensive deep-clean combining full exterior treatment with thorough interior work. Ideal for seasonal refreshes and mid-tier customers.</p>
+        <ul class="service-includes">
+          <li>Deep exterior wash + clay treatment</li>
+          <li>Decontamination &amp; spray protection</li>
+          <li>Door jambs &amp; exterior glass</li>
+          <li>Deep vacuum &amp; interior wipe-down</li>
+          <li>Stain treatment &amp; carpet care</li>
+          <li>Plastic protection &amp; window clean</li>
+        </ul>
+      </div>
     </div>
 
     <div class="service-card">
-      <div class="service-tier">Tier 03</div>
-      <div class="service-name">Reclaimed</div>
-      <div class="service-price">Starting at $500</div>
-      <p class="service-desc">Our signature full-restoration experience. No corner left untouched. For neglected vehicles, high-end clients, and total transformations.</p>
-      <ul class="service-includes">
-        <li>Full deep-clean restoration</li>
-        <li>Steam cleaning & carpet extraction</li>
-        <li>Paint decontamination & clay bar</li>
-        <li>Engine bay cleaning</li>
-        <li>Odor treatment & trim restoration</li>
-        <li>High-end protection applied</li>
-      </ul>
+      <div class="service-photo">
+        <!-- REPLACE: <img src="images/reclaimed-detail.jpg" alt="Reclaimed full restoration detail"> -->
+        <div class="photo-placeholder">
+          <span class="ph-icon">🏆</span>
+          <span>Add Reclaimed Photo</span>
+        </div>
+      </div>
+      <div class="service-body">
+        <div class="service-tier">Tier 03</div>
+        <div class="service-name">Reclaimed</div>
+        <div class="service-price">Starting at $500</div>
+        <p class="service-desc">Our signature full-restoration experience. No corner left untouched. For neglected vehicles, high-end clients, and total transformations.</p>
+        <ul class="service-includes">
+          <li>Full deep-clean restoration</li>
+          <li>Steam cleaning &amp; carpet extraction</li>
+          <li>Paint decontamination &amp; clay bar</li>
+          <li>Engine bay cleaning</li>
+          <li>Odor treatment &amp; trim restoration</li>
+          <li>High-end protection applied</li>
+        </ul>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-intro">
+    <div>
+      <div class="section-label">Our Work</div>
+      <h2 class="section-title">Before &amp; After</h2>
+    </div>
+    <a href="#contact" class="btn-outline">Book Your Detail</a>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-item tall">
+      <!-- REPLACE: <img src="images/gallery-1.jpg" alt="Full restoration before and after"> -->
+      <div class="photo-placeholder">
+        <span class="ph-icon">📷</span>
+        <span>Before / After Photo</span>
+      </div>
+      <div class="gallery-label">Full Restoration</div>
+    </div>
+    <div class="gallery-item">
+      <!-- REPLACE: <img src="images/gallery-2.jpg" alt="Interior deep clean"> -->
+      <div class="photo-placeholder">
+        <span class="ph-icon">📷</span>
+        <span>Interior Detail</span>
+      </div>
+      <div class="gallery-label">Interior Deep Clean</div>
+    </div>
+    <div class="gallery-item">
+      <!-- REPLACE: <img src="images/gallery-3.jpg" alt="Exterior paint treatment"> -->
+      <div class="photo-placeholder">
+        <span class="ph-icon">📷</span>
+        <span>Paint Treatment</span>
+      </div>
+      <div class="gallery-label">Exterior Treatment</div>
+    </div>
+    <div class="gallery-item">
+      <!-- REPLACE: <img src="images/gallery-4.jpg" alt="Wheel and tire detail"> -->
+      <div class="photo-placeholder">
+        <span class="ph-icon">📷</span>
+        <span>Wheel Detail</span>
+      </div>
+      <div class="gallery-label">Wheels &amp; Tires</div>
+    </div>
+    <div class="gallery-item">
+      <!-- REPLACE: <img src="images/gallery-5.jpg" alt="Ceramic coating application"> -->
+      <div class="photo-placeholder">
+        <span class="ph-icon">📷</span>
+        <span>Ceramic Coating</span>
+      </div>
+      <div class="gallery-label">Ceramic Coating</div>
+    </div>
+  </div>
+  <p class="gallery-note">Follow us on <a href="https://www.instagram.com/reclaimeddetailers" target="_blank" rel="noopener" style="color:var(--gold); text-decoration:none;">Instagram</a> to see our latest transformations.</p>
+</section>
+
+<!-- ABOUT PREVIEW -->
+<section id="about-preview">
+  <div class="about-preview-image">
+    <!-- REPLACE: <img src="images/team-photo.jpg" alt="Reclaimed Detailers team"> -->
+    <div class="photo-placeholder">
+      <div class="rd-mark">RD</div>
+      <span>Add Team / Shop Photo</span>
+    </div>
+  </div>
+
+  <div class="about-preview-content">
+    <span class="faith-badge">✝ Christian-Owned Business</span>
+    <div class="section-label">Our Story</div>
+    <h2 class="section-title">Built on Faith.<br>Driven by Purpose.</h2>
+    <div class="gold-divider"></div>
+    <p>Reclaimed Detailers was founded on a simple conviction — that honest work, done with excellence, glorifies God. We're not just a detailing company; we're a mission-driven business that pours integrity into every vehicle we touch.</p>
+    <blockquote class="scripture">"Whatever you do, work heartily, as for the Lord and not for men." — Colossians 3:23</blockquote>
+    <p>We give 20% of every transaction to charitable causes, support local community events, and are committed to being a positive force in Montgomery, AL and beyond.</p>
+    <a href="about.html" class="btn-primary">Our Full Story</a>
   </div>
 </section>
 
 <!-- PROCESS -->
 <section id="process">
+  <div class="process-header">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Simple, Seamless, Professional</h2>
+  </div>
   <div class="process-strip">
     <div class="process-step">
       <div class="step-num">01</div>
@@ -1063,50 +1552,6 @@
       <div class="step-title">Drive Proud</div>
       <p class="step-desc">You receive after-care recommendations and a follow-up from us. Your satisfaction is the job.</p>
     </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-visual">
-    <div class="about-visual-inner">
-      <div class="about-logo-large">RD</div>
-      <div class="about-motto">Restored · Refined · Reclaimed</div>
-    </div>
-    <div class="about-corner-label">Est. Reclaimed Detailers</div>
-  </div>
-
-  <div class="about-content">
-    <div class="section-label">Our Story</div>
-    <h2 class="section-title">Built on Integrity,<br>Driven by Craft</h2>
-    <div class="gold-divider"></div>
-    <p class="section-desc">Reclaimed Detailers is a Christian-owned premium mobile detailing business founded on the belief that honest work and exceptional quality are never in conflict. Every vehicle we touch is treated like it matters — because to our customers, it does.</p>
-
-    <div class="values-list">
-      <div class="value-item">
-        <div class="value-icon">✝</div>
-        <div class="value-text">
-          <strong>Faith-Driven Business</strong>
-          <p>We operate with honesty, integrity, and the standard of excellence that reflects our values in every job.</p>
-        </div>
-      </div>
-      <div class="value-item">
-        <div class="value-icon">◈</div>
-        <div class="value-text">
-          <strong>Premium, Not Cheapest</strong>
-          <p>We don't compete on price. We compete on results, professionalism, and the trust of long-term relationships.</p>
-        </div>
-      </div>
-      <div class="value-item">
-        <div class="value-icon">⟳</div>
-        <div class="value-text">
-          <strong>Restoration Focused</strong>
-          <p>Our brand is built around bringing things back to life — vehicles, pride of ownership, and peace of mind.</p>
-        </div>
-      </div>
-    </div>
-
-    <a href="#contact" class="btn-primary">Work With Us</a>
   </div>
 </section>
 
@@ -1150,7 +1595,7 @@
 <!-- ADD-ONS -->
 <section id="addons">
   <div class="section-label">Protection Upgrades</div>
-  <h2 class="section-title">Covenant Coatings & Add-Ons</h2>
+  <h2 class="section-title">Covenant Coatings &amp; Add-Ons</h2>
   <p class="section-desc">Long-term protection services to go beyond the detail. Ask about pricing and availability when booking.</p>
 
   <div class="addons-grid">
@@ -1187,6 +1632,32 @@
   </div>
 </section>
 
+<!-- COMMUNITY BANNER -->
+<section id="community">
+  <div class="community-inner">
+    <div class="section-label">Giving Back</div>
+    <h2 class="section-title" style="text-align:center;">More Than a Detail.<br><em style="font-style:italic; color:var(--gold);">A Purpose.</em></h2>
+
+    <div class="community-stat-row">
+      <div class="community-stat">
+        <span class="num">20%</span>
+        <span class="lbl">Of Every Transaction<br>to Charitable Causes</span>
+      </div>
+      <div class="community-stat">
+        <span class="num">Local</span>
+        <span class="lbl">Car Events &amp;<br>Trunk-or-Treats</span>
+      </div>
+      <div class="community-stat">
+        <span class="num">Faith</span>
+        <span class="lbl">First in Everything<br>We Do</span>
+      </div>
+    </div>
+
+    <p>Every time you book with Reclaimed Detailers, you're part of something bigger. We believe business done right is business done generously.</p>
+    <a href="about.html" class="btn-primary">Learn More About Our Mission</a>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-info">
@@ -1200,14 +1671,14 @@
         <div class="contact-detail-icon">📍</div>
         <div class="contact-detail-text">
           <strong>Service Area</strong>
-          <p>Montgomery, Alabama & surrounding areas</p>
+          <p>Montgomery, Alabama &amp; surrounding areas</p>
         </div>
       </div>
       <div class="contact-detail">
         <div class="contact-detail-icon">📞</div>
         <div class="contact-detail-text">
-          <strong>Phone</strong>
-          <p>Contact Us Via Text: (334) 640-1831</p>
+          <strong>Phone / Text</strong>
+          <p>(334) 640-1831</p>
         </div>
       </div>
       <div class="contact-detail">
@@ -1220,10 +1691,26 @@
     </div>
 
     <div class="social-links">
-      <a href="https://www.instagram.com/reclaimeddetailers" target="_blank" rel="noopener" class="social-link">Instagram</a>
-      <a href="https://www.facebook.com/reclaimeddetailers" target="_blank" rel="noopener" class="social-link">Facebook</a>
-      <a href="https://www.tiktok.com/@reclaimeddetailers" target="_blank" rel="noopener" class="social-link">TikTok</a>
-      <a href="https://search.google.com/local/writereview?placeid=ChIJN1t_tDeuEmsRUsdiY1GsDjY" target="_blank" rel="noopener" class="social-link">Leave a Review</a>
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/reclaimeddetailers" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram
+      </a>
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/reclaimeddetailers" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </a>
+      <!-- TikTok -->
+      <a href="https://www.tiktok.com/@reclaimeddetailers" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        TikTok
+      </a>
+      <!-- Google Review -->
+      <a href="https://search.google.com/local/writereview?placeid=ChIJN1t_tDeuEmsRUsdiY1GsDjY" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        Leave a Review
+      </a>
     </div>
   </div>
 
@@ -1249,11 +1736,11 @@
       </div>
       <div class="form-group">
         <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="Phone Number" placeholder="Phone Number">
+        <input type="tel" id="phone" name="Phone Number" placeholder="(334) 000-0000">
       </div>
       <div class="form-group">
         <label for="email">Email Address</label>
-        <input type="email" id="email" name="Email Address" placeholder="Email Address" required>
+        <input type="email" id="email" name="Email Address" placeholder="you@email.com" required>
       </div>
       <div class="form-group">
         <label for="vehicle">Vehicle (Year, Make, Model)</label>
@@ -1285,26 +1772,60 @@
 
 <!-- FOOTER -->
 <footer>
-  <div>
-    <div class="footer-logo">Reclaimed<span>.</span></div>
-    <div class="footer-motto">Restored · Refined · Reclaimed</div>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-mark"><span>RD</span></div>
+      <div class="footer-name">Reclaimed<em>.</em></div>
+      <div class="footer-motto">Restored · Refined · Reclaimed</div>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="#membership">Memberships</a></li>
+        <li><a href="#addons">Add-Ons</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="tel:3346401831">(334) 640-1831</a></li>
+        <li><a href="mailto:reclaimeddetailers@outlook.com">reclaimeddetailers@outlook.com</a></li>
+        <li style="color:var(--gray); font-size:0.88rem; font-weight:300;">Montgomery, Alabama</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Follow Us</div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/reclaimeddetailers" target="_blank" rel="noopener" class="footer-social-btn" title="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/reclaimeddetailers" target="_blank" rel="noopener" class="footer-social-btn" title="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@reclaimeddetailers" target="_blank" rel="noopener" class="footer-social-btn" title="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+      </div>
+    </div>
   </div>
-  <ul class="footer-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#membership">Memberships</a></li>
-    <li><a href="#contact">Book Now</a></li>
-  </ul>
-  <p class="footer-copy">© 2025 Reclaimed Detailers LLC · Montgomery, AL</p>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Reclaimed Detailers LLC · Montgomery, AL</p>
+    <span class="footer-faith">✝ Faith-Driven · Community-Focused · Excellence in Every Detail</span>
+  </div>
 </footer>
 
 <script>
-  // Nav scroll effect
+  // Nav scroll shrink
   window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    nav.style.padding = window.scrollY > 60
-      ? '0.85rem 4rem'
-      : '1.25rem 4rem';
+    const nav = document.getElementById('main-nav');
+    nav.style.padding = window.scrollY > 60 ? '0.75rem 4rem' : '1.25rem 4rem';
   });
 
   // Fade-in on scroll
@@ -1315,12 +1836,12 @@
         e.target.style.transform = 'translateY(0)';
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08 });
 
-  document.querySelectorAll('.service-card, .plan-card, .addon-item, .process-step, .value-item').forEach(el => {
+  document.querySelectorAll('.service-card, .plan-card, .addon-item, .process-step, .value-item, .gallery-item, .community-stat').forEach(el => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
     observer.observe(el);
   });
 </script>
