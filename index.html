@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="copyright" content="© 2025 Reclaimed Detailers LLC. All Rights Reserved.">
+<meta name="description" content="Reclaimed Detailers LLC — premium mobile auto detailing in Montgomery, AL. Restored. Refined. Reclaimed.">
+<meta property="og:title" content="Reclaimed Detailers | Restored. Refined. Reclaimed.">
+<meta property="og:description" content="Faith-driven mobile auto detailing in Montgomery, AL. Book a detail today.">
+<meta property="og:type" content="website">
 <title>Reclaimed Detailers | Restored. Refined. Reclaimed.</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
 <style>
@@ -1299,6 +1304,25 @@
   .footer-copy { font-size: 0.76rem; font-weight: 300; color: rgba(245,243,240,0.3); }
   .footer-faith { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(155,92,228,0.5); }
 
+  /* ── ADA / ACCESSIBILITY ── */
+  .skip-link {
+    position: absolute; top: -48px; left: 1rem;
+    background: var(--purple); color: #fff;
+    padding: 0.5rem 1.25rem; border-radius: 0 0 6px 6px;
+    font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 0.9rem;
+    text-decoration: none; z-index: 9999; transition: top 0.2s ease;
+  }
+  .skip-link:focus { top: 0; }
+
+  :focus-visible {
+    outline: 3px solid var(--purple) !important;
+    outline-offset: 3px; border-radius: 3px;
+  }
+  [data-theme="dark"] :focus-visible { outline-color: var(--gold-light) !important; }
+  .hamburger:focus-visible, .theme-toggle:focus-visible, .sidebar-close:focus-visible {
+    outline: 3px solid var(--purple); outline-offset: 3px; border-radius: 4px;
+  }
+
   /* ── MOBILE ── */
   @media (max-width: 900px) {
     nav { padding: 0.85rem 1.25rem; }
@@ -1331,6 +1355,8 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <!-- Scroll progress bar -->
 <div class="page-indicator"><div class="page-indicator-fill" id="progress-fill"></div></div>
 
@@ -1338,7 +1364,7 @@
 <div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
 
 <!-- Sidebar -->
-<aside class="sidebar" id="sidebar">
+<aside class="sidebar" id="sidebar" role="dialog" aria-modal="true" aria-label="Navigation menu">
   <div class="sidebar-header">
     <a href="index.html" class="sidebar-logo" onclick="closeSidebar()">
       <svg width="32" height="32" viewBox="0 0 100 100">
@@ -1378,14 +1404,14 @@
 </aside>
 
 <!-- NAV -->
-<nav id="main-nav">
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
   <div class="nav-left">
-    <button class="hamburger" id="hamburger-btn" onclick="toggleSidebar()" aria-label="Menu">
+    <button class="hamburger" id="hamburger-btn" onclick="toggleSidebar()" aria-label="Open navigation menu" aria-expanded="false" aria-controls="sidebar">
       <span></span><span></span><span></span>
     </button>
     <a href="index.html" class="nav-logo">
       <!-- Inline SVG logo mark matching your brand -->
-      <svg class="nav-logo-svg" width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <svg class="nav-logo-svg" width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
         <circle cx="50" cy="50" r="47" fill="none" stroke="#7b35c4" stroke-width="2.5"/>
         <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(123,53,196,0.25)" stroke-width="1"/>
         <!-- Crown -->
@@ -1417,11 +1443,14 @@
     <li><a href="#contact" class="nav-cta">Book Now</a></li>
   </ul>
 
-  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Switch to dark mode" id="theme-toggle-btn">
     <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
   </button>
 </nav>
+
+<!-- MAIN CONTENT -->
+<main id="main-content" role="main">
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -1715,8 +1744,10 @@
       <div class="footer-col-title">Navigate</div>
       <ul class="footer-links">
         <li><a href="#services">Services</a></li><li><a href="#gallery">Gallery</a></li>
-        <li><a href="about.html">About Us</a></li><li><a href="#membership">Memberships</a></li>
-        <li><a href="#addons">Add-Ons</a></li>
+        <li><a href="about.html">About Us</a></li><li><a href="showcase.html">3D Showcase</a></li>
+        <li><a href="membership.html">Memberships</a></li><li><a href="#addons">Add-Ons</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
       </ul>
     </div>
 
@@ -1749,7 +1780,17 @@
     <p class="footer-copy">© 2025 Reclaimed Detailers LLC · Montgomery, AL</p>
     <span class="footer-faith">✝ Faith-Driven · Community-Focused · Excellence in Every Detail</span>
   </div>
+  <div style="text-align:center; margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid rgba(123,53,196,0.15);">
+    <p style="font-size:0.72rem; color:rgba(245,243,240,0.3); line-height:1.8;">
+      &copy; 2025 Reclaimed Detailers LLC. All Rights Reserved. &nbsp;·&nbsp; Montgomery, Alabama<br>
+      All content, logos, and branding are the intellectual property of Reclaimed Detailers LLC and may not be reproduced without written permission.<br>
+      <a href="privacy-policy.html" style="color:rgba(155,92,228,0.6); text-decoration:none;">Privacy Policy</a>
+      &nbsp;&middot;&nbsp;
+      <a href="terms-conditions.html" style="color:rgba(155,92,228,0.6); text-decoration:none;">Terms &amp; Conditions</a>
+    </p>
+  </div>
 </footer>
+</main>
 
 <script>
   /* ── THEME ── */
@@ -1761,6 +1802,8 @@
     const next = curr === 'light' ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('rd-theme', next);
+    const btn = document.getElementById('theme-toggle-btn');
+    if (btn) btn.setAttribute('aria-label', next === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
   }
 
   /* ── SIDEBAR ── */
@@ -1771,12 +1814,17 @@
     const open    = sidebar.classList.toggle('open');
     overlay.classList.toggle('open', open);
     btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
     document.body.style.overflow = open ? 'hidden' : '';
+    if (open) { setTimeout(() => document.querySelector('#sidebar .sidebar-close')?.focus(), 100); }
   }
 
   function closeSidebar() {
     document.getElementById('sidebar').classList.remove('open');
     document.getElementById('sidebar-overlay').classList.remove('open');
+    document.getElementById('hamburger-btn').setAttribute('aria-expanded', 'false');
+    document.getElementById('hamburger-btn').setAttribute('aria-label', 'Open navigation menu');
     document.getElementById('hamburger-btn').classList.remove('open');
     document.body.style.overflow = '';
   }
