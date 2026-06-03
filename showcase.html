@@ -32,6 +32,9 @@
   body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; transition: var(--transition); }
 
   /* NAV */
+  :focus-visible { outline: 3px solid var(--purple) !important; outline-offset: 3px; border-radius: 3px; }
+  [data-theme="dark"] :focus-visible { outline-color: var(--gold-light) !important; }
+
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -343,7 +346,9 @@
 </head>
 <body>
 
-<nav>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-48px;left:1rem;background:#7b35c4;color:#fff;padding:0.5rem 1.25rem;border-radius:0 0 6px 6px;font-family:'Barlow',sans-serif;font-weight:700;font-size:0.9rem;text-decoration:none;z-index:9999;transition:top 0.2s ease;">Skip to main content</a>
+
+<nav role="navigation" aria-label="Main navigation">
   <a href="index.html" class="nav-logo">
     <svg width="40" height="40" viewBox="0 0 100 100">
       <circle cx="50" cy="50" r="47" fill="none" stroke="#7b35c4" stroke-width="2.5"/>
@@ -359,11 +364,13 @@
     <li><a href="membership.html">Membership</a></li>
     <li><a href="index.html#contact" class="nav-cta">Book Now</a></li>
   </ul>
-  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
-    <svg id="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    <svg id="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  <button class="theme-toggle" id="sc-theme-toggle" onclick="toggleTheme()" aria-label="Switch to dark mode">
+    <svg id="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg id="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
   </button>
 </nav>
+
+<main id="main-content" role="main">
 
 <div class="showcase-hero">
   <div class="eyebrow">
@@ -375,7 +382,7 @@
 </div>
 
 <div class="viewer-wrap">
-  <canvas id="car-canvas"></canvas>
+  <canvas id="car-canvas" role="img" aria-label="Interactive 3D car viewer. Use mouse to drag and rotate the vehicle, scroll to zoom in and out."></canvas>
   <div class="viewer-hint">⟳ Drag to rotate · Scroll to zoom</div>
 </div>
 
@@ -446,9 +453,17 @@
   <a href="index.html#services" class="btn-outline">View Packages</a>
 </div>
 
-<footer>
-  <span>© 2025 Reclaimed Detailers LLC · Montgomery, AL</span>
-  <span>✝ Faith-Driven · Excellence in Every Detail</span>
+</main>
+
+<footer role="contentinfo" style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;">
+  <div style="display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;">
+    <span>© 2025 Reclaimed Detailers LLC · Montgomery, AL</span>
+    <span>✝ Faith-Driven · Excellence in Every Detail</span>
+  </div>
+  <div style="font-size:0.7rem;opacity:0.5;display:flex;gap:1rem;">
+    <a href="privacy-policy.html" style="color:inherit;">Privacy Policy</a>
+    <a href="terms-conditions.html" style="color:inherit;">Terms &amp; Conditions</a>
+  </div>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -464,6 +479,8 @@ function toggleTheme() {
   localStorage.setItem('rd-theme', next);
   document.getElementById('icon-moon').style.display = next==='dark'?'none':'block';
   document.getElementById('icon-sun').style.display  = next==='dark'?'block':'none';
+  const btn = document.getElementById('sc-theme-toggle');
+  if (btn) btn.setAttribute('aria-label', next === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
 }
 
 /* ── THREE.JS SCENE ── */

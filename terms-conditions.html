@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms &amp; Conditions | Reclaimed Detailers</title>
+<meta name="copyright" content="© 2025 Reclaimed Detailers LLC">
+<meta name="description" content="Terms and Conditions for Reclaimed Detailers LLC — the rules and guidelines governing use of our website and services.">
+<meta property="og:title" content="Terms &amp; Conditions | Reclaimed Detailers">
+<meta property="og:description" content="Terms and Conditions for Reclaimed Detailers LLC — the rules and guidelines governing use of our website and services.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --purple: #7b35c4;
+    --purple-brand: #9b5ce4;
+    --purple-light: #b07de8;
+    --purple-ring: rgba(123,53,196,0.6);
+    --gold: #b8922a;
+    --gold-light: #d4aa4a;
+    --transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  [data-theme="light"] {
+    --bg: #f4f2ef; --bg-2: #ede9e4; --bg-card: #ffffff;
+    --text: #1c1a18; --text-2: #3a3830; --text-muted: #6a6860; --text-dim: #9a9890;
+    --border: rgba(0,0,0,0.08); --border-gold: rgba(184,146,42,0.35);
+    --shadow: 0 2px 16px rgba(0,0,0,0.08); --nav-bg: rgba(244,242,239,0.96);
+    --purple-section: #1a1020; --purple-section-text: #f4f2ef;
+  }
+
+  [data-theme="dark"] {
+    --bg: #080808; --bg-2: #0f0f0f; --bg-card: #161616;
+    --text: #f5f3f0; --text-2: #eae7e2; --text-muted: #b0ada6; --text-dim: #808078;
+    --border: rgba(255,255,255,0.07); --border-gold: rgba(184,146,42,0.25);
+    --shadow: 0 2px 24px rgba(0,0,0,0.4); --nav-bg: rgba(8,8,8,0.96);
+    --purple-section: #130a22; --purple-section-text: #f5f3f0;
+  }
+
+  /* ── SKIP LINK ── */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 1rem;
+    background: var(--purple);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0 0 4px 4px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+    z-index: 9999;
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 0; }
+
+  /* ── FOCUS STYLES ── */
+  :focus-visible {
+    outline: 3px solid var(--purple);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    transition: var(--transition);
+  }
+
+  /* ── PAGE INDICATOR ── */
+  .page-indicator {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 3px; z-index: 500; background: var(--border);
+  }
+  .page-indicator-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--purple), var(--purple-brand));
+    width: 0%; transition: width 0.1s;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.85rem 3rem;
+    background: var(--nav-bg);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-gold);
+    transition: var(--transition), padding 0.3s;
+    box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+  }
+  .nav-left { display: flex; align-items: center; gap: 1rem; }
+  .hamburger {
+    display: flex; flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 6px; border-radius: 4px;
+    border: none; background: transparent; transition: background 0.2s; flex-shrink: 0;
+  }
+  .hamburger:hover { background: var(--border); }
+  .hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: var(--text); border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s, background 0.35s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 0.6rem; text-decoration: none;
+  }
+  .nav-logo-svg { flex-shrink: 0; }
+  .nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
+  .nav-logo-name {
+    font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.05rem;
+    color: var(--text); letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.35s;
+  }
+  .nav-logo-sub {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.58rem;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--purple-brand); margin-top: 1px;
+  }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.8rem;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted);
+    text-decoration: none; transition: color 0.2s; position: relative; padding-bottom: 2px;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -2px; left: 0;
+    width: 0; height: 1px; background: var(--purple); transition: width 0.25s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--purple); }
+  .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+  .theme-toggle {
+    width: 38px; height: 38px;
+    border: 1px solid var(--border-gold); border-radius: 50%;
+    background: transparent; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: var(--transition), transform 0.3s;
+    color: var(--text); font-size: 1rem; flex-shrink: 0;
+  }
+  .theme-toggle:hover { transform: rotate(20deg); background: var(--border); }
+  .icon-sun  { display: none; }
+  .icon-moon { display: block; }
+  [data-theme="dark"] .icon-sun  { display: block; }
+  [data-theme="dark"] .icon-moon { display: none; }
+
+  /* ── SIDEBAR ── */
+  .sidebar-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+    z-index: 300; opacity: 0; pointer-events: none;
+    transition: opacity 0.3s; backdrop-filter: blur(4px);
+  }
+  .sidebar-overlay.open { opacity: 1; pointer-events: all; }
+
+  .sidebar {
+    position: fixed; top: 0; left: 0; width: 300px; height: 100vh; z-index: 400;
+    background: var(--bg-card); border-right: 1px solid var(--border-gold);
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), background 0.35s;
+    display: flex; flex-direction: column;
+    box-shadow: 4px 0 30px rgba(0,0,0,0.15);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar-header {
+    padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border-gold);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .sidebar-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+  .sidebar-logo-name {
+    font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1rem;
+    color: var(--text); letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .sidebar-logo-sub {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.58rem;
+    letter-spacing: 0.26em; text-transform: uppercase; color: var(--purple-brand);
+    display: block; margin-top: 1px;
+  }
+  .sidebar-close {
+    width: 30px; height: 30px; border: 1px solid var(--border); border-radius: 50%;
+    background: transparent; cursor: pointer; color: var(--text-muted); font-size: 1.1rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, color 0.2s;
+  }
+  .sidebar-close:hover { background: var(--border); color: var(--text); }
+  .sidebar-section-label {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.62rem;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-dim);
+    padding: 1.25rem 1.5rem 0.5rem;
+  }
+  .sidebar-nav { flex: 1; overflow-y: auto; padding-bottom: 1.5rem; }
+  .sidebar-nav a {
+    display: flex; align-items: center; gap: 0.85rem; padding: 0.85rem 1.5rem;
+    text-decoration: none; font-family: 'Barlow', sans-serif; font-weight: 500; font-size: 0.95rem;
+    color: var(--text-muted);
+    transition: background 0.2s, color 0.2s, padding-left 0.2s;
+    border-left: 3px solid transparent;
+  }
+  .sidebar-nav a .nav-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--border); flex-shrink: 0; transition: background 0.2s, transform 0.2s;
+  }
+  .sidebar-nav a:hover { background: var(--bg-2); color: var(--text); padding-left: 1.75rem; }
+  .sidebar-nav a.active {
+    color: var(--purple); border-left-color: var(--purple);
+    background: rgba(123,53,196,0.06); font-weight: 600;
+  }
+  .sidebar-nav a.active .nav-dot { background: var(--purple); transform: scale(1.4); }
+  .sidebar-footer { padding: 1.25rem 1.5rem; border-top: 1px solid var(--border); }
+  .sidebar-contact-item {
+    display: flex; align-items: center; gap: 0.6rem; font-size: 0.82rem;
+    color: var(--text-muted); margin-bottom: 0.6rem; text-decoration: none; transition: color 0.2s;
+  }
+  .sidebar-contact-item:hover { color: var(--purple); }
+
+  /* ── LEGAL HERO ── */
+  .legal-hero {
+    background: var(--purple-section);
+    color: var(--purple-section-text);
+    padding: 7rem 3rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .legal-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 80% 50%, rgba(155,92,228,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 10% 80%, rgba(184,146,42,0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .legal-hero-inner { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+  .breadcrumb {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.75rem;
+    letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,243,240,0.45);
+    margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;
+  }
+  .breadcrumb a { color: rgba(155,92,228,0.7); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb a:hover { color: var(--purple-light); }
+  .breadcrumb span { opacity: 0.4; }
+  .legal-hero h1 {
+    font-family: 'Playfair Display', serif; font-weight: 900;
+    font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.08; color: #fff; margin-bottom: 1rem;
+  }
+  .legal-hero-meta {
+    font-family: 'Barlow', sans-serif; font-size: 0.88rem; font-weight: 300;
+    color: rgba(245,243,240,0.5); letter-spacing: 0.04em;
+  }
+  .legal-hero-meta strong { color: rgba(155,92,228,0.8); font-weight: 500; }
+
+  /* ── LEGAL BODY ── */
+  .legal-body { background: var(--bg); transition: background 0.35s; }
+  .legal-container {
+    max-width: 900px; margin: 0 auto; padding: 3.5rem 3rem 5rem;
+    display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start;
+  }
+
+  /* Table of Contents */
+  .toc {
+    position: sticky; top: 90px;
+    background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 8px;
+    padding: 1.5rem; box-shadow: var(--shadow); transition: background 0.35s, border-color 0.35s;
+  }
+  .toc-title {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.68rem;
+    letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1rem; padding-bottom: 0.65rem; border-bottom: 1px solid var(--border-gold);
+  }
+  .toc ol { list-style: none; padding: 0; margin: 0; counter-reset: toc-counter; }
+  .toc ol li { counter-increment: toc-counter; }
+  .toc ol li a {
+    display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.35rem 0;
+    font-size: 0.8rem; font-weight: 400; color: var(--text-muted); text-decoration: none;
+    transition: color 0.2s; line-height: 1.4;
+  }
+  .toc ol li a::before {
+    content: counter(toc-counter) '.';
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem;
+    color: var(--purple-brand); flex-shrink: 0; margin-top: 0.1em;
+  }
+  .toc ol li a:hover { color: var(--purple); }
+
+  /* Prose */
+  .legal-prose { min-width: 0; }
+  .legal-section {
+    padding-top: 2.5rem; margin-top: 2.5rem; border-top: 1px solid var(--border);
+  }
+  .legal-section:first-child { border-top: none; margin-top: 0; padding-top: 0; }
+
+  .legal-section h2 {
+    font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.45rem;
+    color: var(--text); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem;
+  }
+  .section-num {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.78rem;
+    letter-spacing: 0.14em; color: var(--purple-brand);
+    background: rgba(123,53,196,0.08); padding: 0.2rem 0.5rem; border-radius: 3px; flex-shrink: 0;
+  }
+  .legal-section h3 {
+    font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 1rem;
+    color: var(--text-2); margin: 1.25rem 0 0.5rem;
+  }
+  .legal-section h3::before { content: '▸ '; color: var(--purple-brand); font-size: 0.8em; }
+  .legal-section p {
+    font-size: 0.97rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 0.9rem;
+  }
+  .legal-section ul, .legal-section ol {
+    padding-left: 1.5rem; margin-bottom: 0.9rem;
+  }
+  .legal-section li {
+    font-size: 0.97rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 0.3rem;
+  }
+  .legal-section a {
+    color: var(--purple-brand); text-decoration: underline;
+    text-underline-offset: 3px; transition: color 0.2s;
+  }
+  .legal-section a:hover { color: var(--purple); }
+
+  /* Legal callout / disclaimer box */
+  .legal-callout {
+    border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.25rem 0;
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+  .legal-callout.warning {
+    background: rgba(184,146,42,0.08); border: 1px solid var(--border-gold);
+  }
+  .legal-callout.info {
+    background: rgba(123,53,196,0.06); border: 1px solid rgba(123,53,196,0.2);
+  }
+  .callout-icon {
+    font-size: 1.3rem; flex-shrink: 0; line-height: 1.5;
+  }
+  .callout-body { flex: 1; }
+  .callout-label {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.5rem; display: block;
+  }
+  .legal-callout.info .callout-label { color: var(--purple-brand); }
+  .callout-body p {
+    font-size: 0.88rem; line-height: 1.7; color: var(--text-muted);
+    margin-bottom: 0; font-weight: 400;
+  }
+  .callout-body p strong { color: var(--text-2); }
+
+  /* Contact info block */
+  .contact-block {
+    background: var(--bg-2); border: 1px solid var(--border-gold); border-radius: 8px;
+    padding: 1.25rem 1.5rem; margin-top: 1rem; transition: background 0.35s;
+  }
+  .contact-block p { margin-bottom: 0.35rem; font-size: 0.92rem; }
+  .contact-block p:last-child { margin-bottom: 0; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--purple-section); color: var(--purple-section-text);
+    padding: 4rem 3rem 2rem;
+  }
+  .footer-top {
+    display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 2.5rem;
+    margin-bottom: 2.5rem; padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .footer-brand { display: flex; flex-direction: column; }
+  .footer-name {
+    font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.2rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 0.1rem;
+  }
+  .footer-sub {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 0.6rem;
+  }
+  .footer-motto { font-size: 0.78rem; font-weight: 300; color: rgba(245,243,240,0.4); letter-spacing: 0.06em; }
+  .footer-col-title {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.68rem;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1rem;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-links a {
+    font-size: 0.87rem; font-weight: 300; color: rgba(245,243,240,0.55);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--purple-light); }
+  .footer-links a.active-legal { color: var(--purple-light); font-weight: 500; }
+  .footer-social { display: flex; gap: 0.6rem; }
+  .footer-social-btn {
+    width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.12); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, border-color 0.2s; text-decoration: none;
+  }
+  .footer-social-btn:hover { background: var(--purple); border-color: var(--purple); }
+  .footer-social-btn svg { width: 15px; height: 15px; }
+  .footer-social-btn svg path { fill: rgba(245,243,240,0.5); transition: fill 0.2s; }
+  .footer-social-btn:hover svg path { fill: #fff; }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-copy { font-size: 0.76rem; font-weight: 300; color: rgba(245,243,240,0.3); }
+  .footer-faith {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem;
+    letter-spacing: 0.14em; text-transform: uppercase; color: rgba(155,92,228,0.5);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .legal-container { grid-template-columns: 1fr; }
+    .toc { position: static; }
+    nav { padding: 0.85rem 1.5rem; }
+    .legal-hero { padding: 6rem 1.5rem 3rem; }
+    .legal-container { padding: 2.5rem 1.5rem 4rem; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .footer-top { grid-template-columns: 1fr; }
+    footer { padding: 3rem 1.5rem 2rem; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="page-indicator" aria-hidden="true"><div class="page-indicator-fill" id="progress-bar"></div></div>
+
+<!-- SIDEBAR OVERLAY -->
+<div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()" aria-hidden="true"></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar" aria-label="Site navigation sidebar" aria-hidden="true">
+  <div class="sidebar-header">
+    <a href="index.html" class="sidebar-logo" onclick="closeSidebar()">
+      <svg width="34" height="34" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <circle cx="50" cy="50" r="47" fill="none" stroke="#7b35c4" stroke-width="2.5"/>
+        <g transform="translate(50,20) scale(0.55)" fill="#9b5ce4">
+          <polygon points="-18,16 -18,-2 -9,6 0,-12 9,6 18,-2 18,16" opacity="0.9"/>
+          <rect x="-18" y="16" width="36" height="4" rx="1"/>
+          <circle cx="-18" cy="-2" r="2.5"/><circle cx="0" cy="-12" r="2.5"/><circle cx="18" cy="-2" r="2.5"/>
+        </g>
+        <text x="50" y="62" text-anchor="middle" font-family="Georgia,serif" font-weight="900" font-size="22" fill="#c8c8d0" letter-spacing="2">RD</text>
+        <line x1="30" y1="70" x2="70" y2="70" stroke="#7b35c4" stroke-width="1" opacity="0.5"/>
+      </svg>
+      <div>
+        <span class="sidebar-logo-name">Reclaimed</span>
+        <span class="sidebar-logo-sub">— Detailers —</span>
+      </div>
+    </a>
+    <button class="sidebar-close" onclick="closeSidebar()" aria-label="Close navigation menu">✕</button>
+  </div>
+
+  <nav class="sidebar-nav" role="navigation" aria-label="Sidebar navigation">
+    <div class="sidebar-section-label">Pages</div>
+    <a href="index.html" class="sidebar-link"><span class="nav-dot"></span> Home</a>
+    <a href="about.html" class="sidebar-link"><span class="nav-dot"></span> About Us</a>
+    <a href="showcase.html" class="sidebar-link"><span class="nav-dot"></span> 3D Showcase</a>
+    <a href="membership.html" class="sidebar-link"><span class="nav-dot"></span> Memberships</a>
+    <div class="sidebar-section-label" style="margin-top:1rem;">Legal</div>
+    <a href="privacy-policy.html" class="sidebar-link"><span class="nav-dot"></span> Privacy Policy</a>
+    <a href="terms-conditions.html" class="sidebar-link active"><span class="nav-dot"></span> Terms &amp; Conditions</a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <a href="tel:3346401831" class="sidebar-contact-item" aria-label="Call us at (334) 640-1831">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.23-1.23a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      (334) 640-1831
+    </a>
+    <a href="mailto:reclaimeddetailers@outlook.com" class="sidebar-contact-item" aria-label="Email reclaimeddetailers@outlook.com">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      reclaimeddetailers@outlook.com
+    </a>
+  </div>
+</aside>
+
+<!-- NAV -->
+<nav role="navigation" aria-label="Main navigation">
+  <div class="nav-left">
+    <button class="hamburger" id="hamburger" onclick="toggleSidebar()" aria-label="Open navigation menu" aria-expanded="false" aria-controls="sidebar">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="nav-logo" aria-label="Reclaimed Detailers — home">
+      <svg class="nav-logo-svg" width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <circle cx="50" cy="50" r="47" fill="none" stroke="#7b35c4" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(123,53,196,0.25)" stroke-width="1"/>
+        <g transform="translate(50,20) scale(0.55)" fill="#9b5ce4">
+          <polygon points="-18,16 -18,-2 -9,6 0,-12 9,6 18,-2 18,16" opacity="0.9"/>
+          <rect x="-18" y="16" width="36" height="4" rx="1"/>
+          <circle cx="-18" cy="-2" r="2.5"/><circle cx="0" cy="-12" r="2.5"/><circle cx="18" cy="-2" r="2.5"/>
+        </g>
+        <text x="50" y="62" text-anchor="middle" font-family="Georgia,'Playfair Display',serif" font-weight="900" font-size="22" fill="#c8c8d0" letter-spacing="2">RD</text>
+        <line x1="30" y1="70" x2="70" y2="70" stroke="#7b35c4" stroke-width="1" opacity="0.5"/>
+      </svg>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Reclaimed</span>
+        <span class="nav-logo-sub">— Detailers —</span>
+      </div>
+    </a>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="showcase.html">3D Showcase</a></li>
+    <li><a href="membership.html">Memberships</a></li>
+  </ul>
+
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  </button>
+</nav>
+
+<main id="main-content" role="main">
+
+  <!-- HERO -->
+  <header class="legal-hero">
+    <div class="legal-hero-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Reclaimed Detailers</a>
+        <span>/</span>
+        Legal
+      </div>
+      <h1>Terms &amp; Conditions</h1>
+      <p class="legal-hero-meta">
+        <strong>Effective June 1, 2025</strong>
+      </p>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <div class="legal-body">
+    <div class="legal-container">
+
+      <!-- TABLE OF CONTENTS -->
+      <aside class="toc" aria-label="Table of contents">
+        <div class="toc-title">Contents</div>
+        <ol>
+          <li><a href="#section-1">Acceptance of Terms</a></li>
+          <li><a href="#section-2">Services</a></li>
+          <li><a href="#section-3">Booking &amp; Scheduling</a></li>
+          <li><a href="#section-4">Cancellation Policy</a></li>
+          <li><a href="#section-5">Payment</a></li>
+          <li><a href="#section-6">Membership Plans</a></li>
+          <li><a href="#section-7">Intellectual Property</a></li>
+          <li><a href="#section-8">User Conduct</a></li>
+          <li><a href="#section-9">Warranty Disclaimer</a></li>
+          <li><a href="#section-10">Limitation of Liability</a></li>
+          <li><a href="#section-11">Indemnification</a></li>
+          <li><a href="#section-12">Governing Law</a></li>
+          <li><a href="#section-13">Dispute Resolution</a></li>
+          <li><a href="#section-14">Modifications</a></li>
+          <li><a href="#section-15">Contact Us</a></li>
+        </ol>
+      </aside>
+
+      <!-- PROSE -->
+      <article class="legal-prose" aria-label="Terms and conditions content">
+
+        <section class="legal-section" id="section-1">
+          <h2><span class="section-num">01</span> Acceptance of Terms</h2>
+          <p>By accessing or using the Reclaimed Detailers LLC website (the "Site") or by booking any of our services, you confirm that you are at least 18 years of age and that you have read, understood, and agree to be bound by these Terms and Conditions ("Terms").</p>
+          <p>If you do not agree to these Terms, you must not use this Site or book our services. We reserve the right to refuse service to anyone who violates these Terms.</p>
+        </section>
+
+        <section class="legal-section" id="section-2">
+          <h2><span class="section-num">02</span> Services</h2>
+          <p>Reclaimed Detailers LLC provides professional mobile auto detailing services, including but not limited to:</p>
+          <ul>
+            <li>Exterior wash and decontamination</li>
+            <li>Interior detailing and sanitization</li>
+            <li>Ceramic coating application</li>
+            <li>Paint protection film (PPF)</li>
+            <li>Recurring membership plans</li>
+          </ul>
+          <p>Our primary service area is <strong>Montgomery, AL and surrounding areas</strong>. Service availability may vary by location. Contact us to confirm service availability in your area before booking.</p>
+        </section>
+
+        <section class="legal-section" id="section-3">
+          <h2><span class="section-num">03</span> Booking &amp; Scheduling</h2>
+          <p>All appointments are subject to availability. When booking a service, you agree to the following:</p>
+          <ul>
+            <li>You will ensure the vehicle is accessible at the scheduled time and location.</li>
+            <li>You will provide accurate vehicle and contact information at the time of booking.</li>
+            <li>We reserve the right to reschedule appointments due to weather conditions, equipment issues, or other circumstances beyond our control.</li>
+            <li>In the event we must reschedule, we will contact you as promptly as possible to arrange an alternative time.</li>
+          </ul>
+        </section>
+
+        <section class="legal-section" id="section-4">
+          <h2><span class="section-num">04</span> Cancellation Policy</h2>
+          <p>We understand that schedules change. However, last-minute cancellations affect our ability to serve other customers. Our cancellation policy is as follows:</p>
+          <ul>
+            <li><strong>24-hour notice:</strong> Cancellations made at least 24 hours before the scheduled appointment are accepted at no charge.</li>
+            <li><strong>Same-day cancellations:</strong> Cancellations made on the day of the appointment may incur a fee of up to 25% of the scheduled service cost.</li>
+            <li><strong>No-shows:</strong> Failure to be present or make your vehicle accessible at the scheduled appointment time may result in a fee of up to 50% of the scheduled service cost.</li>
+          </ul>
+          <p>Cancellation fees, if applicable, will be communicated to you prior to any charge being assessed. To cancel or reschedule, please contact us as early as possible at <a href="tel:3346401831">(334) 640-1831</a> or <a href="mailto:reclaimeddetailers@outlook.com">reclaimeddetailers@outlook.com</a>.</p>
+        </section>
+
+        <section class="legal-section" id="section-5">
+          <h2><span class="section-num">05</span> Payment</h2>
+          <p>Payment is due at the time of service completion unless otherwise agreed in writing prior to the appointment. We accept the following payment methods:</p>
+          <ul>
+            <li>Cash</li>
+            <li>Credit and debit cards</li>
+            <li>Digital payment platforms (e.g., Venmo, Cash App, Zelle)</li>
+          </ul>
+          <p>Membership plans are billed on a recurring monthly basis. All prices are listed in U.S. Dollars (USD) and are subject to change. Price changes for memberships will be communicated with at least 30 days' notice.</p>
+        </section>
+
+        <section class="legal-section" id="section-6">
+          <h2><span class="section-num">06</span> Membership Plans</h2>
+          <p>Reclaimed Detailers LLC offers recurring membership plans designed to provide ongoing vehicle care at a discounted rate. By enrolling in a membership, you agree to the following:</p>
+          <ul>
+            <li>Memberships are billed on a month-to-month basis and may be cancelled at any time.</li>
+            <li>Cancellations take effect at the end of the current billing cycle; no partial refunds will be issued for unused portions of the current month.</li>
+            <li>Included detailing services do not roll over to the next billing cycle if unused.</li>
+            <li>The <strong>Elite Tier</strong> membership requires verified ceramic coating on your vehicle. We reserve the right to decline Elite Tier enrollment if ceramic coating status cannot be adequately verified.</li>
+            <li>We reserve the right to modify membership pricing or benefits with a minimum of 30 days' notice to active members.</li>
+          </ul>
+        </section>
+
+        <section class="legal-section" id="section-7">
+          <h2><span class="section-num">07</span> Intellectual Property</h2>
+          <p>All content on this Site — including but not limited to text, graphics, logos, images, photographs, video content, and software — is the exclusive property of Reclaimed Detailers LLC and is protected by United States and international copyright laws.</p>
+          <p>The name <strong>"Reclaimed Detailers,"</strong> our logo, and the tagline <strong>"Restored. Refined. Reclaimed."</strong> are trademarks of Reclaimed Detailers LLC. Unauthorized reproduction, modification, distribution, or use of any Site content or our trademarks — in whole or in part — without prior written permission is strictly prohibited.</p>
+          <p>You may access and view Site content for personal, non-commercial use only. Any other use requires our express written consent.</p>
+        </section>
+
+        <section class="legal-section" id="section-8">
+          <h2><span class="section-num">08</span> User Conduct</h2>
+          <p>By using this Site, you agree that you will not:</p>
+          <ul>
+            <li>Use the Site for any unlawful purpose or in violation of any applicable laws or regulations.</li>
+            <li>Attempt to gain unauthorized access to any portion of the Site or its related systems.</li>
+            <li>Submit false, misleading, or harmful content through any form or communication channel on the Site.</li>
+            <li>Impersonate any person or entity, or misrepresent your affiliation with any person or entity.</li>
+            <li>Interfere with or disrupt the proper operation of the Site or its servers.</li>
+            <li>Use automated tools (bots, scrapers, etc.) to access or collect data from the Site without our express permission.</li>
+          </ul>
+        </section>
+
+        <section class="legal-section" id="section-9">
+          <h2><span class="section-num">09</span> Warranty Disclaimer</h2>
+
+          <div class="legal-callout warning" role="note" aria-label="Warranty disclaimer">
+            <span class="callout-icon" aria-hidden="true">⚠</span>
+            <div class="callout-body">
+              <span class="callout-label">Important Disclaimer</span>
+              <p>SERVICES ARE PROVIDED ON AN "AS IS" BASIS WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. RECLAIMED DETAILERS LLC DOES NOT WARRANT THAT ALL STAINS, SCRATCHES, BLEMISHES, OR OTHER VEHICLE IMPERFECTIONS WILL BE COMPLETELY ELIMINATED BY OUR SERVICES. RESULTS MAY VARY BASED ON VEHICLE CONDITION, AGE, AND PRE-EXISTING DAMAGE.</p>
+            </div>
+          </div>
+
+          <p>We take great care with every vehicle, but pre-existing damage, wear, or vehicle conditions are the responsibility of the vehicle owner. We are not liable for damage that pre-existed prior to our service or for conditions beyond the reasonable scope of detailing services.</p>
+          <p>Before beginning service, our technicians may note any pre-existing damage. It is the customer's responsibility to accurately disclose any known pre-existing damage at the time of booking.</p>
+        </section>
+
+        <section class="legal-section" id="section-10">
+          <h2><span class="section-num">10</span> Limitation of Liability</h2>
+
+          <div class="legal-callout warning" role="note" aria-label="Liability limitation">
+            <span class="callout-icon" aria-hidden="true">⚠</span>
+            <div class="callout-body">
+              <span class="callout-label">Limitation of Liability</span>
+              <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, RECLAIMED DETAILERS LLC'S TOTAL LIABILITY TO YOU FOR ANY CLAIM ARISING FROM OR RELATED TO THESE TERMS OR OUR SERVICES SHALL NOT EXCEED THE AMOUNT PAID BY YOU FOR THE SPECIFIC SERVICE GIVING RISE TO THE CLAIM.</p>
+            </div>
+          </div>
+
+          <p>In no event shall Reclaimed Detailers LLC be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of use, loss of profits, or loss of data, whether in an action in contract, tort, or otherwise, even if we have been advised of the possibility of such damages.</p>
+        </section>
+
+        <section class="legal-section" id="section-11">
+          <h2><span class="section-num">11</span> Indemnification</h2>
+          <p>You agree to defend, indemnify, and hold harmless Reclaimed Detailers LLC, its owners, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable attorneys' fees) arising out of or in any way connected with:</p>
+          <ul>
+            <li>Your use of the Site or our services;</li>
+            <li>Your violation of these Terms;</li>
+            <li>Your violation of any third-party rights, including intellectual property or privacy rights;</li>
+            <li>Any content you submit through the Site.</li>
+          </ul>
+        </section>
+
+        <section class="legal-section" id="section-12">
+          <h2><span class="section-num">12</span> Governing Law</h2>
+          <p>These Terms shall be governed by and construed in accordance with the laws of the <strong>State of Alabama</strong>, without regard to its conflict of law provisions.</p>
+          <p>Any legal action or proceeding arising under these Terms shall be brought exclusively in the courts of <strong>Montgomery County, Alabama</strong>, and you hereby consent to personal jurisdiction and venue in such courts.</p>
+        </section>
+
+        <section class="legal-section" id="section-13">
+          <h2><span class="section-num">13</span> Dispute Resolution</h2>
+
+          <div class="legal-callout info" role="note" aria-label="Dispute resolution process">
+            <span class="callout-icon" aria-hidden="true">💬</span>
+            <div class="callout-body">
+              <span class="callout-label">Good-Faith Resolution First</span>
+              <p>Before initiating any formal legal proceedings, both parties agree to attempt to resolve disputes informally through good-faith negotiation for a period of at least <strong>30 days</strong> following written notice of the dispute.</p>
+            </div>
+          </div>
+
+          <p>To initiate informal dispute resolution, please contact us in writing at <a href="mailto:reclaimeddetailers@outlook.com">reclaimeddetailers@outlook.com</a>, describing the nature of the dispute and your preferred resolution. We are committed to working collaboratively to find a fair solution.</p>
+          <p>If a dispute cannot be resolved through informal negotiation within 30 days, either party may pursue formal legal remedies as permitted by applicable law and these Terms.</p>
+        </section>
+
+        <section class="legal-section" id="section-14">
+          <h2><span class="section-num">14</span> Modifications</h2>
+          <p>We reserve the right to modify these Terms and Conditions at any time. When changes are made, we will update the effective date at the top of this page. Continued use of the Site or our services following any such changes constitutes your acceptance of the revised Terms.</p>
+          <p>We encourage you to review these Terms periodically. If you do not agree with any changes, you must discontinue use of the Site and our services.</p>
+        </section>
+
+        <section class="legal-section" id="section-15">
+          <h2><span class="section-num">15</span> Contact Us</h2>
+          <p>If you have any questions, concerns, or requests regarding these Terms and Conditions, please contact us:</p>
+          <div class="contact-block">
+            <p><strong style="color:var(--text);">Reclaimed Detailers LLC</strong></p>
+            <p style="color:var(--text-muted);">Montgomery, Alabama</p>
+            <p><a href="mailto:reclaimeddetailers@outlook.com">reclaimeddetailers@outlook.com</a></p>
+            <p><a href="tel:3346401831">(334) 640-1831</a></p>
+          </div>
+        </section>
+
+      </article>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <svg width="60" height="60" viewBox="0 0 100 100" style="margin-bottom:0.75rem;" aria-hidden="true" focusable="false">
+        <circle cx="50" cy="50" r="47" fill="none" stroke="#7b35c4" stroke-width="2.5"/>
+        <g transform="translate(50,18) scale(0.5)" fill="#9b5ce4">
+          <polygon points="-20,18 -20,-4 -10,8 0,-14 10,8 20,-4 20,18"/>
+          <rect x="-20" y="18" width="40" height="5" rx="1.5"/>
+          <circle cx="-20" cy="-4" r="3"/><circle cx="0" cy="-14" r="3"/><circle cx="20" cy="-4" r="3"/>
+        </g>
+        <text x="50" y="65" text-anchor="middle" font-family="Georgia,serif" font-weight="900" font-size="26" fill="#c8c8d0" letter-spacing="2">RD</text>
+        <line x1="30" y1="72" x2="70" y2="72" stroke="#7b35c4" stroke-width="1" opacity="0.5"/>
+      </svg>
+      <div class="footer-name">Reclaimed Detailers</div>
+      <div class="footer-sub">— LLC —</div>
+      <div class="footer-motto">Restored. Refined. Reclaimed.</div>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="showcase.html">3D Showcase</a></li>
+        <li><a href="membership.html">Memberships</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms-conditions.html" class="active-legal">Terms &amp; Conditions</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="tel:3346401831">(334) 640-1831</a></li>
+        <li><a href="mailto:reclaimeddetailers@outlook.com">reclaimeddetailers@outlook.com</a></li>
+        <li style="color:rgba(245,243,240,0.4);font-size:0.87rem;font-weight:300;">Montgomery, Alabama</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Follow Us</div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/reclaimeddetailers" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Follow us on Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/reclaimeddetailers" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Follow us on Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@reclaimeddetailers" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Follow us on TikTok">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Reclaimed Detailers LLC · All Rights Reserved · Montgomery, AL</p>
+    <span class="footer-faith">Faith-Driven · Community-Focused · Excellence in Every Detail</span>
+  </div>
+</footer>
+
+<script>
+  /* ── THEME ── */
+  const savedTheme = localStorage.getItem('rd-theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+
+  function toggleTheme() {
+    const curr = document.documentElement.getAttribute('data-theme');
+    const next = curr === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('rd-theme', next);
+  }
+
+  /* ── SIDEBAR ── */
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    const btn     = document.getElementById('hamburger');
+    const open    = sidebar.classList.toggle('open');
+    overlay.classList.toggle('open', open);
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    sidebar.setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebar-overlay').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+    document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+    document.getElementById('sidebar').setAttribute('aria-hidden', 'true');
+  }
+
+  /* Close sidebar on Escape key */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeSidebar();
+  });
+
+  /* ── SCROLL PROGRESS BAR ── */
+  window.addEventListener('scroll', function() {
+    const docEl = document.documentElement;
+    const scrollTop = docEl.scrollTop || document.body.scrollTop;
+    const scrollHeight = docEl.scrollHeight - docEl.clientHeight;
+    const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    document.getElementById('progress-bar').style.width = progress + '%';
+  });
+</script>
+</body>
+</html>
