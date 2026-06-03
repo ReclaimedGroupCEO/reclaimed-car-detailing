@@ -4,6 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Us | Reclaimed Detailers — Faith-Driven Premium Detailing</title>
+<meta name="description" content="Reclaimed Detailers is a Christian-owned mobile detailing company in Montgomery, AL. We put faith first, give 20% of every transaction to charity, and treat every vehicle with excellence. Our story.">
+<meta name="keywords" content="about Reclaimed Detailers, Christian owned detailing Montgomery, faith-driven car detailing Alabama, community giving auto detailing">
+<meta name="author" content="Reclaimed Detailers LLC">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#7b35c4">
+<link rel="canonical" href="https://reclaimed-detailers-site.vercel.app/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Reclaimed Detailers LLC">
+<meta property="og:title" content="About Us | Reclaimed Detailers — Faith First, Community Always">
+<meta property="og:description" content="A Christian-owned mobile detailing company in Montgomery, AL. Faith first, community always — 20% of every transaction given to charitable causes.">
+<meta property="og:url" content="https://reclaimed-detailers-site.vercel.app/about.html">
+<meta property="og:image" content="https://reclaimed-detailers-site.vercel.app/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -17,6 +32,18 @@
     --silver: #c8c8d0;
     --silver-light: #e0e0e8;
     --transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+
+    /* Dark-section palette (about page is designed as a premium dark page) */
+    --white: #f5f3f0;
+    --white-2: #eae7e2;
+    --gray-light: #b8b4ad;
+    --gray: #88857d;
+    --black: #080808;
+    --dark: #0f0c14;
+    --dark-2: #161320;
+    --dark-3: #1e1a28;
+    --purple-deep: #1a1020;
+    --purple-mid: #2a1840;
   }
 
   [data-theme="light"] {
@@ -80,9 +107,10 @@
     font-family: 'Playfair Display', serif;
     font-weight: 900;
     font-size: 1.15rem;
-    color: var(--silver-light);
+    color: var(--text);
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    transition: color 0.35s;
   }
 
   .nav-logo-sub {
@@ -118,13 +146,13 @@
     font-size: 0.85rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--gray-light);
+    color: var(--text-muted);
     text-decoration: none;
     transition: color 0.2s;
   }
 
   .nav-links a:hover,
-  .nav-links a.active { color: var(--gold); }
+  .nav-links a.active { color: var(--purple); }
 
   .nav-cta {
     font-family: 'Barlow Condensed', sans-serif;
@@ -132,15 +160,15 @@
     font-size: 0.8rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--black) !important;
-    background: var(--gold);
+    color: #fff !important;
+    background: var(--purple);
     padding: 0.55rem 1.4rem;
     border-radius: 2px;
     text-decoration: none;
     transition: background 0.2s;
   }
 
-  .nav-cta:hover { background: var(--gold-light) !important; }
+  .nav-cta:hover { background: var(--purple-brand) !important; }
 
   /* PAGE HERO */
   .page-hero {
@@ -209,14 +237,14 @@
     transition: color 0.2s;
   }
 
-  .breadcrumb a:hover { color: var(--gold); }
+  .breadcrumb a:hover { color: var(--purple-light); }
 
   .breadcrumb span {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 0.72rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--purple-light);
   }
 
   .breadcrumb .sep {
@@ -230,7 +258,7 @@
     font-size: 0.78rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--purple-light);
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
@@ -241,8 +269,8 @@
     content: '';
     display: block;
     width: 36px;
-    height: 1px;
-    background: var(--gold);
+    height: 2px;
+    background: var(--purple);
   }
 
   .page-hero h1 {
@@ -268,7 +296,7 @@
   .gold-divider {
     width: 48px;
     height: 2px;
-    background: var(--gold);
+    background: linear-gradient(to right, var(--purple), var(--gold));
     margin: 1.5rem 0;
   }
 
@@ -278,7 +306,7 @@
     font-size: 0.72rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--purple);
     margin-bottom: 0.75rem;
     display: flex;
     align-items: center;
@@ -289,8 +317,8 @@
     content: '';
     display: block;
     width: 28px;
-    height: 1px;
-    background: var(--gold);
+    height: 2px;
+    background: var(--purple);
   }
 
   .section-title {
@@ -308,8 +336,8 @@
     font-size: 0.85rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--black);
-    background: var(--gold);
+    color: #fff;
+    background: var(--purple);
     padding: 0.9rem 2rem;
     border-radius: 2px;
     text-decoration: none;
@@ -317,7 +345,7 @@
     transition: background 0.2s, transform 0.15s;
   }
 
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-primary:hover { background: var(--purple-brand); transform: translateY(-1px); }
 
   .btn-outline {
     font-family: 'Barlow Condensed', sans-serif;
@@ -335,7 +363,7 @@
     transition: border-color 0.2s, color 0.2s;
   }
 
-  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-outline:hover { border-color: var(--purple); color: var(--purple-light); }
 
   /* MISSION SECTION */
   #mission {
@@ -825,8 +853,9 @@
 
   /* FOOTER */
   footer {
-    background: var(--black);
-    border-top: 1px solid rgba(201,168,76,0.12);
+    background: var(--purple-deep);
+    color: rgba(245,243,240,0.55);
+    border-top: 1px solid rgba(155,92,228,0.18);
     padding: 3.5rem 4rem 2rem;
   }
 
@@ -882,7 +911,7 @@
     font-size: 0.72rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--purple-brand);
     margin-bottom: 1.25rem;
   }
 
@@ -902,28 +931,33 @@
     transition: color 0.2s;
   }
 
-  .footer-links a:hover { color: var(--gold); }
+  .footer-links a:hover { color: var(--purple-light); }
 
   .footer-social { display: flex; gap: 0.6rem; }
 
   .footer-social-btn {
-    width: 36px;
-    height: 36px;
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 2px;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(155,92,228,0.3);
+    border-radius: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.2s, border-color 0.2s;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
     text-decoration: none;
   }
 
-  .footer-social-btn:hover { background: var(--gold); border-color: var(--gold); }
+  .footer-social-btn:hover { transform: translateY(-2px); border-color: transparent; }
   .footer-social-btn svg { width: 16px; height: 16px; }
   .footer-social-btn svg path,
-  .footer-social-btn svg rect { fill: var(--gold); transition: fill 0.2s; }
+  .footer-social-btn svg rect { fill: rgba(245,243,240,0.6); transition: fill 0.2s; }
   .footer-social-btn:hover svg path,
-  .footer-social-btn:hover svg rect { fill: var(--black); }
+  .footer-social-btn:hover svg rect { fill: #fff; }
+  /* Per-platform brand hover colors */
+  .footer-social-btn.ig:hover { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+  .footer-social-btn.fb:hover { background: #1877f2; }
+  .footer-social-btn.tt:hover { background: #000; border-color: #25f4ee; }
+  .footer-social-btn.gg:hover { background: #4285f4; }
 
   .footer-bottom {
     display: flex;
@@ -1301,13 +1335,13 @@
     <div>
       <div class="footer-col-title">Follow Us</div>
       <div class="footer-social">
-        <a href="https://www.instagram.com/reclaimeddetailers" target="_blank" rel="noopener" class="footer-social-btn" title="Instagram">
+        <a href="https://www.instagram.com/reclaimeddetailers" target="_blank" rel="noopener" class="footer-social-btn ig" title="Instagram" aria-label="Instagram">
           <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         </a>
-        <a href="https://www.facebook.com/reclaimeddetailers" target="_blank" rel="noopener" class="footer-social-btn" title="Facebook">
+        <a href="https://www.facebook.com/reclaimeddetailers" target="_blank" rel="noopener" class="footer-social-btn fb" title="Facebook" aria-label="Facebook">
           <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         </a>
-        <a href="https://www.tiktok.com/@reclaimeddetailers" target="_blank" rel="noopener" class="footer-social-btn" title="TikTok">
+        <a href="https://www.tiktok.com/@reclaimeddetailers" target="_blank" rel="noopener" class="footer-social-btn tt" title="TikTok" aria-label="TikTok">
           <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
         </a>
       </div>
