@@ -208,6 +208,13 @@
       radial-gradient(ellipse at 60% 50%, rgba(107,63,160,0.4) 0%, transparent 65%),
       radial-gradient(ellipse at 10% 80%, rgba(201,168,76,0.06) 0%, transparent 50%),
       linear-gradient(160deg, #0a0a0a 0%, #0d0a14 60%, #111111 100%);
+    background-size: 200% 200%;
+    animation: heroShimmer 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes heroShimmer {
+    from { background-position: 0% 50%; }
+    to { background-position: 100% 50%; }
   }
 
   .page-hero-grid {

@@ -1323,6 +1323,137 @@
     outline: 3px solid var(--purple); outline-offset: 3px; border-radius: 4px;
   }
 
+  /* ── MARQUEE ── */
+  .marquee-strip {
+    background: #0a0610;
+    overflow: hidden;
+    padding: 0.75rem 0;
+    border-top: 1px solid rgba(123,53,196,0.2);
+    border-bottom: 1px solid rgba(123,53,196,0.2);
+  }
+
+  .marquee-inner {
+    width: max-content;
+    display: flex;
+    gap: 0;
+    white-space: nowrap;
+    animation: marquee-scroll 28s linear infinite;
+  }
+
+  .marquee-inner span {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--purple-brand);
+    padding: 0 1.5rem;
+  }
+
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── FLOATING BOOK NOW ── */
+  .float-book {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 150;
+    background: var(--purple);
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.6rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 24px rgba(123,53,196,0.45);
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+  }
+
+  .float-book.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--bg); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .testimonial-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-gold);
+    border-radius: 4px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .testimonial-card:hover {
+    border-color: var(--purple);
+    box-shadow: 0 4px 24px rgba(123,53,196,0.1);
+  }
+
+  .testimonial-quote-mark {
+    position: absolute;
+    top: 1rem;
+    left: 1.25rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--purple);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .testimonial-stars {
+    font-size: 0.85rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-text {
+    font-weight: 300;
+    font-size: 0.92rem;
+    line-height: 1.72;
+    color: var(--text-muted);
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    transition: color 0.35s;
+  }
+
+  .testimonial-author {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-top: auto;
+    transition: color 0.35s;
+  }
+
   /* ── MOBILE ── */
   @media (max-width: 900px) {
     nav { padding: 0.85rem 1.25rem; }
@@ -1350,6 +1481,8 @@
     .community-stat-row { gap: 2.5rem; }
     .form-row { grid-template-columns: 1fr; }
     .sidebar { width: 280px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .float-book { bottom: 1.25rem; right: 1.25rem; }
   }
 </style>
 </head>
@@ -1496,6 +1629,18 @@
   </div>
 </section>
 
+<!-- FLOATING BOOK NOW -->
+<a href="#contact" class="float-book" id="float-book-btn">Book Now</a>
+
+<!-- MARQUEE STRIP -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-inner">
+    <span>RESTORED</span><span>·</span><span>REFINED</span><span>·</span><span>RECLAIMED</span><span>·</span><span>FAITH FIRST</span><span>·</span><span>EXCELLENCE ALWAYS</span><span>·</span><span>MOBILE DETAILING</span><span>·</span><span>MONTGOMERY AL</span><span>·</span><span>COVENANT COATINGS</span><span>·</span><span>CERAMIC PROTECTION</span><span>·</span>
+    <span>RESTORED</span><span>·</span><span>REFINED</span><span>·</span><span>RECLAIMED</span><span>·</span><span>FAITH FIRST</span><span>·</span><span>EXCELLENCE ALWAYS</span><span>·</span><span>MOBILE DETAILING</span><span>·</span><span>MONTGOMERY AL</span><span>·</span><span>COVENANT COATINGS</span><span>·</span><span>CERAMIC PROTECTION</span><span>·</span>
+    <span>RESTORED</span><span>·</span><span>REFINED</span><span>·</span><span>RECLAIMED</span><span>·</span><span>FAITH FIRST</span><span>·</span><span>EXCELLENCE ALWAYS</span><span>·</span><span>MOBILE DETAILING</span><span>·</span><span>MONTGOMERY AL</span><span>·</span><span>COVENANT COATINGS</span><span>·</span><span>CERAMIC PROTECTION</span><span>·</span>
+  </div>
+</div>
+
 <!-- SERVICES -->
 <section id="services">
   <div class="section-label">What We Offer</div>
@@ -1573,6 +1718,15 @@
     <div class="gallery-item"><div class="photo-placeholder"><span class="ph-icon">📷</span><span>Ceramic Coating</span></div><div class="gallery-label">Ceramic Coating</div></div>
   </div>
   <p class="gallery-note">Follow us on <a href="https://www.instagram.com/reclaimeddetailers" target="_blank" rel="noopener" style="color:var(--purple);text-decoration:none;">@reclaimeddetailers</a> to see our latest transformations.</p>
+
+  <!-- Before/After CTA Strip -->
+  <div style="background:var(--purple-section);border-radius:4px;padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;flex-wrap:wrap;gap:1rem;">
+    <div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:#f5f3f0;margin-bottom:0.4rem;">See the Full Transformation</div>
+      <div style="font-size:0.85rem;color:rgba(245,243,240,0.6);">Interactive 3D viewer + before/after gallery</div>
+    </div>
+    <a href="showcase.html" class="btn-primary" style="white-space:nowrap;">Explore 3D Showcase →</a>
+  </div>
 </section>
 
 <!-- ABOUT PREVIEW -->
@@ -1603,6 +1757,33 @@
     <div class="process-step"><div class="step-num">02</div><div class="step-title">We Come to You</div><p class="step-desc">Our fully-equipped mobile setup arrives at your home or workplace.</p></div>
     <div class="process-step"><div class="step-num">03</div><div class="step-title">Precision Work</div><p class="step-desc">Every vehicle documented before and after. Full attention to detail, always.</p></div>
     <div class="process-step"><div class="step-num">04</div><div class="step-title">Drive Proud</div><p class="step-desc">After-care recommendations and a follow-up from us. Your satisfaction is the job.</p></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-label">What Clients Say</div>
+  <h2 class="section-title">Real Results. Real People.</h2>
+  <p class="section-desc">Don't take our word for it — here's what our customers have to say about their experience with Reclaimed Detailers.</p>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-quote-mark">"</div>
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Ray showed up on time, worked magic on my dirty SUV, and left it looking better than the day I bought it. Truly exceptional work."</p>
+      <div class="testimonial-author">— Marcus T., Montgomery AL</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-quote-mark">"</div>
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"The ceramic coating on my truck is unreal. Six months later and water still beads right off. Worth every penny."</p>
+      <div class="testimonial-author">— James W., Prattville AL</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-quote-mark">"</div>
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Faith-driven doesn't just mean they put a cross on the logo. Ray genuinely cares about doing excellent work. My whole family uses Reclaimed now."</p>
+      <div class="testimonial-author">— Sarah K., Montgomery AL</div>
+    </div>
   </div>
 </section>
 
@@ -1874,12 +2055,62 @@
     });
   }, { threshold: 0.08 });
 
-  document.querySelectorAll('.service-card, .plan-card, .addon-item, .process-step, .gallery-item, .community-stat, .contact-detail').forEach(el => {
+  document.querySelectorAll('.service-card, .plan-card, .addon-item, .process-step, .gallery-item, .community-stat, .contact-detail, .testimonial-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     fadeObserver.observe(el);
   });
+
+  /* ── STAT COUNTERS ── */
+  function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+  function animateCounter(el, target, suffix, duration) {
+    const start = performance.now();
+    function step(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const value = Math.round(easeOutCubic(progress) * target);
+      el.textContent = value + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !e.target.dataset.counted) {
+        e.target.dataset.counted = '1';
+        const raw = e.target.dataset.target;
+        const suffix = e.target.dataset.suffix || '';
+        if (raw) animateCounter(e.target, parseInt(raw), suffix, 1500);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.hero-stat-num').forEach(el => {
+    const text = el.textContent.trim();
+    if (text === '100%') { el.dataset.target = '100'; el.dataset.suffix = '%'; el.textContent = '0%'; statObserver.observe(el); }
+    else if (text === '20%') { el.dataset.target = '20'; el.dataset.suffix = '%'; el.textContent = '0%'; statObserver.observe(el); }
+  });
+
+  /* ── FLOATING BOOK NOW ── */
+  const floatBtn = document.getElementById('float-book-btn');
+  const contactSection = document.getElementById('contact');
+
+  function updateFloatBtn() {
+    const scrolled = window.scrollY;
+    const threshold = window.innerHeight * 0.8;
+    const contactRect = contactSection ? contactSection.getBoundingClientRect() : null;
+    const contactVisible = contactRect && contactRect.top < window.innerHeight && contactRect.bottom > 0;
+    if (scrolled > threshold && !contactVisible) {
+      floatBtn.classList.add('visible');
+    } else {
+      floatBtn.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', updateFloatBtn, { passive: true });
 </script>
 </body>
 </html>
