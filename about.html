@@ -1017,6 +1017,16 @@
   }
   .sidebar-overlay.open { opacity: 1; pointer-events: all; }
 
+  /* STORY TIMELINE */
+  .story-timeline p {
+    padding-left: 1.5rem;
+    border-left: 2px solid rgba(123,53,196,0.25);
+    margin-bottom: 1.5rem;
+  }
+  .story-timeline p:first-of-type {
+    border-left-color: var(--purple);
+  }
+
   /* MOBILE */
   @media (max-width: 900px) {
     nav { padding: 0.85rem 1.25rem; }
@@ -1160,16 +1170,20 @@
     <h2 class="section-title">Built on Integrity.<br>Driven by Craft.</h2>
     <div class="gold-divider"></div>
 
-    <p>Reclaimed Detailers was founded with a single conviction: that excellent work, done with honesty and humility, is an act of worship. We are a Christian-owned mobile detailing company based in Montgomery, Alabama, and we put God first in every decision we make — from the products we use to the way we treat every customer who trusts us with their vehicle.</p>
+    <div class="story-timeline">
+      <p>Reclaimed Detailers was founded with a single conviction: that excellent work, done with honesty and humility, is an act of worship. We are a Christian-owned mobile detailing company based in Montgomery, Alabama, and we put God first in every decision we make — from the products we use to the way we treat every customer who trusts us with their vehicle.</p>
 
-    <p>We didn't start this business to be the biggest. We started it to be the most trustworthy. We believe that when you book with us, you're not just getting a clean car — you're entering into a relationship built on the same values we hold in our daily lives: integrity, craftsmanship, and genuine care for people.</p>
+      <p>We didn't start this business to be the biggest. We started it to be the most trustworthy. We believe that when you book with us, you're not just getting a clean car — you're entering into a relationship built on the same values we hold in our daily lives: integrity, craftsmanship, and genuine care for people.</p>
+    </div>
 
     <div class="scripture-block">
       <p>"Whatever you do, work heartily, as for the Lord and not for men."</p>
       <cite>— Colossians 3:23</cite>
     </div>
 
-    <p>Whether we're doing a routine maintenance wash or a full restoration on a neglected vehicle, we approach every job the same way — with the standard of excellence that reflects who we work for. That's not a marketing line. That's the foundation of everything we do.</p>
+    <div class="story-timeline">
+      <p>Whether we're doing a routine maintenance wash or a full restoration on a neglected vehicle, we approach every job the same way — with the standard of excellence that reflects who we work for. That's not a marketing line. That's the foundation of everything we do.</p>
+    </div>
 
     <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem;">
       <a href="index.html#contact" class="btn-primary">Book a Detail</a>
@@ -1278,7 +1292,7 @@
         </div>
       </div>
       <div class="giving-badge">
-        <span class="pct">20%</span>
+        <span class="pct" data-counter data-target="20" data-suffix="%">20%</span>
         <span class="lbl">Given to<br>Charity</span>
       </div>
     </div>
@@ -1521,6 +1535,31 @@
       });
     }, { threshold: 0.35 }).observe(s)
   );
+
+  /* Stat counter animation */
+  function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+  function animateCounter(el, target, suffix, duration) {
+    const start = performance.now();
+    function step(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const value = Math.round(easeOutCubic(progress) * target);
+      el.textContent = value + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  const aboutStatObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !e.target.dataset.counted) {
+        e.target.dataset.counted = '1';
+        const raw = e.target.dataset.target;
+        const suffix = e.target.dataset.suffix || '';
+        if (raw) animateCounter(e.target, parseInt(raw), suffix, 1500);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-counter]').forEach(el => aboutStatObs.observe(el));
 
   /* Fade in */
   const fadeObs = new IntersectionObserver((entries) => {
