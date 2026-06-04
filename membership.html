@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,113 +24,128 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --purple: #7b35c4;
-    --purple-brand: #9b5ce4;
-    --purple-light: #b07de8;
-    --purple-ring: rgba(123,53,196,0.6);
-    --gold: #b8922a;
-    --gold-light: #d4aa4a;
-    --silver: #c8c8d0;
-    --transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
-  }
+    --purple:        #7b35c4;
+    --purple-brand:  #9b5ce4;
+    --purple-light:  #b07de8;
+    --purple-ring:   rgba(123,53,196,0.6);
+    --gold:          #b8922a;
+    --gold-light:    #d4aa4a;
 
-  [data-theme="light"] {
-    --bg: #f4f2ef; --bg-2: #ede9e4; --bg-card: #ffffff; --bg-card-2: #f8f6f3;
-    --text: #1c1a18; --text-2: #3a3830; --text-muted: #6a6860; --text-dim: #9a9890;
-    --border: rgba(0,0,0,0.08); --border-gold: rgba(184,146,42,0.35);
-    --shadow: 0 2px 16px rgba(0,0,0,0.08); --nav-bg: rgba(244,242,239,0.96);
-    --section-alt: #ede9e4; --purple-section: #1a1020; --purple-section-text: #f4f2ef;
-  }
-  [data-theme="dark"] {
-    --bg: #080808; --bg-2: #0f0f0f; --bg-card: #161616; --bg-card-2: #1e1e1e;
-    --text: #f5f3f0; --text-2: #eae7e2; --text-muted: #b0ada6; --text-dim: #808078;
-    --border: rgba(255,255,255,0.07); --border-gold: rgba(184,146,42,0.25);
-    --shadow: 0 2px 24px rgba(0,0,0,0.4); --nav-bg: rgba(8,8,8,0.96);
-    --section-alt: #0f0f0f; --purple-section: #130a22; --purple-section-text: #f5f3f0;
+    --black:   #050505;
+    --black-2: #0a0a0a;
+    --black-3: #111111;
+    --dark:    #141414;
+    --dark-2:  #1a1a1a;
+    --dark-3:  #202020;
+
+    --bg:       #080808;
+    --bg-2:     #0f0f0f;
+    --bg-card:  #141414;
+    --bg-card-2:#1c1c1c;
+
+    --text:       #f5f3f0;
+    --text-2:     #e8e5e0;
+    --text-muted: #a09890;
+    --text-dim:   #686460;
+
+    --border:       rgba(255,255,255,0.06);
+    --border-gold:  rgba(184,146,42,0.20);
+    --border-purple:rgba(123,53,196,0.22);
+    --shadow:       0 2px 24px rgba(0,0,0,0.5);
+    --nav-bg:       rgba(8,8,8,0.94);
+    --transition:   background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   }
 
   html { scroll-behavior: smooth; }
-  body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; transition: var(--transition); }
+  body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-    background: var(--nav-bg); backdrop-filter: blur(14px);
+    background: var(--nav-bg); backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--border-gold);
     height: 68px; display: flex; align-items: center;
-    padding: 0 2rem; gap: 1.5rem; transition: var(--transition);
+    padding: 0 2rem; gap: 1.5rem;
   }
   .page-indicator { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--purple), var(--gold)); z-index: 300; transform-origin: left; transform: scaleX(0); transition: transform 0.1s linear; }
-  .hamburger { background: none; border: 1px solid var(--border); border-radius: 8px; padding: 8px; cursor: pointer; display: flex; flex-direction: column; gap: 5px; transition: var(--transition); }
+  .hamburger { background: none; border: 1px solid var(--border); border-radius: 8px; padding: 8px; cursor: pointer; display: flex; flex-direction: column; gap: 5px; transition: background 0.2s; }
   .hamburger:hover { background: var(--border); }
-  .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--text-muted); border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease; }
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
   .nav-logo-text { display: flex; flex-direction: column; }
-  .nav-logo-text .brand { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em; color: var(--purple); line-height: 1; }
+  .nav-logo-text .brand { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em; color: var(--purple-brand); line-height: 1; }
   .nav-logo-text .sub { font-size: 0.62rem; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; line-height: 1; margin-top: 2px; }
   .nav-links { display: flex; gap: 2rem; list-style: none; margin-left: auto; align-items: center; }
-  .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.88rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; position: relative; transition: color 0.2s; }
-  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--purple); transition: width 0.3s ease; }
-  .nav-links a:hover, .nav-links a.active { color: var(--purple); }
+  .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; position: relative; transition: color 0.2s; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--purple-brand); transition: width 0.3s ease; }
+  .nav-links a:hover, .nav-links a.active { color: var(--purple-brand); }
   .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-  .nav-links a.nav-cta { color: #fff; background: var(--purple); padding: 0.5rem 1.3rem; border-radius: 3px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em; transition: background 0.2s; }
+  .nav-links a.nav-cta { color: #fff; background: var(--purple); padding: 0.5rem 1.3rem; border-radius: 3px; font-weight: 700; letter-spacing: 0.06em; }
   .nav-links a.nav-cta::after { display: none; }
-  .nav-links a.nav-cta:hover { color: #fff; background: var(--purple-brand); }
-  .theme-toggle { margin-left: 1rem; background: none; border: 1px solid var(--border-gold); border-radius: 20px; padding: 6px 14px; cursor: pointer; font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px; transition: var(--transition); }
-  .theme-toggle:hover { border-color: var(--purple); color: var(--purple); }
+  .nav-links a.nav-cta:hover { background: var(--purple-brand); color: #fff; }
 
   /* ── SIDEBAR ── */
-  .sidebar-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 300; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+  .sidebar-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 300; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; backdrop-filter: blur(4px); }
   .sidebar-overlay.open { opacity: 1; pointer-events: all; }
-  .sidebar { position: fixed; top: 0; left: 0; bottom: 0; width: 300px; background: var(--bg-card); z-index: 400; transform: translateX(-100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); display: flex; flex-direction: column; border-right: 1px solid var(--border-gold); }
+  .sidebar { position: fixed; top: 0; left: 0; bottom: 0; width: 300px; background: #0d0d0d; z-index: 400; transform: translateX(-100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); display: flex; flex-direction: column; border-right: 1px solid var(--border-gold); }
   .sidebar.open { transform: translateX(0); }
   .sidebar-header { padding: 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
   .sidebar-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
-  .sidebar-logo-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.1em; color: var(--purple); }
+  .sidebar-logo-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.1em; color: var(--purple-brand); }
   .sidebar-logo-sub { font-size: 0.6rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; }
-  .sidebar-close { background: none; border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; cursor: pointer; color: var(--text-muted); font-size: 1.1rem; transition: var(--transition); }
-  .sidebar-close:hover { background: var(--border); color: var(--text); }
+  .sidebar-close { background: none; border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; cursor: pointer; color: var(--text-dim); font-size: 1.1rem; }
+  .sidebar-close:hover { color: var(--text); }
   .sidebar-section-label { padding: 1.25rem 1.5rem 0.5rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); }
   .sidebar-nav { flex: 1; overflow-y: auto; padding-bottom: 1.5rem; }
   .sidebar-nav a { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1.5rem; text-decoration: none; color: var(--text-muted); font-size: 0.9rem; font-weight: 500; transition: all 0.2s; }
-  .sidebar-nav a .nav-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text-dim); transition: all 0.2s; flex-shrink: 0; }
-  .sidebar-nav a:hover { color: var(--text); background: var(--border); }
-  .sidebar-nav a.active-page { color: var(--purple); background: rgba(123,53,196,0.08); border-left: 3px solid var(--purple); padding-left: calc(1.5rem - 3px); font-weight: 600; }
-  .sidebar-nav a.active-page .nav-dot { background: var(--purple); transform: scale(1.4); }
+  .sidebar-nav a .nav-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--text-dim); transition: all 0.2s; flex-shrink: 0; }
+  .sidebar-nav a:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+  .sidebar-nav a.active-page { color: var(--purple-brand); background: rgba(123,53,196,0.1); border-left: 2px solid var(--purple-brand); padding-left: calc(1.5rem - 2px); font-weight: 600; }
+  .sidebar-nav a.active-page .nav-dot { background: var(--purple-brand); transform: scale(1.4); }
   .sidebar-divider { height: 1px; background: var(--border); margin: 0.5rem 1.5rem; }
-  .sidebar-footer { padding: 1.25rem 1.5rem; border-top: 1px solid var(--border); font-size: 0.78rem; color: var(--text-dim); }
-  .sidebar-contact-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.3rem 0; text-decoration: none; color: var(--text-dim); transition: color 0.2s; }
-  .sidebar-contact-item:hover { color: var(--purple); }
+  .sidebar-footer { padding: 1.25rem 1.5rem; border-top: 1px solid var(--border); }
+  .sidebar-contact-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.3rem 0; text-decoration: none; color: var(--text-dim); font-size: 0.82rem; transition: color 0.2s; }
+  .sidebar-contact-item:hover { color: var(--purple-brand); }
 
   /* ── PAGE HERO ── */
-  .page-hero { padding: 140px 2rem 60px; background: var(--purple-section); text-align: center; }
-  .page-hero .breadcrumb { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
-  .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); color: #fff; margin-bottom: 0.75rem; }
-  .page-hero p { color: rgba(255,255,255,0.65); max-width: 540px; margin: 0 auto; line-height: 1.7; }
+  .page-hero {
+    padding: 140px 2rem 72px;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(123,53,196,0.28) 0%, transparent 70%), #080808;
+    text-align: center;
+    border-bottom: 1px solid var(--border-gold);
+  }
+  .page-hero .breadcrumb { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; opacity: 0.8; }
+  .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 900; color: var(--text); margin-bottom: 1rem; line-height: 1.1; }
+  .page-hero h1 em { color: var(--purple-brand); font-style: italic; }
+  .page-hero p { color: var(--text-muted); max-width: 520px; margin: 0 auto; line-height: 1.75; font-weight: 300; font-size: 1.05rem; }
 
   /* ── SECTION STYLES ── */
   section { padding: 80px 2rem; }
   .container { max-width: 1100px; margin: 0 auto; }
-  .section-label { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 0.75rem; }
+  .section-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 0.75rem; }
   .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--text); margin-bottom: 1.25rem; line-height: 1.2; }
-  .section-sub { color: var(--text-muted); line-height: 1.75; max-width: 600px; }
+  .section-sub { color: var(--text-muted); line-height: 1.75; max-width: 600px; font-weight: 300; }
 
   /* ── AUTH PANEL ── */
   .auth-section { background: var(--bg); }
-  .auth-panel { max-width: 480px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 16px; padding: 2.5rem; box-shadow: var(--shadow); }
+  .auth-panel { max-width: 480px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 16px; padding: 2.5rem; box-shadow: 0 8px 48px rgba(0,0,0,0.5); }
   .auth-tabs { display: flex; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
-  .auth-tab { flex: 1; padding: 0.75rem; background: none; border: none; cursor: pointer; font-family: 'Barlow', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.04em; border-bottom: 2px solid transparent; transition: all 0.2s; margin-bottom: -1px; }
-  .auth-tab.active { color: var(--purple); border-bottom-color: var(--purple); }
-  .auth-tab:hover:not(.active) { color: var(--text); }
+  .auth-tab { flex: 1; padding: 0.75rem; background: none; border: none; cursor: pointer; font-family: 'Barlow', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-dim); letter-spacing: 0.04em; border-bottom: 2px solid transparent; transition: all 0.2s; margin-bottom: -1px; }
+  .auth-tab.active { color: var(--purple-brand); border-bottom-color: var(--purple-brand); }
+  .auth-tab:hover:not(.active) { color: var(--text-muted); }
   .auth-form { display: none; flex-direction: column; gap: 1.25rem; }
   .auth-form.active { display: flex; }
   .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-  .form-group label { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em; color: var(--text-muted); text-transform: uppercase; }
-  .form-group input, .form-group select { padding: 0.8rem 1rem; background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-family: 'Barlow', sans-serif; font-size: 0.95rem; transition: border-color 0.2s; outline: none; }
-  .form-group input:focus, .form-group select:focus { border-color: var(--purple); }
+  .form-group label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; color: var(--text-dim); text-transform: uppercase; }
+  .form-group input, .form-group select {
+    padding: 0.85rem 1rem; background: var(--bg-2); border: 1px solid var(--border);
+    border-radius: 8px; color: var(--text); font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem; transition: border-color 0.2s; outline: none;
+  }
+  .form-group input:focus, .form-group select:focus { border-color: var(--purple-brand); }
   .btn-primary { padding: 0.9rem 2rem; background: var(--purple); color: #fff; border: none; border-radius: 8px; font-family: 'Barlow', sans-serif; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, transform 0.15s; }
   .btn-primary:hover { background: var(--purple-brand); transform: translateY(-1px); }
   .auth-message { font-size: 0.85rem; color: var(--text-dim); text-align: center; }
@@ -142,93 +157,110 @@
   .dashboard-section.visible { display: block; }
   .dash-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
   .dash-welcome { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--text); }
-  .dash-welcome span { color: var(--purple); }
+  .dash-welcome span { color: var(--purple-brand); }
   .btn-outline { padding: 0.6rem 1.4rem; background: none; border: 1px solid var(--border-gold); border-radius: 8px; color: var(--text-muted); font-family: 'Barlow', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; cursor: pointer; transition: all 0.2s; }
-  .btn-outline:hover { border-color: var(--purple); color: var(--purple); }
+  .btn-outline:hover { border-color: var(--purple-brand); color: var(--purple-brand); }
   .dash-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
   .dash-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
-  .dash-card-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.5rem; }
+  .dash-card-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.5rem; }
   .dash-card-value { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 700; color: var(--text); }
   .dash-card-value .unit { font-size: 1rem; color: var(--text-muted); margin-left: 0.25rem; }
   .dash-card-sub { font-size: 0.82rem; color: var(--text-dim); margin-top: 0.4rem; }
-  .plan-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; background: rgba(123,53,196,0.12); border: 1px solid rgba(123,53,196,0.3); border-radius: 20px; color: var(--purple); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; }
+  .plan-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; background: rgba(123,53,196,0.14); border: 1px solid rgba(123,53,196,0.32); border-radius: 20px; color: var(--purple-brand); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; }
   .no-plan-msg { text-align: center; padding: 2rem; color: var(--text-muted); border: 1px dashed var(--border-gold); border-radius: 12px; }
 
   /* ── PLAN CARDS ── */
-  .plans-section { background: var(--section-alt); }
+  .plans-section { background: var(--bg-2); }
   .plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; align-items: start; }
-  .plan-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem 2rem; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; display: flex; flex-direction: column; }
-  .plan-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.12); }
-  .plan-card.featured { border-color: var(--purple); box-shadow: 0 12px 48px rgba(123,53,196,0.2); transform: translateY(-8px); }
-  .plan-card.featured:hover { box-shadow: 0 20px 60px rgba(123,53,196,0.3); transform: translateY(-14px); }
+  .plan-card {
+    background: var(--bg-card); border: 1px solid var(--border-gold);
+    border-radius: 20px; padding: 2.5rem 2rem;
+    position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex; flex-direction: column;
+  }
+  .plan-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.5); border-color: rgba(184,146,42,0.4); }
+  .plan-card.featured { border-color: var(--purple-brand); box-shadow: 0 12px 48px rgba(123,53,196,0.22); transform: translateY(-8px); }
+  .plan-card.featured:hover { box-shadow: 0 20px 60px rgba(123,53,196,0.35); transform: translateY(-14px); }
   .plan-badge-top { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--purple); color: #fff; font-family: 'Barlow Condensed', sans-serif; font-size: 0.62rem; letter-spacing: 0.18em; font-weight: 700; text-transform: uppercase; padding: 0.25rem 0.9rem; border-radius: 50px; white-space: nowrap; }
-  .plan-tier { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 0.75rem; }
+  .plan-tier { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 0.75rem; }
   .plan-name { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--text); margin-bottom: 0.25rem; }
   .plan-price { display: flex; align-items: baseline; gap: 0.25rem; margin: 1rem 0; }
-  .plan-price .amount { font-family: 'Barlow Condensed', sans-serif; font-size: 3rem; font-weight: 700; color: var(--purple); }
-  .plan-price .period { font-size: 0.9rem; color: var(--text-muted); }
-  .plan-tagline { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5; }
+  .plan-price .amount { font-family: 'Barlow Condensed', sans-serif; font-size: 3rem; font-weight: 700; color: var(--purple-brand); }
+  .plan-price .period { font-size: 0.9rem; color: var(--text-dim); }
+  .plan-tagline { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.55; font-weight: 300; }
   .plan-divider { height: 1px; background: var(--border-gold); margin: 1.5rem 0; }
   .plan-features { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; flex: 1; margin-bottom: 2rem; }
-  .plan-features li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.9rem; color: var(--text-2); line-height: 1.4; }
-  .plan-features li::before { content: '✓'; color: var(--purple-brand); font-weight: 700; flex-shrink: 0; margin-top: 1px; background: rgba(123,53,196,0.12); border-radius: 2px; padding: 0 3px; }
-  .plan-features li.note { color: var(--text-muted); font-size: 0.82rem; font-style: italic; }
-  .plan-features li.note::before { content: '★'; color: var(--purple); }
-  .plan-cta { width: 100%; padding: 1rem; border-radius: 10px; font-family: 'Barlow', sans-serif; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; border: 2px solid var(--purple); }
+  .plan-features li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.9rem; color: var(--text-2); line-height: 1.45; }
+  .plan-features li::before { content: ''; display: block; width: 16px; height: 16px; flex-shrink: 0; margin-top: 1px; background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='8' cy='8' r='7.5' stroke='rgba(155,92,228,0.3)'/%3E%3Cpath d='M5 8l2 2 4-4' stroke='%239b5ce4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-size: contain; }
+  .plan-features li.note { color: var(--text-dim); font-size: 0.82rem; font-style: italic; }
+  .plan-features li.note::before { background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='8' cy='8' r='7.5' stroke='rgba(184,146,42,0.3)'/%3E%3Cpath d='M8 5v3m0 2v.5' stroke='%23b8922a' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); }
+  .plan-cta { width: 100%; padding: 1rem; border-radius: 10px; font-family: 'Barlow', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; border: 1px solid var(--purple); }
   .plan-cta.filled { background: var(--purple); color: #fff; }
-  .plan-cta.filled:hover { background: var(--purple-brand); }
-  .plan-cta.outline { background: none; color: var(--purple); }
+  .plan-cta.filled:hover { background: var(--purple-brand); border-color: var(--purple-brand); }
+  .plan-cta.outline { background: none; color: var(--purple-brand); }
   .plan-cta.outline:hover { background: var(--purple); color: #fff; }
-  .plan-cta.current-plan { background: rgba(184,146,42,0.15); border-color: var(--gold); color: var(--gold); cursor: default; }
+  .plan-cta.current-plan { background: rgba(184,146,42,0.12); border-color: rgba(184,146,42,0.4); color: var(--gold-light); cursor: default; }
 
   /* ── CERAMIC NOTICE ── */
-  .ceramic-notice { background: rgba(123,53,196,0.06); border: 1px solid rgba(123,53,196,0.2); border-radius: 12px; padding: 1.5rem; margin: 2rem 0 0; display: flex; gap: 1rem; align-items: flex-start; }
-  .ceramic-notice .icon { font-size: 1.5rem; flex-shrink: 0; }
-  .ceramic-notice h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.08em; color: var(--purple); margin-bottom: 0.4rem; text-transform: uppercase; }
-  .ceramic-notice p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+  .ceramic-notice { background: rgba(123,53,196,0.07); border: 1px solid rgba(123,53,196,0.22); border-radius: 14px; padding: 1.5rem; margin: 2rem 0 0; display: flex; gap: 1rem; align-items: flex-start; }
+  .ceramic-notice .icon-wrap { width: 40px; height: 40px; border-radius: 10px; background: rgba(123,53,196,0.16); border: 1px solid rgba(123,53,196,0.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .ceramic-notice h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.08em; color: var(--purple-light); margin-bottom: 0.4rem; text-transform: uppercase; }
+  .ceramic-notice p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
 
   /* ── FAQ ── */
   .faq-section { background: var(--bg); }
   .faq-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
-  .faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-  .faq-question { padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600; color: var(--text); transition: background 0.2s; }
-  .faq-question:hover { background: var(--border); }
-  .faq-question .chevron { color: var(--purple); transition: transform 0.3s; font-size: 1.1rem; }
-  .faq-item.open .faq-question .chevron { transform: rotate(180deg); }
+  .faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.2s; }
+  .faq-item:hover { border-color: var(--border-gold); }
+  .faq-question { padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600; color: var(--text); font-size: 0.95rem; transition: color 0.2s; gap: 1rem; }
+  .faq-question:hover { color: var(--purple-light); }
+  .faq-chevron { width: 20px; height: 20px; flex-shrink: 0; color: var(--purple-brand); transition: transform 0.3s; }
+  .faq-item.open .faq-chevron { transform: rotate(180deg); }
   .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
   .faq-item.open .faq-answer { max-height: 400px; }
-  .faq-answer p { padding: 0 1.5rem 1.25rem; color: var(--text-muted); line-height: 1.7; font-size: 0.93rem; }
+  .faq-answer p { padding: 0 1.5rem 1.25rem; color: var(--text-muted); line-height: 1.75; font-size: 0.93rem; font-weight: 300; }
 
   /* ── FOOTER ── */
-  footer { background: var(--purple-section); color: var(--purple-section-text); padding: 3rem 2rem; text-align: center; }
-  .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.12em; color: #fff; margin-bottom: 0.5rem; }
-  .footer-tagline { font-size: 0.8rem; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.5rem; }
-  .footer-links { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-bottom: 1.5rem; }
-  .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
-  .footer-links a:hover { color: #fff; }
-  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
-  .footer-social { display: flex; gap: 0.6rem; justify-content: center; margin-bottom: 1.75rem; }
-  .footer-social-btn {
-    width: 38px; height: 38px;
-    border: 1px solid rgba(155,92,228,0.3); border-radius: 3px;
-    display: flex; align-items: center; justify-content: center;
-    text-decoration: none; transition: background 0.2s, border-color 0.2s, transform 0.2s;
-  }
+  footer { background: #050505; border-top: 1px solid var(--border-gold); padding: 3.5rem 2rem 2rem; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 3rem; }
+  .footer-brand .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 700; letter-spacing: 0.14em; color: var(--text); margin-bottom: 0.4rem; }
+  .footer-brand .footer-tagline { font-size: 0.72rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; }
+  .footer-brand p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.65; font-weight: 300; max-width: 240px; }
+  .footer-col h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 1rem; }
+  .footer-col a { display: block; font-size: 0.85rem; color: var(--text-dim); text-decoration: none; margin-bottom: 0.6rem; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--purple-light); }
+  .footer-social { display: flex; gap: 0.6rem; margin-top: 0.5rem; }
+  .footer-social-btn { width: 36px; height: 36px; border: 1px solid rgba(155,92,228,0.25); border-radius: 3px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background 0.2s, border-color 0.2s, transform 0.2s; }
   .footer-social-btn:hover { transform: translateY(-2px); border-color: transparent; }
-  .footer-social-btn svg { width: 16px; height: 16px; }
-  .footer-social-btn svg path { fill: rgba(255,255,255,0.6); transition: fill 0.2s; }
+  .footer-social-btn svg { width: 15px; height: 15px; }
+  .footer-social-btn svg path { fill: rgba(245,243,240,0.5); transition: fill 0.2s; }
   .footer-social-btn:hover svg path { fill: #fff; }
   .footer-social-btn.ig:hover { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
   .footer-social-btn.fb:hover { background: #1877f2; }
   .footer-social-btn.tt:hover { background: #010101; border-color: #25f4ee; }
+  .footer-bottom { border-top: 1px solid var(--border); padding-top: 1.75rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer-copy { font-size: 0.78rem; color: var(--text-dim); }
+  .footer-legal { display: flex; gap: 1.2rem; }
+  .footer-legal a { font-size: 0.78rem; color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+  .footer-legal a:hover { color: var(--purple-light); }
 
   /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
   @media (max-width: 768px) {
     .nav-links { display: none; }
     .plans-grid { grid-template-columns: 1fr; }
     .plan-card.featured { transform: none; margin-top: 1rem; }
     .plan-card.featured:hover { transform: translateY(-6px); }
+    .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-brand p { max-width: 100%; }
   }
+
+  /* ── REVEAL ANIMATIONS ── */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
@@ -250,7 +282,7 @@
       </svg>
       <div><div class="sidebar-logo-name">RECLAIMED</div><div class="sidebar-logo-sub">Detailers</div></div>
     </a>
-    <button class="sidebar-close" onclick="closeSidebar()">✕</button>
+    <button class="sidebar-close" onclick="closeSidebar()">&#x2715;</button>
   </div>
   <div class="sidebar-section-label">Navigation</div>
   <nav class="sidebar-nav">
@@ -295,15 +327,12 @@
     <li><a href="membership.html" class="active">Memberships</a></li>
     <li><a href="index.html#contact" class="nav-cta">Book Now</a></li>
   </ul>
-  <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">
-    <span id="theme-icon">☀️</span> <span id="theme-label">Light</span>
-  </button>
 </nav>
 
 <!-- Page Hero -->
 <div class="page-hero">
   <div class="breadcrumb">Reclaimed Detailers &nbsp;/&nbsp; Memberships</div>
-  <h1>Member Plans</h1>
+  <h1>Member <em>Plans</em></h1>
   <p>Choose the plan that fits your lifestyle. Monthly auto detailing delivered to you — with faith, excellence, and care.</p>
 </div>
 
@@ -312,12 +341,12 @@
 ════════════════════════════════════════════ -->
 <section class="auth-section" id="auth-section">
   <div class="container">
-    <div style="text-align:center; margin-bottom:2.5rem;">
+    <div style="text-align:center; margin-bottom:2.5rem;" class="reveal">
       <div class="section-label">Member Portal</div>
       <h2 class="section-title">Sign In or Create an Account</h2>
       <p class="section-sub" style="margin: 0 auto;">Manage your subscription, view upcoming appointments, and track your detailing history all in one place.</p>
     </div>
-    <div class="auth-panel">
+    <div class="auth-panel reveal">
       <div class="auth-tabs">
         <button class="auth-tab active" onclick="switchTab('login')">Sign In</button>
         <button class="auth-tab" onclick="switchTab('register')">Create Account</button>
@@ -332,10 +361,10 @@
         </div>
         <div class="form-group">
           <label>Password</label>
-          <input type="password" id="login-password" placeholder="••••••••" required>
+          <input type="password" id="login-password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" required>
         </div>
         <button type="submit" class="btn-primary">Sign In &rarr;</button>
-        <p class="auth-message">New here? <a href="#" onclick="switchTab('register'); return false;" style="color:var(--purple);">Create a free account</a></p>
+        <p class="auth-message">New here? <a href="#" onclick="switchTab('register'); return false;" style="color:var(--purple-brand);">Create a free account</a></p>
       </form>
 
       <!-- Register Form -->
@@ -358,7 +387,7 @@
           <input type="password" id="reg-password" placeholder="Min. 6 characters" minlength="6" required>
         </div>
         <button type="submit" class="btn-primary">Create Account &rarr;</button>
-        <p class="auth-message">Already have an account? <a href="#" onclick="switchTab('login'); return false;" style="color:var(--purple);">Sign in</a></p>
+        <p class="auth-message">Already have an account? <a href="#" onclick="switchTab('login'); return false;" style="color:var(--purple-brand);">Sign in</a></p>
       </form>
     </div>
   </div>
@@ -386,12 +415,12 @@
       </div>
       <div class="dash-card">
         <div class="dash-card-label">Details Remaining</div>
-        <div class="dash-card-value" id="dash-details-remaining">—<span class="unit"></span></div>
+        <div class="dash-card-value" id="dash-details-remaining">&#x2014;<span class="unit"></span></div>
         <div class="dash-card-sub">Resets each billing cycle</div>
       </div>
       <div class="dash-card">
         <div class="dash-card-label">Member Since</div>
-        <div class="dash-card-value" id="dash-since" style="font-size:1.4rem;">—</div>
+        <div class="dash-card-value" id="dash-since" style="font-size:1.4rem;">&#x2014;</div>
         <div class="dash-card-sub">Thank you for trusting us</div>
       </div>
     </div>
@@ -404,12 +433,12 @@
     <div id="dash-manage" style="display:none; margin-top:1.5rem; padding:1.5rem; background:var(--bg-card); border:1px solid var(--border-gold); border-radius:12px;">
       <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
         <div>
-          <div style="font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:0.3rem;">Manage Subscription</div>
+          <div style="font-size:0.68rem; font-family:'Barlow Condensed',sans-serif; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:0.3rem;">Manage Subscription</div>
           <div id="manage-plan-name" style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--text);"></div>
         </div>
         <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
           <button class="btn-outline" onclick="scrollToPlans()">Change Plan</button>
-          <button class="btn-outline" style="border-color:rgba(220,50,50,0.4); color:#e05050;" onclick="cancelPlan()">Cancel Membership</button>
+          <button class="btn-outline" style="border-color:rgba(220,50,50,0.35); color:#d05050;" onclick="cancelPlan()">Cancel Membership</button>
         </div>
       </div>
     </div>
@@ -421,14 +450,14 @@
 ════════════════════════════════════════════ -->
 <section class="plans-section" id="plans-section">
   <div class="container">
-    <div class="section-label">Membership Plans</div>
-    <h2 class="section-title">Choose Your Level of Care</h2>
-    <p class="section-sub">Every plan includes our signature mobile detailing service delivered directly to your home or office. No hassle. No drive. Just a clean car.</p>
+    <div class="section-label reveal">Membership Plans</div>
+    <h2 class="section-title reveal">Choose Your Level of Care</h2>
+    <p class="section-sub reveal">Every plan includes our signature mobile detailing service delivered directly to your home or office. No hassle. No drive. Just a clean car.</p>
 
     <div class="plans-grid">
 
       <!-- Essential -->
-      <div class="plan-card" id="card-essential">
+      <div class="plan-card reveal" id="card-essential">
         <div class="plan-tier">Tier 1</div>
         <div class="plan-name">Essential</div>
         <div class="plan-price">
@@ -450,7 +479,7 @@
       </div>
 
       <!-- Premium (featured) -->
-      <div class="plan-card featured" id="card-premium">
+      <div class="plan-card featured reveal" id="card-premium">
         <div class="plan-badge-top">Most Popular</div>
         <div class="plan-tier">Tier 2</div>
         <div class="plan-name">Premium</div>
@@ -463,7 +492,7 @@
         <ul class="plan-features">
           <li>2 full details per month</li>
           <li>Everything in Essential</li>
-          <li>Clay bar treatment (1×/month)</li>
+          <li>Clay bar treatment (1&times;/month)</li>
           <li>Leather conditioning (if applicable)</li>
           <li>Engine bay light clean</li>
           <li>Odor elimination treatment</li>
@@ -473,7 +502,7 @@
       </div>
 
       <!-- Elite -->
-      <div class="plan-card" id="card-elite">
+      <div class="plan-card reveal" id="card-elite">
         <div class="plan-tier">Tier 3</div>
         <div class="plan-name">Elite</div>
         <div class="plan-price">
@@ -498,10 +527,14 @@
     </div>
 
     <!-- Ceramic Coating Notice -->
-    <div class="ceramic-notice">
-      <div class="icon">🛡️</div>
+    <div class="ceramic-notice reveal">
+      <div class="icon-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(155,92,228,0.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
       <div>
-        <h4>Elite Plan — Ceramic Coating Requirement</h4>
+        <h4>Elite Plan &#x2014; Ceramic Coating Requirement</h4>
         <p>The Elite membership is designed to maintain and protect ceramic-coated vehicles. To qualify, your vehicle must have an existing ceramic coating applied by Reclaimed Detailers or another reputable detailing shop. When you select the Elite plan, you'll be asked to provide the shop name and approximate date of application. We may verify this before activating your plan.</p>
       </div>
     </div>
@@ -511,10 +544,10 @@
 <!-- ═══════════════════════════════════════════
      CERAMIC COATING MODAL
 ════════════════════════════════════════════ -->
-<div id="elite-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.65); z-index:500; align-items:center; justify-content:center; padding:2rem;">
-  <div style="background:var(--bg-card); border:1px solid var(--border-gold); border-radius:16px; max-width:480px; width:100%; padding:2.5rem;">
+<div id="elite-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); backdrop-filter:blur(6px); z-index:500; align-items:center; justify-content:center; padding:2rem;">
+  <div style="background:#141414; border:1px solid var(--border-gold); border-radius:16px; max-width:480px; width:100%; padding:2.5rem;">
     <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--text); margin-bottom:0.5rem;">Elite Plan Verification</h3>
-    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.75rem; line-height:1.6;">Please provide your ceramic coating details so we can verify your eligibility for the Elite membership.</p>
+    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.75rem; line-height:1.6; font-weight:300;">Please provide your ceramic coating details so we can verify your eligibility for the Elite membership.</p>
     <div style="display:flex; flex-direction:column; gap:1.25rem;">
       <div class="auth-error" id="elite-error"></div>
       <div class="form-group">
@@ -542,41 +575,41 @@
 ════════════════════════════════════════════ -->
 <section class="faq-section">
   <div class="container">
-    <div class="section-label">Questions &amp; Answers</div>
-    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="section-label reveal">Questions &amp; Answers</div>
+    <h2 class="section-title reveal">Frequently Asked Questions</h2>
     <div class="faq-list">
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <div class="faq-question" onclick="toggleFaq(this)">
           <span>How does the mobile detailing service work?</span>
-          <span class="chevron">▼</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
         <div class="faq-answer"><p>We come directly to your home, workplace, or any preferred location. Once you're a member, you schedule each detail via phone, text, or email. Our team arrives with all equipment and supplies — you don't need to do a thing.</p></div>
       </div>
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <div class="faq-question" onclick="toggleFaq(this)">
           <span>Can I roll over unused details to the next month?</span>
-          <span class="chevron">▼</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
         <div class="faq-answer"><p>Details do not roll over between billing months. We encourage members to schedule early in the month to make the most of their plan. If you consistently can't use all your details, we'd recommend stepping down to a lower tier.</p></div>
       </div>
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <div class="faq-question" onclick="toggleFaq(this)">
           <span>What if I need to cancel or change my plan?</span>
-          <span class="chevron">▼</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
         <div class="faq-answer"><p>You can cancel or change your plan any time through your account dashboard. Changes take effect at the start of your next billing cycle. There are no cancellation fees or long-term contracts.</p></div>
       </div>
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <div class="faq-question" onclick="toggleFaq(this)">
           <span>Does my vehicle need a ceramic coating to join the Elite plan?</span>
-          <span class="chevron">▼</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="faq-answer"><p>Yes — the Elite plan ($225/month) is specifically designed for ceramic-coated vehicles. The maintenance services included are formulated to protect and extend the life of professional ceramic coatings. If your vehicle doesn't have a coating yet, ask us about our Ceramic Coating service as a one-time add-on before enrolling in Elite.</p></div>
+        <div class="faq-answer"><p>Yes &#x2014; the Elite plan ($225/month) is specifically designed for ceramic-coated vehicles. The maintenance services included are formulated to protect and extend the life of professional ceramic coatings. If your vehicle doesn't have a coating yet, ask us about our Ceramic Coating service as a one-time add-on before enrolling in Elite.</p></div>
       </div>
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <div class="faq-question" onclick="toggleFaq(this)">
           <span>Do you serve the entire Montgomery, AL area?</span>
-          <span class="chevron">▼</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
         <div class="faq-answer"><p>Yes, we serve Montgomery and surrounding areas. Contact us at (334) 640-1831 to confirm service availability at your specific address. We're always expanding our coverage area.</p></div>
       </div>
@@ -588,31 +621,53 @@
      FOOTER
 ════════════════════════════════════════════ -->
 <footer>
-  <div class="footer-logo">RECLAIMED DETAILERS</div>
-  <div class="footer-tagline">Restored. Refined. Reclaimed.</div>
-  <div class="footer-social">
-    <a href="https://www.instagram.com/reclaimeddetailers" target="_blank" rel="noopener" class="footer-social-btn ig" title="Instagram" aria-label="Instagram">
-      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-    </a>
-    <a href="https://www.facebook.com/reclaimeddetailers" target="_blank" rel="noopener" class="footer-social-btn fb" title="Facebook" aria-label="Facebook">
-      <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-    </a>
-    <a href="https://www.tiktok.com/@reclaimeddetailers" target="_blank" rel="noopener" class="footer-social-btn tt" title="TikTok" aria-label="TikTok">
-      <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-    </a>
-  </div>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="showcase.html">3D Showcase</a>
-    <a href="membership.html">Memberships</a>
-    <a href="index.html#contact">Contact</a>
-  </div>
-  <div class="footer-copy">&copy; 2026 Reclaimed Detailers LLC &nbsp;·&nbsp; All Rights Reserved &nbsp;·&nbsp; Montgomery, AL &nbsp;·&nbsp; God First · Excellence Always</div>
-  <div style="margin-top:0.6rem;font-size:0.8rem;opacity:0.4;display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;">
-    <a href="privacy-policy.html" style="color:inherit;text-decoration:none;">Privacy Policy</a>
-    <span>·</span>
-    <a href="terms.html" style="color:inherit;text-decoration:none;">Terms &amp; Conditions</a>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">RECLAIMED DETAILERS</div>
+        <div class="footer-tagline">Restored. Refined. Reclaimed.</div>
+        <p>Faith-driven mobile auto detailing serving Montgomery, AL and surrounding communities with excellence and care.</p>
+        <div class="footer-social" style="margin-top:1.25rem;">
+          <a href="https://www.instagram.com/reclaimeddetailers" target="_blank" rel="noopener" class="footer-social-btn ig" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/reclaimeddetailers" target="_blank" rel="noopener" class="footer-social-btn fb" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@reclaimeddetailers" target="_blank" rel="noopener" class="footer-social-btn tt" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="showcase.html">3D Showcase</a>
+        <a href="membership.html">Memberships</a>
+        <a href="index.html#contact">Book Now</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="index.html#services">Renewal Package</a>
+        <a href="index.html#services">Restored Package</a>
+        <a href="index.html#services">Reclaimed Package</a>
+        <a href="index.html#services">Covenant Coatings</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:3346401831">(334) 640-1831</a>
+        <a href="mailto:reclaimeddetailers@outlook.com">reclaimeddetailers<br>@outlook.com</a>
+        <a href="index.html#contact" style="margin-top:0.5rem;">Montgomery, AL</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 Reclaimed Detailers LLC &nbsp;&middot;&nbsp; Montgomery, AL &nbsp;&middot;&nbsp; &#x271D; God First &middot; Excellence Always</div>
+      <div class="footer-legal">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+      </div>
+    </div>
   </div>
 </footer>
 
@@ -643,24 +698,6 @@
 </script>
 
 <script>
-// ── THEME ──
-(function(){
-  const saved = localStorage.getItem('rd-theme') || 'light';
-  document.documentElement.setAttribute('data-theme', saved);
-  const icon = document.getElementById('theme-icon');
-  const label = document.getElementById('theme-label');
-  if (icon && label) { icon.textContent = saved === 'dark' ? '🌙' : '☀️'; label.textContent = saved === 'dark' ? 'Dark' : 'Light'; }
-})();
-
-function toggleTheme() {
-  const curr = document.documentElement.getAttribute('data-theme');
-  const next = curr === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem('rd-theme', next);
-  document.getElementById('theme-icon').textContent = next === 'dark' ? '🌙' : '☀️';
-  document.getElementById('theme-label').textContent = next === 'dark' ? 'Dark' : 'Light';
-}
-
 // ── SIDEBAR ──
 function toggleSidebar() {
   const open = document.getElementById('sidebar').classList.toggle('open');
@@ -679,6 +716,14 @@ window.addEventListener('scroll', () => {
   const pct = doc.scrollTop / (doc.scrollHeight - doc.clientHeight);
   document.getElementById('page-indicator').style.transform = `scaleX(${pct})`;
 });
+
+// ── REVEAL ──
+(function() {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+})();
 
 // ── FAQ ──
 function toggleFaq(el) {
@@ -774,7 +819,7 @@ function updatePlanButtons(activePlan) {
     const btn = document.getElementById('cta-' + p);
     if (!btn) return;
     if (p === activePlan) {
-      btn.textContent = 'Current Plan ✓';
+      btn.textContent = 'Current Plan';
       btn.className = 'plan-cta current-plan';
     } else {
       const labels = { essential: 'Select Essential', premium: 'Select Premium', elite: 'Select Elite' };
