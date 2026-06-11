@@ -6,6 +6,15 @@
   <title>Book a Detail | Reclaimed Detailers — Mobile Auto Detailing Montgomery, AL</title>
   <meta name="description" content="Book your mobile auto detail in Montgomery, AL online. Choose your service, pick a date, and we'll come to you. No payment required to book." />
   <link rel="canonical" href="https://reclaimeddetailers.com/book" />
+  <meta property="og:title" content="Book Mobile Auto Detailing in Montgomery, AL | Reclaimed Detailers" />
+  <meta property="og:description" content="Book your mobile auto detail online in under 3 minutes. Choose your service, pick a date, and we'll come to you. No payment required to book." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://reclaimeddetailers.com/book" />
+  <meta property="og:site_name" content="Reclaimed Detailers LLC" />
+  <meta property="og:image" content="https://reclaimeddetailers.com/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Book a Detail — Reclaimed Detailers" />
+  <meta name="twitter:description" content="Mobile detailing in Montgomery, AL. Book online — we come to you." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -368,6 +377,10 @@
 </div>
 
 <!-- Footer -->
+<div id="cookie-banner" style="position:fixed;bottom:24px;left:24px;right:24px;max-width:520px;background:#1e1428;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px 24px;z-index:9999;display:none;box-shadow:0 8px 32px rgba(0,0,0,0.5);">
+  <p style="font-size:0.88rem;color:rgba(255,255,255,0.6);margin-bottom:16px;line-height:1.5;">We use cookies to improve your experience. See our <a href="privacy-policy.html" style="color:#b07de8;">Privacy Policy</a>.</p>
+  <div style="display:flex;gap:10px;"><button id="cookieAccept" style="background:#7b35c4;color:#fff;border:none;padding:9px 20px;border-radius:6px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-size:0.85rem;">Accept</button><button id="cookieDecline" style="background:transparent;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);padding:9px 16px;border-radius:6px;font-size:0.85rem;cursor:pointer;">Decline</button></div>
+</div>
 <footer class="footer" style="margin-top:0">
   <div class="footer-inner">
     <div><div class="footer-logo-row"><div class="logo-icon">RD</div><div class="logo-text">Reclaimed<em>Detailers</em></div></div><p class="footer-tagline">"Restored. Refined. Reclaimed."</p><p class="footer-desc">Faith-driven mobile auto detailing serving Montgomery, AL.</p><div class="footer-socials"><a href="https://instagram.com/reclaimeddetailers" class="footer-social" target="_blank" rel="noopener">📸</a><a href="https://facebook.com/reclaimeddetailers" class="footer-social" target="_blank" rel="noopener">📘</a><a href="https://tiktok.com/@reclaimeddetailers" class="footer-social" target="_blank" rel="noopener">🎵</a></div><p class="footer-faith">✝ Faith First. Community Always.</p></div>
@@ -429,6 +442,7 @@
   if (params.get('plan') === 'silver' || params.get('plan') === 'gold' || params.get('plan') === 'bronze') {
     // Could pre-select membership option - for now just loads the form
   }
+  (function(){const b=document.getElementById('cookie-banner');if(b&&!localStorage.getItem('cookie-consent'))b.style.display='block';const a=document.getElementById('cookieAccept'),d=document.getElementById('cookieDecline');if(a)a.addEventListener('click',()=>{localStorage.setItem('cookie-consent','accepted');b.style.display='none';});if(d)d.addEventListener('click',()=>{localStorage.setItem('cookie-consent','declined');b.style.display='none';});})();
 </script>
 </body>
 </html>
