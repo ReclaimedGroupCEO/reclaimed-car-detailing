@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>!function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);}();</script>
   <title>Book a Detail | Reclaimed Detailers — Mobile Auto Detailing Montgomery, AL</title>
   <meta name="description" content="Book your mobile auto detail in Montgomery, AL online. Choose your service, pick a date, and we'll come to you. No payment required to book." />
   <link rel="canonical" href="https://reclaimeddetailers.com/book" />
@@ -370,7 +371,7 @@
       <p>Thank you for choosing Reclaimed Detailers. Ray will reach out within a few hours to confirm your appointment details.</p>
       <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px">
         <a href="index.html" style="background:var(--purple);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:13px 24px;border-radius:10px;display:inline-flex;align-items:center;gap:8px">Back to Home</a>
-        <a href="tel:3346401831" style="color:rgba(255,255,255,.55);font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:.08em">📞 Call Ray Directly</a>
+        <a href="tel:3346401831" style="color:rgba(255,255,255,.55);font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:.08em">Call Ray Directly</a>
       </div>
     </div>
   </div>
@@ -383,10 +384,10 @@
 </div>
 <footer class="footer" style="margin-top:0">
   <div class="footer-inner">
-    <div><div class="footer-logo-row"><div class="logo-icon">RD</div><div class="logo-text">Reclaimed<em>Detailers</em></div></div><p class="footer-tagline">"Restored. Refined. Reclaimed."</p><p class="footer-desc">Faith-driven mobile auto detailing serving Montgomery, AL.</p><div class="footer-socials"><a href="https://instagram.com/reclaimeddetailers" class="footer-social" target="_blank" rel="noopener">📸</a><a href="https://facebook.com/reclaimeddetailers" class="footer-social" target="_blank" rel="noopener">📘</a><a href="https://tiktok.com/@reclaimeddetailers" class="footer-social" target="_blank" rel="noopener">🎵</a></div><p class="footer-faith">✝ Faith First. Community Always.</p></div>
+    <div><div class="footer-logo-row"><div class="logo-icon">RD</div><div class="logo-text">Reclaimed<em>Detailers</em></div></div><p class="footer-tagline">"Restored. Refined. Reclaimed."</p><p class="footer-desc">Faith-driven mobile auto detailing serving Montgomery, AL.</p><div class="footer-socials"><a href="https://instagram.com/reclaimeddetailers" class="footer-social" target="_blank" rel="noopener" aria-label="Instagram">IG</a><a href="https://facebook.com/reclaimeddetailers" class="footer-social" target="_blank" rel="noopener" aria-label="Facebook">FB</a><a href="https://tiktok.com/@reclaimeddetailers" class="footer-social" target="_blank" rel="noopener" aria-label="TikTok">TT</a></div><p class="footer-faith">✝ Faith First. Community Always.</p></div>
     <div><div class="footer-col-title">Navigate</div><ul class="footer-links-list"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="membership.html">Membership</a></li><li><a href="about.html">About Us</a></li><li><a href="showcase.html">Gallery</a></li></ul></div>
     <div><div class="footer-col-title">Services</div><ul class="footer-links-list"><li><a href="services-exterior.html">Exterior Detailing</a></li><li><a href="services-interior.html">Interior Detailing</a></li><li><a href="services-paint-correction.html">Paint Correction</a></li><li><a href="services-ceramic.html">Ceramic Coating</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
-    <div><div class="footer-col-title">Contact</div><ul class="footer-links-list"><li><a href="tel:3346401831">📞 (334) 640-1831</a></li><li><a href="mailto:reclaimeddetailers@outlook.com">✉ Email Us</a></li><li><a href="contact.html">Contact Form</a></li><li><a href="reviews.html">Reviews</a></li></ul></div>
+    <div><div class="footer-col-title">Contact</div><ul class="footer-links-list"><li><a href="tel:3346401831">(334) 640-1831</a></li><li><a href="mailto:reclaimeddetailers@outlook.com">Email Us</a></li><li><a href="contact.html">Contact Form</a></li><li><a href="reviews.html">Reviews</a></li></ul></div>
   </div>
   <div class="footer-bottom"><p>© 2026 Reclaimed Detailers LLC · Montgomery, Alabama</p><div class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms</a></div></div>
 </footer>
@@ -397,8 +398,8 @@
   const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   const tt = document.getElementById('themeToggle'), html = document.documentElement;
-  const saved = localStorage.getItem('theme') || 'dark'; html.setAttribute('data-theme', saved); tt.textContent = saved === 'dark' ? '☀' : '🌙';
-  tt.addEventListener('click', () => { const n = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; html.setAttribute('data-theme', n); localStorage.setItem('theme', n); tt.textContent = n === 'dark' ? '☀' : '🌙'; });
+  const saved = localStorage.getItem('theme') || 'dark'; html.setAttribute('data-theme', saved); tt.textContent = saved === 'dark' ? '☀' : '☽';
+  tt.addEventListener('click', () => { const n = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; html.setAttribute('data-theme', n); localStorage.setItem('theme', n); tt.textContent = n === 'dark' ? '☀' : '☽'; });
   const ham = document.getElementById('hamburger'), mNav = document.getElementById('mobileNav'), mOvr = document.getElementById('mobileOverlay'), mCls = document.getElementById('mobileClose');
   ham.addEventListener('click', () => { mNav.classList.add('open'); mOvr.classList.add('open'); document.body.style.overflow = 'hidden'; });
   [mCls, mOvr].forEach(el => el.addEventListener('click', () => { mNav.classList.remove('open'); mOvr.classList.remove('open'); document.body.style.overflow = ''; }));
@@ -443,6 +444,38 @@
     // Could pre-select membership option - for now just loads the form
   }
   (function(){const b=document.getElementById('cookie-banner');if(b&&!localStorage.getItem('cookie-consent'))b.style.display='block';const a=document.getElementById('cookieAccept'),d=document.getElementById('cookieDecline');if(a)a.addEventListener('click',()=>{localStorage.setItem('cookie-consent','accepted');b.style.display='none';});if(d)d.addEventListener('click',()=>{localStorage.setItem('cookie-consent','declined');b.style.display='none';});})();
+</script>
+<div id="signupModal" style="display:none;position:fixed;inset:0;z-index:10000;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.7);backdrop-filter:blur(4px)" aria-modal="true" role="dialog">
+  <div style="background:#1a1020;border:1px solid rgba(123,53,196,.3);border-radius:20px;padding:40px 36px;max-width:440px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.7)">
+    <button id="signupClose" aria-label="Close" style="position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);border:none;cursor:pointer;font-size:16px">&#10005;</button>
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b8922a;margin-bottom:12px">Stay in the Loop</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:800;color:#fff;line-height:1.15;margin-bottom:10px">Weekly Updates &amp; Exclusive Deals</h2>
+    <p style="font-size:.88rem;font-weight:300;color:rgba(255,255,255,.5);line-height:1.65;margin-bottom:24px">Sign up to receive detailing tips, seasonal specials, and community updates from Reclaimed Detailers.</p>
+    <form id="signupForm" action="https://formspree.io/f/mzdqjbye" method="POST">
+      <input type="email" name="email" placeholder="Your email address" required style="width:100%;padding:13px 16px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;font-family:'Barlow',sans-serif;font-size:.95rem;margin-bottom:12px;outline:none;box-sizing:border-box" />
+      <input type="hidden" name="_subject" value="New Email Signup — Reclaimed Detailers" />
+      <button type="submit" style="width:100%;padding:14px;background:#7b35c4;color:#fff;border:none;border-radius:10px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer">Sign Me Up</button>
+    </form>
+    <div id="signupSuccess" style="display:none;text-align:center;padding:12px 0"><p style="color:#b8922a;font-family:'Barlow Condensed',sans-serif;letter-spacing:.08em">Thank you! We'll be in touch soon.</p></div>
+    <p style="font-size:.75rem;color:rgba(255,255,255,.2);margin-top:14px;text-align:center">No spam. Unsubscribe anytime.</p>
+  </div>
+</div>
+<script>
+(function(){
+  if(localStorage.getItem('signup-dismissed')||localStorage.getItem('signup-complete')) return;
+  var modal=document.getElementById('signupModal');
+  if(!modal) return;
+  setTimeout(function(){ modal.style.display='flex'; },4000);
+  document.getElementById('signupClose').addEventListener('click',function(){ modal.style.display='none'; localStorage.setItem('signup-dismissed','1'); });
+  modal.addEventListener('click',function(e){ if(e.target===modal){ modal.style.display='none'; localStorage.setItem('signup-dismissed','1'); } });
+  document.getElementById('signupForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=this.querySelector('[name="email"]').value;
+    fetch(this.action,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({email:email,_subject:'New Email Signup — Reclaimed Detailers'})})
+    .then(function(r){ if(r.ok){ document.getElementById('signupForm').style.display='none'; document.getElementById('signupSuccess').style.display='block'; localStorage.setItem('signup-complete','1'); setTimeout(function(){ modal.style.display='none'; },2500); } })
+    .catch(function(){ document.getElementById('signupForm').submit(); });
+  });
+})();
 </script>
 </body>
 </html>
