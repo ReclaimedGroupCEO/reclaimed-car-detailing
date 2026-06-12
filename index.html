@@ -39,9 +39,7 @@
     .nav.scrolled{background:rgba(10,5,18,.9);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(255,255,255,.05)}
     .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;gap:32px}
     .nav-logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
-    .logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--purple),var(--purple-brand));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;color:#fff;letter-spacing:.05em}
-    .logo-text{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;line-height:1.1}
-    .nav-logo-img{height:38px;width:auto;display:block}.footer-logo-img{height:56px;width:auto;display:block;margin-bottom:4px}.logo-text em{display:block;font-style:normal;font-size:11px;font-family:'Barlow Condensed',sans-serif;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+    .nav-logo-img{height:38px;width:auto;display:block}.footer-logo-img{height:56px;width:auto;display:block;margin-bottom:4px}
     .nav-links{display:flex;align-items:center;gap:4px;list-style:none;margin-left:auto}
     .nav-links>li>a{font-family:'Barlow Condensed',sans-serif;font-weight:500;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.8);padding:8px 12px;border-radius:6px;transition:color .2s,background .2s;white-space:nowrap;display:block}
     .nav-links>li>a:hover{color:#fff;background:rgba(255,255,255,.06)}
@@ -93,7 +91,7 @@
     .trust-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
     .hero-visual{position:relative;display:flex;justify-content:center}
     .hero-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:32px;text-align:center;backdrop-filter:blur(8px);width:100%;max-width:340px}
-    .hero-car-emoji{font-size:60px;margin-bottom:16px}
+    
     .hero-card-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:4px}
     .hero-card-sub{font-size:.82rem;color:rgba(255,255,255,.4);margin-bottom:20px;font-weight:300}
     .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -179,16 +177,6 @@
     .plan-save{text-align:center;margin-top:10px;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:.08em;color:var(--gold)}
 
     /* Testimonials */
-    .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .testi-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius-lg);padding:28px;transition:transform .2s,border-color .2s}
-    .testi-card:hover{transform:translateY(-3px);border-color:rgba(123,53,196,.25)}
-    .testi-stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:14px}
-    .testi-text{font-size:.92rem;font-weight:300;line-height:1.7;color:rgba(255,255,255,.7);margin-bottom:20px;font-style:italic}
-    .testi-author{display:flex;align-items:center;gap:12px}
-    .testi-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--purple-brand));display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;color:#fff;flex-shrink:0}
-    .testi-name{font-weight:500;font-size:.9rem;color:#fff}
-    .testi-veh{font-size:.8rem;color:rgba(255,255,255,.35);font-weight:300}
-
     /* About preview */
     .about-split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
     .about-img-box{position:relative}
@@ -253,8 +241,8 @@
     /* Light mode overrides */
 
     /* Responsive */
-    @media(max-width:1024px){.services-grid,.testi-grid{grid-template-columns:repeat(2,1fr)}.plans-grid{grid-template-columns:repeat(2,1fr)}.footer-inner{grid-template-columns:1fr 1fr}.why-grid{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:768px){.nav-links{display:none}.nav-hamburger{display:flex}.hero-inner{grid-template-columns:1fr;padding-top:120px}.hero-visual{display:none}.services-grid,.plans-grid,.testi-grid,.ba-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr;gap:16px}.about-split{grid-template-columns:1fr;gap:40px}.about-img-box{display:none}.areas-grid{grid-template-columns:repeat(2,1fr)}.footer-inner{grid-template-columns:1fr 1fr;gap:28px}.section{padding:64px 20px}.float-book{bottom:16px;right:16px}}
+    @media(max-width:1024px){.services-grid,.plans-grid{grid-template-columns:repeat(2,1fr)}.footer-inner{grid-template-columns:1fr 1fr}.why-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:768px){.nav-links{display:none}.nav-hamburger{display:flex}.hero-inner{grid-template-columns:1fr;padding-top:120px}.hero-visual{display:none}.services-grid,.plans-grid,.ba-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr;gap:16px}.about-split{grid-template-columns:1fr;gap:40px}.about-img-box{display:none}.areas-grid{grid-template-columns:repeat(2,1fr)}.footer-inner{grid-template-columns:1fr 1fr;gap:28px}.section{padding:64px 20px}.float-book{bottom:16px;right:16px}}
     @media(max-width:480px){.areas-grid,.footer-inner{grid-template-columns:1fr}.hero-ctas{flex-direction:column;align-items:flex-start}}
   </style>
 </head>
@@ -348,7 +336,6 @@
     </div>
     <div class="hero-visual reveal d2">
       <div class="hero-card">
-        <div class="hero-car-emoji" style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:rgba(255,255,255,.15)">RD</div>
         <div class="hero-card-title">Premium Care<br>On Your Terms</div>
         <div class="hero-card-sub">Mobile service · Montgomery, AL &amp; surrounding areas</div>
         <div class="stat-grid">
@@ -635,6 +622,19 @@
     </div>
   </div>
 </div>
+
+<!-- Community & Events -->
+<section class="section" style="background:#0d0d0d;border-top:1px solid rgba(255,255,255,.05)">
+  <div class="container">
+    <div style="max-width:720px;margin:0 auto;text-align:center" class="reveal">
+      <div class="section-label">Community &amp; Events</div>
+      <h2 class="section-title" style="color:#fff;margin-bottom:16px">We're Just Getting Started.</h2>
+      <p style="font-size:.95rem;font-weight:300;color:rgba(255,255,255,.55);line-height:1.85;margin-bottom:20px">Sponsorships, fundraisers, and community events are things we are actively working on. Whether it's a church event, a school fundraiser, a local car show, or a community outreach — we want to be involved and support Montgomery in every way we can.</p>
+      <p style="font-size:.95rem;font-weight:300;color:rgba(255,255,255,.55);line-height:1.85;margin-bottom:32px">If you have an event or organization we might be able to help with, give us a call or send us a text. We'd love to hear about it.</p>
+      <a href="tel:3346401831" class="btn-primary" style="font-size:15px;padding:14px 32px">(334) 640-1831 — Call or Text Ray</a>
+    </div>
+  </div>
+</section>
 
 <!-- Footer -->
 <footer class="footer">
