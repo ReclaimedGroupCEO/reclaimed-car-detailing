@@ -1,73 +1,99 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320" fill="none">
-  <!-- Water drop outline -->
-  <path d="M120 8 C120 8 42 108 42 168 C42 208 77 238 120 238 C163 238 198 208 198 168 C198 108 120 8 120 8 Z" fill="white" stroke="#1a1a1a" stroke-width="6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#ffffff"/>
 
-  <!-- Lion + lamb silhouette (black fill) -->
-  <!-- Mane - large rounded irregular shape -->
-  <path d="
-    M155,80
-    C168,72 178,78 182,90
-    C188,82 196,86 194,98
-    C200,96 204,104 198,112
-    C204,114 204,124 196,126
-    C200,132 196,142 188,140
-    C186,148 178,152 170,146
-    C164,156 152,158 144,150
-    C136,158 124,156 120,146
-    C112,152 102,148 102,138
-    C94,138 90,128 96,120
-    C90,116 90,106 98,104
-    C94,96 98,86 108,86
-    C110,76 120,72 130,78
-    C134,70 146,68 155,80 Z
-  " fill="#1a1a1a"/>
+  <!-- Teardrop outline -->
+  <path d="M540,58 C515,108 285,305 285,512 C285,646 403,750 540,750 C677,750 795,646 795,512 C795,305 565,108 540,58 Z"
+        fill="#ffffff" stroke="#1c1a18" stroke-width="22" stroke-linejoin="round"/>
 
-  <!-- Head/face - protrudes left -->
+  <!-- Lion head silhouette (facing left) -->
   <path d="
-    M110,102
-    C100,100 88,106 82,116
-    C76,126 76,140 82,150
-    C86,158 94,164 104,166
-    C108,168 112,168 116,166
-    C122,164 126,158 126,150
-    L126,120
-    C126,110 118,104 110,102 Z
-  " fill="#1a1a1a"/>
+    M 548,148
+    C 568,136 604,132 634,142
+    C 660,150 688,170 710,205
+    C 728,236 736,278 736,328
+    C 736,376 724,422 706,462
+    C 690,498 668,530 644,555
+    C 622,576 596,590 566,597
+    C 546,601 524,598 502,586
+    C 480,574 462,553 448,528
+    C 436,507 430,484 430,462
+    C 430,448 434,432 444,420
+    C 452,410 462,403 472,396
+    C 482,389 490,378 492,362
+    C 494,346 488,325 486,304
+    C 484,283 486,260 494,240
+    C 502,220 516,202 530,192
+    C 538,187 544,170 548,148 Z
+  " fill="#1c1a18"/>
 
-  <!-- Snout -->
+  <!-- Face profile protrusion (left-facing snout/jaw) -->
   <path d="
-    M82,130 C74,130 68,136 70,144 C72,150 80,154 88,152 C92,150 94,146 92,142 C90,138 86,136 82,130 Z
-  " fill="#1a1a1a"/>
+    M 504,222
+    C 486,226 462,242 444,264
+    C 426,286 416,316 416,350
+    C 416,380 424,408 440,428
+    C 452,443 468,452 486,456
+    C 494,458 500,456 506,450
+    C 512,444 516,434 516,422
+    L 516,275
+    C 516,258 510,243 504,222 Z
+  " fill="#1c1a18"/>
 
-  <!-- Small lamb silhouette inside mane -->
+  <!-- Snout tip (connects and rounds the profile) -->
   <path d="
-    M140,118
-    C140,114 136,110 132,110
-    C128,110 124,114 124,118
-    L124,130
-    C124,134 128,136 132,136
-    C136,136 140,134 140,130 Z
-    M128,108 C128,106 130,104 132,104 C134,104 136,106 136,108
-    M142,116 C144,114 148,114 148,118 L148,126 C148,128 146,130 144,130
-    M122,116 C120,114 116,116 116,120 L116,128 C116,130 118,132 120,132
-  " fill="white" stroke="white" stroke-width="1"/>
+    M 416,340
+    C 398,342 384,356 388,376
+    C 392,394 408,404 426,400
+    C 434,398 440,390 436,380
+    C 432,370 424,356 416,340 Z
+  " fill="#1c1a18"/>
 
-  <!-- Purple wave at bottom of drop -->
+  <!-- White lamb silhouette (negative space in mane) -->
+  <!-- Body -->
+  <ellipse cx="624" cy="310" rx="38" ry="28" fill="#ffffff" transform="rotate(-8,624,310)"/>
+  <!-- Head -->
+  <circle cx="608" cy="284" r="20" fill="#ffffff"/>
+  <!-- Legs -->
+  <rect x="604" y="336" width="8" height="26" rx="4" fill="#ffffff"/>
+  <rect x="618" y="336" width="8" height="26" rx="4" fill="#ffffff"/>
+  <rect x="634" y="336" width="8" height="24" rx="4" fill="#ffffff"/>
+  <rect x="648" y="336" width="8" height="24" rx="4" fill="#ffffff"/>
+  <!-- Tail stub -->
+  <circle cx="662" cy="306" r="7" fill="#ffffff"/>
+
+  <!-- Purple wave at bottom of drop interior -->
   <path d="
-    M64,195
-    C80,182 100,188 120,186
-    C140,184 160,178 176,192
-    L176,215
-    C168,222 152,226 138,224
-    C128,232 112,234 100,228
-    C88,234 74,230 64,220 Z
+    M 335,618
+    C 375,598 432,610 490,606
+    C 548,602 606,590 654,604
+    C 702,618 742,612 764,600
+    L 764,656
+    C 742,668 700,674 652,662
+    C 604,680 548,684 492,674
+    C 436,684 378,676 336,662
+    C 324,658 316,650 316,640
+    C 316,630 324,622 335,618 Z
   " fill="#7b35c4"/>
 
   <!-- RECLAIMED text -->
-  <text x="120" y="266" text-anchor="middle" font-family="'Arial Black', 'Helvetica Neue', sans-serif" font-weight="900" font-size="28" letter-spacing="3" fill="#1a1a1a">RECLAIMED</text>
+  <text x="540" y="856"
+        text-anchor="middle"
+        font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+        font-weight="900"
+        font-size="112"
+        letter-spacing="6"
+        fill="#1c1a18">RECLAIMED</text>
 
-  <!-- Purple dashes and DETAILERS -->
-  <rect x="50" y="278" width="22" height="2.5" rx="1" fill="#7b35c4"/>
-  <text x="120" y="285" text-anchor="middle" font-family="'Arial', 'Helvetica Neue', sans-serif" font-weight="400" font-size="12" letter-spacing="5" fill="#1a1a1a">DETAILERS</text>
-  <rect x="168" y="278" width="22" height="2.5" rx="1" fill="#7b35c4"/>
+  <!-- Purple accent lines flanking DETAILERS -->
+  <rect x="216" y="892" width="76" height="3.5" rx="1.5" fill="#7b35c4"/>
+  <rect x="788" y="892" width="76" height="3.5" rx="1.5" fill="#7b35c4"/>
+
+  <!-- DETAILERS text -->
+  <text x="540" y="928"
+        text-anchor="middle"
+        font-family="'Arial', 'Helvetica Neue', Arial, sans-serif"
+        font-weight="400"
+        font-size="46"
+        letter-spacing="20"
+        fill="#1c1a18">DETAILERS</text>
 </svg>

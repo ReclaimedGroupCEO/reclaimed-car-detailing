@@ -128,7 +128,7 @@
 <body>
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="images/logo-icon.svg" alt="Reclaimed Detailers" class="nav-logo-img"></a>
+    <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Reclaimed Detailers" class="nav-logo-img"></a>
     <ul class="nav-links">
       <li class="has-dropdown"><a href="services.html">Services ▾</a><div class="nav-dropdown"><a href="services-exterior.html">Exterior Detailing<span>Wash, clay bar & protection</span></a><a href="services-interior.html">Interior Detailing<span>Deep clean & restoration</span></a><a href="services-paint-correction.html">Paint Correction<span>Swirl & scratch removal</span></a><a href="services-ceramic.html">Ceramic Coating<span>Covenant Coatings program</span></a></div></li>
       <li><a href="membership.html">Membership</a></li>
@@ -144,7 +144,7 @@
 </nav>
 <div class="mobile-overlay" id="mobileOverlay"></div>
 <nav class="mobile-nav" id="mobileNav">
-  <div class="mobile-nav-header"><a href="index.html" class="nav-logo"><img src="images/logo-icon.svg" alt="Reclaimed Detailers" class="nav-logo-img"></a><button class="mobile-nav-close" id="mobileClose">✕</button></div>
+  <div class="mobile-nav-header"><a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Reclaimed Detailers" class="nav-logo-img"></a><button class="mobile-nav-close" id="mobileClose">✕</button></div>
   <ul class="mobile-nav-links">
     <li><a href="index.html">Home</a></li>
     <span class="mobile-section-label">Services</span>
@@ -175,17 +175,20 @@
       <div class="form-title">Send Us a Message</div>
       <div class="form-sub">We'll respond within 2 hours during business hours. For faster response, call Ray directly.</div>
       <form id="contactForm" class="form-grid" onsubmit="submitForm(event)">
+        <input type="hidden" name="_subject" value="New Contact — Reclaimed Detailers">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
         <div class="form-row">
-          <div class="form-group"><label class="form-label">First Name *</label><input type="text" class="form-input" placeholder="First name" required /></div>
-          <div class="form-group"><label class="form-label">Last Name *</label><input type="text" class="form-input" placeholder="Last name" required /></div>
+          <div class="form-group"><label class="form-label">First Name *</label><input type="text" name="first_name" class="form-input" placeholder="First name" required /></div>
+          <div class="form-group"><label class="form-label">Last Name *</label><input type="text" name="last_name" class="form-input" placeholder="Last name" required /></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label class="form-label">Phone Number *</label><input type="tel" class="form-input" placeholder="(334) 555-0123" required /></div>
-          <div class="form-group"><label class="form-label">Email Address *</label><input type="email" class="form-input" placeholder="you@email.com" required /></div>
+          <div class="form-group"><label class="form-label">Phone Number *</label><input type="tel" name="phone" class="form-input" placeholder="(334) 555-0123" required /></div>
+          <div class="form-group"><label class="form-label">Email Address *</label><input type="email" name="email" class="form-input" placeholder="you@email.com" required /></div>
         </div>
         <div class="form-group">
           <label class="form-label">What Can We Help With?</label>
-          <select class="form-select">
+          <select name="topic" class="form-select">
             <option value="">Select a topic</option>
             <option>Get a Price Quote</option>
             <option>Schedule a Service</option>
@@ -197,15 +200,15 @@
         </div>
         <div class="form-group">
           <label class="form-label">Your Vehicle</label>
-          <input type="text" class="form-input" placeholder="Year, Make, Model (e.g. 2021 Ford F-150)" />
+          <input type="text" name="vehicle" class="form-input" placeholder="Year, Make, Model (e.g. 2021 Ford F-150)" />
         </div>
         <div class="form-group">
           <label class="form-label">Message *</label>
-          <textarea class="form-textarea" placeholder="Tell us about your vehicle and what you're looking for..." required></textarea>
+          <textarea name="message" class="form-textarea" placeholder="Tell us about your vehicle and what you're looking for..." required></textarea>
         </div>
-        <button type="submit" class="submit-btn">Send Message →</button>
+        <button type="submit" class="submit-btn" id="submitBtn">Send Message →</button>
       </form>
-      <div class="success-msg" id="successMsg">✅ Message sent! Ray will be in touch within 2 hours. If you need a faster response, call (334) 640-1831.</div>
+      <div class="success-msg" id="successMsg">Message sent! Ray will be in touch within 2 hours. If you need a faster response, call (334) 640-1831.</div>
     </div>
   </div>
   <div class="reveal d1">
@@ -214,8 +217,8 @@
       <div class="info-title">Contact Info</div>
       <div class="info-item"><span class="info-icon">&#9742;</span><div class="info-text"><div class="label">Phone / Text</div><div class="value"><a href="tel:3346401831">(334) 640-1831</a></div></div></div>
       <div class="info-item"><span class="info-icon">&#9993;</span><div class="info-text"><div class="label">Email</div><div class="value"><a href="mailto:reclaimeddetailers@outlook.com">reclaimeddetailers@outlook.com</a></div></div></div>
-      <div class="info-item"><span class="info-icon">📍</span><div class="info-text"><div class="label">Location</div><div class="value">Montgomery, Alabama<br><span style="font-size:.82rem;color:rgba(255,255,255,.4)">Mobile service — we come to you</span></div></div></div>
-      <div class="info-item"><span class="info-icon">🕐</span><div class="info-text"><div class="label">Business Hours</div><div class="value" style="font-size:.88rem">Mon–Sat: 7am – 6pm<br>Sun: By appointment</div></div></div>
+      <div class="info-item"><span class="info-icon"></span><div class="info-text"><div class="label">Location</div><div class="value">Montgomery, Alabama<br><span style="font-size:.82rem;color:rgba(255,255,255,.4)">Mobile service — we come to you</span></div></div></div>
+      <div class="info-item"><span class="info-icon"></span><div class="info-text"><div class="label">Business Hours</div><div class="value" style="font-size:.88rem">Mon–Sat: 7am – 6pm<br>Sun: By appointment</div></div></div>
     </div>
     <div class="contact-info-card">
       <div class="info-title">Follow Us</div>
@@ -226,7 +229,7 @@
       </div>
     </div>
     <div style="text-align:center;padding:20px 0">
-      <a href="book.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;padding:14px 28px;border-radius:10px;transition:background .2s;box-shadow:0 4px 20px rgba(123,53,196,.35);width:100%;justify-content:center" onmouseover="this.style.background='#9b5ce4'" onmouseout="this.style.background='var(--purple)'">📅 Book Online — It's Fast &amp; Easy →</a>
+      <a href="book.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;padding:14px 28px;border-radius:10px;transition:background .2s;box-shadow:0 4px 20px rgba(123,53,196,.35);width:100%;justify-content:center" onmouseover="this.style.background='#9b5ce4'" onmouseout="this.style.background='var(--purple)'">Book Online →</a>
     </div>
   </div>
 </div>
@@ -236,7 +239,7 @@
 </div>
 <footer class="footer">
   <div class="footer-inner">
-    <div><div class="footer-logo-row"><img src="images/logo-white.svg" alt="Reclaimed Detailers" class="footer-logo-img"></div><p class="footer-tagline">"Restored. Refined. Reclaimed."</p><p class="footer-desc">Faith-driven mobile auto detailing serving Montgomery, AL and surrounding communities.</p><div class="footer-socials"><a href="https://instagram.com/reclaimeddetailers" class="footer-social" target="_blank" rel="noopener" aria-label="Instagram">IG</a><a href="https://facebook.com/reclaimeddetailers" class="footer-social" target="_blank" rel="noopener" aria-label="Facebook">FB</a><a href="https://tiktok.com/@reclaimeddetailers" class="footer-social" target="_blank" rel="noopener" aria-label="TikTok">TT</a></div><p class="footer-faith">✝ Faith First. Community Always.</p></div>
+    <div><div class="footer-logo-row"><img src="images/logo.png" alt="Reclaimed Detailers" class="footer-logo-img"></div><p class="footer-tagline">"Restored. Refined. Reclaimed."</p><p class="footer-desc">Faith-driven mobile auto detailing serving Montgomery, AL and surrounding communities.</p><div class="footer-socials"><a href="https://instagram.com/reclaimeddetailers" class="footer-social" target="_blank" rel="noopener" aria-label="Instagram">IG</a><a href="https://facebook.com/reclaimeddetailers" class="footer-social" target="_blank" rel="noopener" aria-label="Facebook">FB</a><a href="https://tiktok.com/@reclaimeddetailers" class="footer-social" target="_blank" rel="noopener" aria-label="TikTok">TT</a></div><p class="footer-faith">✝ Faith First. Community Always.</p></div>
     <div><div class="footer-col-title">Navigate</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="membership.html">Membership</a></li><li><a href="about.html">About Us</a></li><li><a href="showcase.html">Gallery</a></li></ul></div>
     <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="services-exterior.html">Exterior Detailing</a></li><li><a href="services-interior.html">Interior Detailing</a></li><li><a href="services-paint-correction.html">Paint Correction</a></li><li><a href="services-ceramic.html">Ceramic Coating</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
     <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="tel:3346401831">(334) 640-1831</a></li><li><a href="mailto:reclaimeddetailers@outlook.com">Email Us</a></li><li><a href="book.html">Book Online</a></li><li><a href="reviews.html">Reviews</a></li></ul></div>
@@ -251,10 +254,32 @@
   const ham = document.getElementById('hamburger'), mNav = document.getElementById('mobileNav'), mOvr = document.getElementById('mobileOverlay'), mCls = document.getElementById('mobileClose');
   ham.addEventListener('click', () => { mNav.classList.add('open'); mOvr.classList.add('open'); document.body.style.overflow = 'hidden'; });
   [mCls, mOvr].forEach(el => el.addEventListener('click', () => { mNav.classList.remove('open'); mOvr.classList.remove('open'); document.body.style.overflow = ''; }));
-  function submitForm(e) {
+  async function submitForm(e) {
     e.preventDefault();
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('successMsg').style.display = 'block';
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    const form = document.getElementById('contactForm');
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/reclaimeddetailers@outlook.com', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      const json = await res.json();
+      if (json.success) {
+        form.style.display = 'none';
+        document.getElementById('successMsg').style.display = 'block';
+      } else {
+        btn.textContent = 'Send Message →';
+        btn.disabled = false;
+        alert('Something went wrong. Please call Ray at (334) 640-1831 or email reclaimeddetailers@outlook.com.');
+      }
+    } catch(err) {
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+      alert('Could not send. Please call Ray at (334) 640-1831 or email reclaimeddetailers@outlook.com.');
+    }
   }
   (function(){const b=document.getElementById('cookie-banner');if(b&&!localStorage.getItem('cookie-consent'))b.style.display='block';const a=document.getElementById('cookieAccept'),d=document.getElementById('cookieDecline');if(a)a.addEventListener('click',()=>{localStorage.setItem('cookie-consent','accepted');b.style.display='none';});if(d)d.addEventListener('click',()=>{localStorage.setItem('cookie-consent','declined');b.style.display='none';});})();
 </script>
