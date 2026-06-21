@@ -4,7 +4,7 @@
 - **Business Name:** Reclaimed Detailers LLC
 - **Tagline:** Restored. Refined. Reclaimed.
 - **Type:** Faith-driven mobile auto detailing business
-- **Location:** Montgomery, Alabama
+- **Location:** Autauga County, Alabama (mobile — no fixed shop address)
 - **Phone:** (334) 640-1831
 - **Email:** reclaimeddetailers@outlook.com
 - **Instagram:** @reclaimeddetailers
@@ -18,7 +18,8 @@ The brand is built on three pillars: **Faith, Community, Excellence**. Every pie
 - Use phrases like "Restored. Refined. Reclaimed." and "Faith First. Community Always."
 - Avoid generic marketing language ("best in class," "top-tier," etc.)
 - The ✝ symbol is intentional and meaningful — keep it in footers and brand moments
-- The business serves Montgomery AL and surrounding areas
+- The business serves Autauga County, AL and surrounding areas (Prattville, Millbrook, Montgomery, Wetumpka, Pike Road, Elmore County)
+- The business is mobile-only with no fixed location — never add a street address to the website
 
 ## Site Structure
 | File | Purpose |

@@ -14,7 +14,7 @@
 3. Search for "Reclaimed Detailers LLC" — if it appears, claim it. If not, add it.
 4. Category: **Auto Detailing** (primary), **Car Wash** (secondary)
 5. Service area business: choose "Yes, I serve customers at their location"
-6. Add your service area cities: Montgomery, Prattville, Millbrook, Wetumpka, Pike Road, Elmore County
+6. Add your service area cities: Autauga County, Prattville, Millbrook, Montgomery, Wetumpka, Pike Road, Elmore County
 7. Phone: (334) 640-1831
 8. Website: your domain (once pointed to Vercel)
 9. Hours: Mon–Sat 8am–6pm (adjust as needed)
