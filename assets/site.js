@@ -33,6 +33,23 @@
   setTimeout(snap,700);
   window.addEventListener('scroll',snap,{passive:true});
 
+  /* cookie consent */
+  if(!localStorage.getItem('rd_cookie_consent')){
+    var bar=document.createElement('div');
+    bar.className='cookie-bar';
+    bar.innerHTML='<div class="wrap"><p>We use cookies to remember your preferences and understand how visitors use this site. See our <a href="privacy-policy.html">Privacy Policy</a> for details.</p>'+
+      '<div class="cookie-actions"><button class="btn btn-ghost btn-sm" id="cookieDecline">Decline</button><button class="btn btn-primary btn-sm" id="cookieAccept">Accept</button></div></div>';
+    document.body.appendChild(bar);
+    requestAnimationFrame(function(){bar.classList.add('show')});
+    function dismiss(val){
+      localStorage.setItem('rd_cookie_consent',val);
+      bar.classList.remove('show');
+      setTimeout(function(){bar.remove()},500);
+    }
+    document.getElementById('cookieAccept').onclick=function(){dismiss('accepted')};
+    document.getElementById('cookieDecline').onclick=function(){dismiss('declined')};
+  }
+
   document.querySelectorAll('[data-ba]').forEach(function(ba){
     var after=ba.querySelector('.after'),div=ba.querySelector('.divider'),knob=ba.querySelector('.knob');
     var active=false;

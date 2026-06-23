@@ -343,8 +343,9 @@ html[data-mood="dark"] .nav-brand .bw b{color:var(--on-dark)}
 .final .ctas{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:32px;position:relative;z-index:2}
 
 /* float book button (shared) */
-.float-book{position:fixed;right:22px;bottom:22px;z-index:900;opacity:0;pointer-events:none;transform:translateY(14px);transition:opacity .3s,transform .3s}
+.float-book{position:fixed;right:22px;bottom:22px;z-index:900;opacity:0;pointer-events:none;transform:translateY(14px);transition:opacity .3s,transform .3s,bottom calc(.45s*var(--motion)) cubic-bezier(.2,.7,.2,1)}
 .float-book.show{opacity:1;pointer-events:auto;transform:none}
+body:has(.cookie-bar.show) .float-book{bottom:96px}
 
 /* scripture / verse card (shared) */
 .verse-card{display:flex;gap:16px;align-items:flex-start;margin-top:28px;padding:22px 24px;border-left:2px solid var(--gold);background:rgba(168,132,47,.06);border-radius:0 var(--radius) var(--radius) 0}
@@ -378,4 +379,23 @@ html[data-mood="dark"] .nav-brand .bw b{color:var(--on-dark)}
 }
 @media (max-width:600px){
   .grid-3,.grid-4{grid-template-columns:1fr}
+}
+
+/* ---------- cookie consent ---------- */
+.cookie-bar{position:fixed;left:0;right:0;bottom:0;z-index:1000;
+  background:#0f0c16;color:var(--on-dark);
+  box-shadow:0 -12px 40px rgba(0,0,0,.35);
+  transform:translateY(110%);transition:transform calc(.45s*var(--motion)) cubic-bezier(.2,.7,.2,1)}
+.cookie-bar.show{transform:translateY(0)}
+.cookie-bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;
+  padding:18px var(--pad-x);flex-wrap:wrap}
+.cookie-bar p{font-size:.88rem;color:var(--on-dark-mut);line-height:1.6;max-width:64ch;margin:0}
+.cookie-bar p a{color:var(--on-dark);text-decoration:underline}
+.cookie-bar .cookie-actions{display:flex;gap:10px;flex-shrink:0}
+.cookie-bar .btn{padding:11px 22px;font-size:12px}
+.cookie-bar .btn-ghost{color:var(--on-dark);border-color:var(--on-dark-line)}
+.cookie-bar .btn-ghost:hover{border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.04)}
+@media (max-width:600px){
+  .cookie-bar .wrap{flex-direction:column;align-items:stretch}
+  .cookie-bar .cookie-actions{justify-content:flex-end}
 }
