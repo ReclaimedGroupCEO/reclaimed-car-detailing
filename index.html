@@ -2,6 +2,7 @@
 <html lang="en" data-hero="cinematic" data-headline="a" data-fonts="editorial" data-accent="purple" data-motion="on" data-mood="light">
 <head>
 <meta charset="UTF-8" />
+<script>try{var _t=localStorage.getItem('rd_theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(_t==='dark')document.documentElement.setAttribute('data-mood','dark')}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Reclaimed Detailers — Premium Mobile Auto Detailing · Autauga County, AL</title>
 <meta name="description" content="Premium mobile auto detailing in Autauga County, Alabama. Paint correction, ceramic coatings, interior restoration, and maintenance memberships. Restored. Refined. Reclaimed." />
@@ -335,6 +336,7 @@ html[data-mood="dark"] .faq summary{color:var(--on-dark)}
       <li><a href="blog.html">Blog</a></li>
     </ul>
     <a href="book.html" class="btn btn-primary btn-sm nav-cta">Book Now</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode"></button>
     <button class="nav-burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -617,7 +619,7 @@ html[data-mood="dark"] .faq summary{color:var(--on-dark)}
             <cite>Colossians 3:23 &mdash; the standard behind every detail</cite>
           </div>
         </div>
-        <div style="margin-top:28px"><a href="services.html" class="btn btn-ghost">Read our story <span class="ar">&rarr;</span></a></div>
+        <div style="margin-top:28px"><a href="about.html" class="btn btn-ghost">Read our story <span class="ar">&rarr;</span></a></div>
       </div>
     </div>
   </div>
@@ -903,6 +905,21 @@ html[data-mood="dark"] .faq summary{color:var(--on-dark)}
     ba.addEventListener('touchend',function(){active=false});
   });
 })();
+
+/* theme toggle */
+(function(){
+  var tt=document.getElementById('themeToggle');if(!tt)return;
+  function icon(m){tt.innerHTML=m==='dark'
+    ?'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'
+    :'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>';}
+  icon(document.documentElement.getAttribute('data-mood')||'light');
+  tt.onclick=function(){
+    var nm=document.documentElement.getAttribute('data-mood')==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-mood',nm);
+    try{localStorage.setItem('rd_theme',nm)}catch(e){}
+    icon(nm);
+  };
+})();
 </script>
 
 <!-- ---------- TWEAKS PANEL (React; control surface only) ---------- -->
@@ -911,6 +928,7 @@ html[data-mood="dark"] .faq summary{color:var(--on-dark)}
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <script type="text/babel" src="assets/tweaks-panel.jsx"></script>
 <script type="text/babel">
+var _storedMood=(function(){try{return localStorage.getItem('rd_theme')}catch(e){return null}})();
 const RD_DEFAULTS = /*EDITMODE-BEGIN*/{
   "hero": "split",
   "headline": "b",
@@ -919,6 +937,7 @@ const RD_DEFAULTS = /*EDITMODE-BEGIN*/{
   "darkSections": true,
   "motion": true
 }/*EDITMODE-END*/;
+if(_storedMood!==null)RD_DEFAULTS.darkSections=_storedMood==='dark';
 
 function ReclaimedTweaks(){
   const [t,setTweak]=useTweaks(RD_DEFAULTS);
@@ -927,7 +946,7 @@ function ReclaimedTweaks(){
   React.useEffect(()=>{r.setAttribute('data-headline',t.headline)},[t.headline]);
   React.useEffect(()=>{r.setAttribute('data-accent',t.accent)},[t.accent]);
   React.useEffect(()=>{r.setAttribute('data-fonts',t.fonts)},[t.fonts]);
-  React.useEffect(()=>{r.setAttribute('data-mood',t.darkSections?'dark':'light')},[t.darkSections]);
+  React.useEffect(()=>{var m=t.darkSections?'dark':'light';r.setAttribute('data-mood',m);try{localStorage.setItem('rd_theme',m)}catch(e){}},[t.darkSections]);
   React.useEffect(()=>{r.setAttribute('data-motion',t.motion?'on':'off')},[t.motion]);
 
   return (

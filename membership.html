@@ -2,6 +2,7 @@
 <html lang="en" data-accent="purple" data-fonts="editorial" data-motion="on" data-mood="light">
 <head>
 <meta charset="UTF-8" />
+<script>try{var _t=localStorage.getItem('rd_theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(_t==='dark')document.documentElement.setAttribute('data-mood','dark')}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Membership — Reclaimed Detailers · Autauga County, AL</title>
 <meta name="description" content="Bronze, Silver, and Gold detailing memberships. Recurring premium care, priority scheduling, and member-only pricing. Cancel anytime." />
@@ -47,19 +48,17 @@
 }
 </script>
 <style>
-html[data-fonts="classic"]{--font-display:'Playfair Display',Georgia,serif}
-html[data-fonts="modern"]{--font-display:'Hanken Grotesk',system-ui,sans-serif}
-html[data-fonts="modern"] h1,html[data-fonts="modern"] h2,html[data-fonts="modern"] h3{font-weight:700;letter-spacing:-.02em}
-html[data-mood="dark"] body{background:var(--dark);color:var(--on-dark)}
-html[data-mood="dark"] .bg-cream{background:var(--dark)} html[data-mood="dark"] .bg-alt{background:var(--dark-2)}
-html[data-mood="dark"] .bg-cream,html[data-mood="dark"] .bg-alt{color:var(--on-dark)}
-html[data-mood="dark"] .bg-cream h2,html[data-mood="dark"] .bg-alt h2,html[data-mood="dark"] .ctitle{color:var(--on-dark)}
+/* membership dark mode — plan cards, table, addons */
+html[data-mood="dark"] .plan{background:var(--dark-card);border-color:var(--on-dark-line)}
+html[data-mood="dark"] .plan h3,html[data-mood="dark"] .plan .amt{color:var(--on-dark)}
+html[data-mood="dark"] .plan .ptag,html[data-mood="dark"] .plan-feats li{color:var(--on-dark-mut)}
+html[data-mood="dark"] .ctitle{color:var(--on-dark)}
+html[data-mood="dark"] .ctable th{color:var(--on-dark-mut)}
 html[data-mood="dark"] .ctable td{color:var(--on-dark-mut);border-color:var(--on-dark-line)}
-
-.subhero{position:relative;background:var(--dark);color:var(--on-dark);overflow:hidden;padding:clamp(150px,20vh,210px) 0 clamp(60px,9vh,96px);text-align:center}
-.subhero .glow{position:absolute;width:680px;height:560px;top:-160px;left:50%;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(var(--accent-rgb),.28),transparent 65%);pointer-events:none}
-.subhero h1{font-size:clamp(2.8rem,6vw,4.8rem);margin-top:18px}
-.subhero p{color:rgba(244,240,234,.66);font-size:clamp(1.02rem,1.3vw,1.18rem);max-width:52ch;margin:22px auto 0;line-height:1.7}
+html[data-mood="dark"] .ctable td:first-child{color:var(--on-dark)}
+html[data-mood="dark"] .addon{background:var(--dark-card);border-color:var(--on-dark-line)}
+html[data-mood="dark"] .addon b{color:var(--on-dark)}
+html[data-mood="dark"] .addon p{color:var(--on-dark-mut)}
 
 /* plan cards (light surface) */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start;margin-top:-90px;position:relative;z-index:5}
@@ -182,12 +181,13 @@ html[data-mood="dark"] .ctable td{color:var(--on-dark-mut);border-color:var(--on
   <a class="dl" href="book.html" style="color:var(--accent-soft)">Book a Detail &rarr;</a>
 </aside>
 
-<header class="subhero" id="top">
+<header class="subhero center" id="top">
   <div class="glow"></div>
   <div class="wrap">
+    <div class="crumb reveal"><a href="index.html">Home</a> / Membership</div>
     <span class="eyebrow no-rule" style="justify-content:center;color:var(--gold-lite)">Membership</span>
-    <h1>Never think about your car again.</h1>
-    <p>Lock in premium care on a recurring schedule. No scheduling hassle, no contracts — just a clean vehicle, always.</p>
+    <h1 class="reveal d1">Never think about your car again.</h1>
+    <p class="reveal d2">Lock in premium care on a recurring schedule. No scheduling hassle, no contracts — just a clean vehicle, always.</p>
   </div>
 </header>
 
