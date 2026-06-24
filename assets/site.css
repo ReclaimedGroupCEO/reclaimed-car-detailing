@@ -422,3 +422,21 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,
 .nav-burger:focus-visible,.drawer-x:focus-visible{border-radius:10px}
 /* suppress focus ring on mouse interactions — let :focus-visible handle it */
 a:focus:not(:focus-visible),button:focus:not(:focus-visible){outline:none}
+
+/* ---------- theme toggle button ---------- */
+.theme-toggle{
+  display:flex;align-items:center;justify-content:center;
+  width:38px;height:38px;border-radius:50%;
+  border:1px solid var(--line-2);
+  color:var(--ink-2);flex-shrink:0;margin-right:2px;
+  transition:border-color .2s,background .2s,color .2s;
+}
+.nav.over-hero:not(.scrolled) .theme-toggle{border-color:var(--on-dark-line);color:var(--on-dark)}
+.theme-toggle:hover{border-color:var(--ink);background:rgba(28,25,34,.04)}
+.nav.over-hero:not(.scrolled) .theme-toggle:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.06)}
+html[data-mood="dark"] .nav.scrolled .theme-toggle{border-color:var(--on-dark-line);color:var(--on-dark)}
+html[data-mood="dark"] .nav.scrolled .theme-toggle:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.06)}
+
+/* ---------- prose dark mode (legal pages) ---------- */
+html[data-mood="dark"] .prose h2,html[data-mood="dark"] .prose h3{color:var(--on-dark)}
+html[data-mood="dark"] .prose p,html[data-mood="dark"] .prose li{color:var(--on-dark-mut)}

@@ -1,6 +1,7 @@
 /* Reclaimed Detailers — shared Tweaks control surface.
    Loads on every page so accent / type / hero / mood persist site-wide.
    Content stays static HTML; this only flips data-* attributes on <html>. */
+var _storedMood=(function(){try{return localStorage.getItem('rd_theme')}catch(e){return null}})();
 const RD_DEFAULTS = /*EDITMODE-BEGIN*/{
   "hero": "cinematic",
   "headline": "a",
@@ -9,6 +10,7 @@ const RD_DEFAULTS = /*EDITMODE-BEGIN*/{
   "darkSections": false,
   "motion": true
 }/*EDITMODE-END*/;
+if(_storedMood!==null)RD_DEFAULTS.darkSections=_storedMood==='dark';
 
 function accentHex(a){return a==='gold'?'#a8842f':a==='green'?'#2f7a55':'#6a2fc0';}
 function hexToAccent(h){return h==='#a8842f'?'gold':h==='#2f7a55'?'green':'purple';}
@@ -21,7 +23,7 @@ function ReclaimedTweaks(){
   React.useEffect(()=>{r.setAttribute('data-headline',t.headline);},[t.headline]);
   React.useEffect(()=>{r.setAttribute('data-accent',t.accent);},[t.accent]);
   React.useEffect(()=>{r.setAttribute('data-fonts',t.fonts);},[t.fonts]);
-  React.useEffect(()=>{r.setAttribute('data-mood',t.darkSections?'dark':'light');},[t.darkSections]);
+  React.useEffect(()=>{var m=t.darkSections?'dark':'light';r.setAttribute('data-mood',m);try{localStorage.setItem('rd_theme',m)}catch(e){}},[t.darkSections]);
   React.useEffect(()=>{r.setAttribute('data-motion',t.motion?'on':'off');},[t.motion]);
 
   return (
