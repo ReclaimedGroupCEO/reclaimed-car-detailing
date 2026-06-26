@@ -1,4 +1,4 @@
-/* Reclaimed Detailers — shared page behaviours (nav, drawer, reveal-on-scroll). */
+/* Reclaimed Auto Detailing — shared page behaviours (nav, drawer, reveal-on-scroll). */
 (function(){
   /* skip-to-content link for keyboard/screen-reader users */
   var sk=document.createElement('a');
