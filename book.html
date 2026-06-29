@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <script>try{var _t=localStorage.getItem('rd_theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(_t==='dark')document.documentElement.setAttribute('data-mood','dark')}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Book a Detail — Reclaimed Auto Detailing · Elmore County, AL</title>
-<meta name="description" content="Book premium mobile auto detailing with Reclaimed Auto Detailing in Elmore County, AL. Request your appointment online — we come to you." />
+<title>Book a Detail — Aioneo Auto Detailing · Elmore County, AL</title>
+<meta name="description" content="Book premium mobile auto detailing with Aioneo Auto Detailing in Elmore County, AL. Request your appointment online — we come to you." />
 <link rel="icon" href="images/reclaimed-mark.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,15 +15,15 @@
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "Reclaimed Auto Detailing",
-  "alternateName": "Reclaimed Auto Detailing",
+  "name": "Aioneo Auto Detailing",
+  "alternateName": "Aioneo Auto Detailing",
   "image": "https://reclaimeddetailers.com/images/reclaimed-logo.png",
   "logo": "https://reclaimeddetailers.com/images/reclaimed-logo.png",
   "url": "https://reclaimeddetailers.com/book.html",
   "telephone": "+1-334-640-1831",
-  "email": "reclaimeddetailers@outlook.com",
+  "email": "aioneogroup@gmail.com",
   "priceRange": "$$",
-  "description": "Book mobile auto detailing with Reclaimed Auto Detailing in Elmore County, Alabama and surrounding communities.",
+  "description": "Book mobile auto detailing with Aioneo Auto Detailing in Elmore County, Alabama and surrounding communities.",
   "areaServed": [
     {"@type":"AdministrativeArea","name":"Elmore County, AL"},
     {"@type":"City","name":"Prattville, AL"},
@@ -63,13 +63,13 @@
   <link rel="canonical" href="https://reclaimeddetailers.com/book.html" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Book a Detail — Reclaimed Auto Detailing · Elmore County, AL" />
-  <meta property="og:description" content="Book premium mobile auto detailing with Reclaimed Auto Detailing in Elmore County, AL. Request your appointment online — we come to you." />
+  <meta property="og:title" content="Book a Detail — Aioneo Auto Detailing · Elmore County, AL" />
+  <meta property="og:description" content="Book premium mobile auto detailing with Aioneo Auto Detailing in Elmore County, AL. Request your appointment online — we come to you." />
   <meta property="og:image" content="https://reclaimeddetailers.com/images/reclaimed-logo.png" />
   <meta property="og:url" content="https://reclaimeddetailers.com/book.html" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Book a Detail — Reclaimed Auto Detailing · Elmore County, AL" />
-  <meta name="twitter:description" content="Book premium mobile auto detailing with Reclaimed Auto Detailing in Elmore County, AL. Request your appointment online — we come to you." />
+  <meta name="twitter:title" content="Book a Detail — Aioneo Auto Detailing · Elmore County, AL" />
+  <meta name="twitter:description" content="Book premium mobile auto detailing with Aioneo Auto Detailing in Elmore County, AL. Request your appointment online — we come to you." />
   <meta name="twitter:image" content="https://reclaimeddetailers.com/images/reclaimed-logo.png" />
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -79,7 +79,7 @@
 <body>
 <nav class="nav over-hero" id="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-brand" aria-label="Reclaimed Auto Detailing home"><span class="bw"><b>Reclaimed</b><small>Detailers</small></span></a>
+    <a href="index.html" class="nav-brand" aria-label="Aioneo Auto Detailing home"><span class="bw"><b>Aioneo</b><small>Auto Detailing</small></span></a>
     <ul class="nav-links">
       <li class="has-dd"><a href="services.html">Services <span class="caret">&#9662;</span></a>
         <div class="dd">
@@ -155,7 +155,7 @@
         <h2 style="font-size:1.9rem;margin-bottom:6px">Booking request</h2>
         <p style="color:var(--muted);margin-bottom:24px">No payment now — this sends us your request and we confirm availability with you directly.</p>
         <form id="bookForm" action="https://formspree.io/f/mzdqjbye" method="POST">
-          <input type="hidden" name="_subject" value="New Booking Request — Reclaimed Auto Detailing" />
+          <input type="hidden" name="_subject" value="New Booking Request — Aioneo Auto Detailing" />
           <div class="form-row">
             <div class="field"><label for="bf-name">Name</label><input id="bf-name" name="name" type="text" placeholder="Your name" required /></div>
             <div class="field"><label for="bf-phone">Phone</label><input id="bf-phone" name="phone" type="tel" placeholder="(334) 000-0000" required /></div>
@@ -212,14 +212,13 @@
 </section>
 <script>
 (function(){
-  /* Submissions go to this Formspree endpoint. Replace with your own form ID to change the inbox. */
   var f=document.getElementById('bookForm');
   if(!f)return;
   var ok=document.getElementById('bookSuccess');
   f.addEventListener('submit',function(e){
     e.preventDefault();
     var btn=f.querySelector('[type="submit"]');
-    if(btn){btn.dataset.label=btn.innerHTML;btn.innerHTML='Sending\u2026';btn.disabled=true;}
+    if(btn){btn.dataset.label=btn.innerHTML;btn.innerHTML='Sending…';btn.disabled=true;}
     var d=new FormData(f);
     fetch(f.action,{method:'POST',body:d,headers:{'Accept':'application/json'}})
     .then(function(r){
@@ -227,9 +226,8 @@
       else { throw new Error('submit failed'); }
     })
     .catch(function(){
-      /* Fallback: open the visitor's email app pre-filled so the request is never lost. */
       var body='Name: '+(d.get('name')||'')+'%0D%0APhone: '+(d.get('phone')||'')+'%0D%0AEmail: '+(d.get('email')||'')+'%0D%0AService: '+(d.get('service')||'')+'%0D%0APreferred date: '+(d.get('date')||'')+'%0D%0AVehicle: '+(d.get('vehicle')||'')+'%0D%0ACity: '+(d.get('city')||'')+'%0D%0A%0D%0ANotes: '+(d.get('notes')||'');
-      window.location.href='mailto:reclaimeddetailers@outlook.com?subject=Booking%20Request%20%E2%80%94%20'+encodeURIComponent((d.get('service')||'Detail')+' / '+(d.get('name')||''))+'&body='+body;
+      window.location.href='mailto:aioneogroup@gmail.com?subject=Booking%20Request%20%E2%80%94%20'+encodeURIComponent((d.get('service')||'Detail')+' / '+(d.get('name')||''))+'&body='+body;
       if(btn){btn.innerHTML=btn.dataset.label||'Request Booking';btn.disabled=false;}
     });
   });
@@ -245,7 +243,7 @@
         <p>Prefer to type? We reply the same day.</p>
       </div>
       <form class="footer-quick-form" action="https://formspree.io/f/mzdqjbye" method="POST">
-        <input type="hidden" name="_subject" value="Quick Message — Reclaimed Auto Detailing" />
+        <input type="hidden" name="_subject" value="Quick Message — Aioneo Auto Detailing" />
         <div class="fqf-fields">
           <input type="text" name="name" placeholder="Your name" aria-label="Your name" required />
           <input type="email" name="email" placeholder="Email address" aria-label="Email address" required />
@@ -278,14 +276,14 @@
       <li><a href="service-areas.html">Service Areas</a></li></ul></div>
     <div><div class="ftitle">Contact</div><ul>
       <li><a href="tel:+13346401831">(334) 640-1831</a></li>
-      <li><a href="mailto:reclaimeddetailers@outlook.com">Email Us</a></li>
+      <li><a href="mailto:aioneogroup@gmail.com">Email Us</a></li>
       <li><a href="contact.html">Contact Form</a></li>
       <li><a href="book.html">Book Online</a></li>
       <li><a href="reviews.html">Reviews</a></li></ul></div>
   </div>
   <div class="fbottom">
-    <p>&copy; 2026 Reclaimed Auto Detailing &middot; Elmore County, Alabama</p>
-    <div style="display:flex;gap:18px;align-items:center"><a href="privacy-policy.html" style="font-size:.8rem;color:rgba(244,240,234,.34)">Privacy</a><a href="terms.html" style="font-size:.8rem;color:rgba(244,240,234,.34)">Terms</a><a href="liability-waiver.html" style="font-size:.8rem;color:rgba(244,240,234,.34)">Liability Waiver</a><a href="accessibility.html" style="font-size:.8rem;color:rgba(244,240,234,.34)">Accessibility</a><span class="verse">"Faith First. Community Always."</span></div>
+    <p>&copy; 2026 Aioneo Auto Detailing &middot; Elmore County, Alabama</p>
+    <div style="display:flex;gap:18px;align-items:center"><a href="privacy-policy.html" style="font-size:.8rem;color:rgba(244,240,234,.34)">Privacy</a><a href="terms.html" style="font-size:.8rem;color:rgba(244,240,234,.34)">Terms</a><a href="liability-waiver.html" style="font-size:.8rem;color:rgba(244,240,234,.34)">Liability Waiver</a><a href="accessibility.html" style="font-size:.8rem;color:rgba(244,240,234,.34)">Accessibility</a><span class="verse">&ldquo;Faith First. Community Always.&rdquo;</span></div>
   </div>
 </footer>
 
